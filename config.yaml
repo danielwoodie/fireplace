@@ -1,0 +1,39 @@
+baseURL: https://demo.gethugothemes.com/andromeda-light/
+title: Andromeda-light - Software and SAAS Landing Hugo Theme
+theme: andromeda-light
+paginate: '6'
+summaryLength: '10'
+googleAnalytics: ''
+disqusShortname: themefisher-template
+module:
+  hugoVersion:
+    extended: yes
+    min: 0.83.1
+outputs:
+  home:
+    - HTML
+    - RSS
+    - WebAppManifest
+imaging:
+  quality: 90
+caches:
+  assets:
+    dir: :resourceDir/_gen
+    maxAge: 720h
+  images:
+    dir: :resourceDir/_gen
+    maxAge: 720h
+markup:
+  goldmark:
+    renderer:
+      unsafe: yes
+mediaTypes:
+  application/manifest+json:
+    suffixes: webmanifest
+  text/netlify:
+    delimiter: ''
+    suffixes: ''
+outputFormats:
+  WebAppManifest:
+    mediaType: application/manifest+json
+    rel: manifest
