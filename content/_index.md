@@ -3,7 +3,7 @@ banner:
   button: Learn More
   button_link: https://gethugothemes.com/products/andromeda/
   image: images/banner-app.png
-  title: Test equip you with the tools to understand financial freedom so you can retire confidently.
+  title: We equip you with the tools to understand financial freedom so you can retire confidently.
 brands_carousel:
   brand_images:
   - images/brands/01-colored.png
