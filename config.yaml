@@ -3,7 +3,7 @@ title: FirePlace
 theme: andromeda-light
 paginate: '6'
 summaryLength: '10'
-googleAnalytics: ''
+googleAnalytics: 'G-V0TTTS8KM0'
 disqusShortname: themefisher-template
 module:
   hugoVersion:
