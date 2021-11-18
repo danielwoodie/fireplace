@@ -1,9 +1,9 @@
 ---
 banner:
-  button: Get Premium Version
+  button: Learn More
   button_link: https://gethugothemes.com/products/andromeda/
   image: images/banner-app.png
-  title: Andromeda is the most intuitive way to prototype Designs
+  title: We equip you with the tools to understand financial freedom so you can retire confidently.
 brands_carousel:
   brand_images:
   - images/brands/01-colored.png
@@ -17,52 +17,52 @@ brands_carousel:
   - images/brands/01-colored.png
   - images/brands/06-colored.png
   - images/brands/05-colored.png
-  enable: true
+  enable: false
 features:
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas
+  description: We combine statistics and psychology to provide a holistic approach to FIRE.
     <br> Werat viverra id et aliquet. vulputate egestas sollicitudin.
   enable: true
   features_blocks:
   - content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque enim id
       diam ornare volutpat in sagitis, aliquet. Arcu cursus
+    icon: las la-brain
+    title: Cognitive Psychology
+  - content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque enim id
+      diam ornare volutpat in sagitis, aliquet. Arcu cursus
+    icon: las la-calculator
+    title: Bootstrap Simulations
+  - content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque enim id
+      diam ornare volutpat in sagitis, aliquet. Arcu cursus
+    icon: las la-skiing
+    title: Retire Early
+  - content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque enim id
+      diam ornare volutpat in sagitis, aliquet. Arcu cursus
+    icon: las la-chart-area
+    title: Run the Numbers
+  - content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque enim id
+      diam ornare volutpat in sagitis, aliquet. Arcu cursus
     icon: las la-lock
-    title: Updated Security
+    title: Be Secure
   - content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque enim id
       diam ornare volutpat in sagitis, aliquet. Arcu cursus
-    icon: las la-magnet
-    title: Magnetic Turning
-  - content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque enim id
-      diam ornare volutpat in sagitis, aliquet. Arcu cursus
-    icon: las la-tachometer-alt
-    title: Secured &amp; up-to-date
-  - content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque enim id
-      diam ornare volutpat in sagitis, aliquet. Arcu cursus
-    icon: las la-link
-    title: Instant Link Sharing
-  - content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque enim id
-      diam ornare volutpat in sagitis, aliquet. Arcu cursus
-    icon: las la-lock
-    title: Updated Security
-  - content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque enim id
-      diam ornare volutpat in sagitis, aliquet. Arcu cursus
-    icon: las la-magnet
-    title: Magnetic Turning
+    icon: las la-wallet
+    title: Have More Money
   subtitle: Special Features
-  title: Elements to <br> get you started
+  title: Bimodal Approach To <br> get you started
 how_it_works:
   block:
   - description: Protect your design vision and leave nothing up to interpretation
       with interaction recipes. Quickly share and access all your team members interactions
       by using libraries, ensuring consistency throughout the.
-    image: images/features-01.png
+    image: images/features-02.png
     subtitle: Primary Speciality
-    title: You Will Not miss Your All misunderstandings
+    title: Build Wealth Confidently
   - description: From the simplest of interactions to those that use Excel-gradeing
       formulas, ProtoPie can handle them all. Make mind-blowing of New interactions
       everyday without ever having to write any new code.
-    image: images/features-02.png
+    image: images/features-01.png
     subtitle: Secondary Speciality
-    title: Say hello to no-code The Advance Creation
+    title: Find Fulfillment with Financial Freedom
   enable: true
 intro_video:
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas
@@ -70,12 +70,12 @@ intro_video:
   enable: true
   subtitle: Short Intro Video
   title: Built exclusively for you
-  video_thumbnail: images/video-popup.jpg
+  video_thumbnail: images/video-popup.png
   video_url: https://www.youtube.com/embed/dyZcRRWiuuw
 testimonials:
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas
     <br> Werat viverra id et aliquet. vulputate egestas sollicitudin.
-  enable: true
+  enable: false
   image_left: images/testimonials-01.png
   image_right: images/testimonials-02.png
   subtitle: Our Testimonials

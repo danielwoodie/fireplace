@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Andromeda-light - Software and SAAS Landing Hugo Theme</title>
+    <link>https://demo.gethugothemes.com/andromeda-light/tags/</link>
+    <description>Recent content in Tags on Andromeda-light - Software and SAAS Landing Hugo Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="https://demo.gethugothemes.com/andromeda-light/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>plot</title>
+      <link>https://demo.gethugothemes.com/andromeda-light/tags/plot/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      
+      <guid>https://demo.gethugothemes.com/andromeda-light/tags/plot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Markdown</title>
+      <link>https://demo.gethugothemes.com/andromeda-light/tags/r-markdown/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      
+      <guid>https://demo.gethugothemes.com/andromeda-light/tags/r-markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>regression</title>
+      <link>https://demo.gethugothemes.com/andromeda-light/tags/regression/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      
+      <guid>https://demo.gethugothemes.com/andromeda-light/tags/regression/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

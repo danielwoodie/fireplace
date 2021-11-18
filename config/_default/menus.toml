@@ -5,31 +5,31 @@ url = "about/"
 weight = 1
 
 [[main]]
+name = "FIRE Calculators"
+hasChildren = true
+weight = 2
+
+  [[main]]
+  parent = "FIRE Calculators"
+  name = "CoastFIRE Calculator"
+  url = "calculators/coast/"
+  weight = 1
+
+  [[main]]
+  parent = "FIRE Calculators"
+  name = "Safe Withdrawal Rate"
+  url = "calculators/swr/"
+  weight = 2
+
+[[main]]
 name = "Blog"
 url = "blog/"
 weight = 3
 
 [[main]]
-weight = 4
-name = "Pages"
-hasChildren = true
-
-  [[main]]
-  parent = "Pages"
-  name = "Blog Details"
-  url = "blog/post-1/"
-  weight = 1
-
-  [[main]]
-  parent = "Pages"
-  name = "Terms & Conditions"
-  url = "terms-and-conditions/"
-  weight = 7
-  
-[[main]]
 name = "Contact"
 url = "contact/"
-weight = 5
+weight = 4
 
 
 # footer menu
@@ -39,13 +39,13 @@ url = "about/"
 weight = 1
 
 [[footer]]
-name = "Blog"
-url = "blog/"
+name = "FIRE Calculators"
+url = "calculators/"
 weight = 2
 
 [[footer]]
-name = "Blog Details"
-url = "blog/post-1/"
+name = "Blog"
+url = "blog/"
 weight = 3
 
 [[footer]]

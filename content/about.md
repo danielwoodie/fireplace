@@ -9,7 +9,7 @@ about_video:
   video_thumbnail: images/about/video-popup-2.jpg
   video_url: https://www.youtube.com/embed/dyZcRRWiuuw
 brands_carousel:
-  enable: true
+  enable: false
   section: /
   subtitle: Our Clients
   title: Trusted by Thousands Companies
@@ -21,7 +21,7 @@ our_mission:
   enable: true
   image: images/about/02.jpg
   subtitle: OUR MISSION
-  title: Main Vision And Mission Of Our Company
+  title: We Want To Help Others develop a winning strategy for FIRE
 our_office:
   description: We were freelance designers and developers, constantly finding <br>
     ourselves deep in vague feedback. This made every client and team
@@ -44,22 +44,19 @@ our_office:
     city: China, Wohan
     country_flag: images/about/flags/china.png
   subtitle: Our Offices
-  title: Made with Love Of around the world With Many Offices
+  title: Made with Love in Austin, Tx.
 our_team:
-  description: We were freelance designers and developers, constantly finding <br>
-    ourselves deep in vague feedback. This made every client and team
+  description: We're husband and wife who come from very different angles when understanding personal finance. <br>
+    Denise a therapist who sees patients experiencing depression and Daniel a statistician who does math for clinical trials.
   enable: true
   subtitle: Our members
   team:
-  - designation: Operations
-    image: images/about/team/01.jpg
-    name: Valentin Staykov
-  - designation: Product
-    image: images/about/team/02.jpg
-    name: Bukiakta Bansalo
-  - designation: Engineering
-    image: images/about/team/03.jpg
-    name: Ortrin Okaster
+  - designation: Psychology
+    image: images/denise.png
+    name: Denise Baxindine
+  - designation: Math
+    image: images/denise.png
+    name: Daniel Woodie
   title: The People Behind
 title: About
 what_we_do:
@@ -91,5 +88,5 @@ who_we_are:
   enable: true
   image: images/about/01.jpg
   subtitle: Who We Are
-  title: Hello, We're Andromeda Here for your Help
+  title: Hello, We're FirePlace
 ---
