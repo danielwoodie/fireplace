@@ -1,9 +1,10 @@
 ---
 banner:
   button: Learn More
-  button_link: https://gethugothemes.com/products/andromeda/
+  button_link: https://fireplace.cash/about/
   image: images/banner-app.png
-  title: We equip you with the tools to understand financial freedom so you can retire confidently.
+  title: We tell cool stories and make tools with data so you can build wealth confidently.
+  
 brands_carousel:
   brand_images:
   - images/brands/01-colored.png
@@ -18,6 +19,7 @@ brands_carousel:
   - images/brands/06-colored.png
   - images/brands/05-colored.png
   enable: false
+  
 features:
   description: We combine statistics and psychology to provide a holistic approach to FIRE.
     <br> Werat viverra id et aliquet. vulputate egestas sollicitudin.
@@ -49,6 +51,7 @@ features:
     title: Have More Money
   subtitle: Special Features
   title: Bimodal Approach To <br> get you started
+  
 how_it_works:
   block:
   - description: Protect your design vision and leave nothing up to interpretation
@@ -64,6 +67,7 @@ how_it_works:
     subtitle: Secondary Speciality
     title: Find Fulfillment with Financial Freedom
   enable: true
+  
 intro_video:
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas
     <br> Werat viverra id et aliquet. vulputate egestas sollicitudin.
@@ -72,6 +76,7 @@ intro_video:
   title: Built exclusively for you
   video_thumbnail: images/video-popup.png
   video_url: https://www.youtube.com/embed/dyZcRRWiuuw
+  
 testimonials:
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas
     <br> Werat viverra id et aliquet. vulputate egestas sollicitudin.
