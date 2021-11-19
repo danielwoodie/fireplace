@@ -33,7 +33,7 @@ mainSections= ["blog"]
 # contact information
 [contact_info]
 address = "Austin, Texas"
-phone = ["+704-555-0127"]
+phone = [""]
 email = ["info@fireplace.cash"]
 
 # imaging processing
