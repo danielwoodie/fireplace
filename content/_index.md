@@ -3,7 +3,7 @@ banner:
   button: Learn More
   button_link: https://fireplace.cash/about/
   image: images/banner-app.png
-  title: We tell cool stories and make tools with data so you can build wealth confidently.
+  title: We tell cool stories with data and make tools so you can build wealth confidently.
   
 brands_carousel:
   brand_images:
