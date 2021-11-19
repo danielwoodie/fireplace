@@ -27,10 +27,12 @@ features:
   - content: Our calculators help you understand things like "How much do I need to retire?" or "Will my money last through retirement?"
     icon: las la-calculator
     title: Retirement Calculators
-  - content: Getting your money in order is the easy part. Finding fulfillment along the way and after are the real challenges.
+  - content: Getting your money in order is the easy part. Finding fulfillment along 
+      the way and after are the real challenges.
     icon: las la-brain
     title: Neuroscience
-  - content: How would you spend your time if you didn't have to work? 
+  - content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque enim id
+      diam ornare volutpat in sagitis, aliquet. Arcu cursus
     icon: las la-skiing
     title: Retire Early
   - content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque enim id
