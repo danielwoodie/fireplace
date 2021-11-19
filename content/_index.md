@@ -21,17 +21,18 @@ brands_carousel:
   enable: false
   
 features:
-  description: FIRE isn't just about money. We cover money but we <br> also explore topics in neuroscience and behavioral economics to provide a fuller picture.
+  description: FIRE isn't just about money. We cover money but we <br> also explore topics in neuroscience and behavioral economics.
   enable: true
   features_blocks:
   - content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque enim id
       diam ornare volutpat in sagitis, aliquet. Arcu cursus
-    icon: las la-brain
-    title: Cognitive Psychology
+    icon: las la-calculator
+    title: Retirement Calculators
   - content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque enim id
       diam ornare volutpat in sagitis, aliquet. Arcu cursus
-    icon: las la-calculator
-    title: Bootstrap Simulations
+    icon: las la-brain
+    title: Cognitive Psychology
+  
   - content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque enim id
       diam ornare volutpat in sagitis, aliquet. Arcu cursus
     icon: las la-skiing
