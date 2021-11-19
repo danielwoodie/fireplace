@@ -21,7 +21,7 @@ brands_carousel:
   enable: false
   
 features:
-  description: FIRE isn't just about money. We cover money but we <br> also explore topics in neuroscience and behavioral economics.
+  description: FIRE isn't just about money. We cover money but <br> we also explore topics in neuroscience and behavioral economics.
   enable: true
   features_blocks:
   - content: Our calculators help you understand things like "How much do I need to retire?" or "Will my money last?"
