@@ -52,11 +52,9 @@ features:
   
 how_it_works:
   block:
-  - description: Protect your design vision and leave nothing up to interpretation
-      with interaction recipes. Quickly share and access all your team members interactions
-      by using libraries, ensuring consistency throughout the.
+  - description: Test your strategy for investing and gain a better understanding of the various models behind reaching financial independence. Use our tools to test out different ideas you may have about reaching your financial goals.
     image: images/features-02.png
-    subtitle: Primary Speciality
+    subtitle: What We Do Best
     title: Build Wealth Confidently
   - description: From the simplest of interactions to those that use Excel-gradeing
       formulas, ProtoPie can handle them all. Make mind-blowing of New interactions
