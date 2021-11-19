@@ -56,12 +56,10 @@ how_it_works:
     image: images/features-02.png
     subtitle: What We Do Best
     title: Build Wealth Confidently
-  - description: From the simplest of interactions to those that use Excel-gradeing
-      formulas, ProtoPie can handle them all. Make mind-blowing of New interactions
-      everyday without ever having to write any new code.
+  - description: Whether you're chasing the moving target of hedonic adaptation or just trying to get out of debt, understanding and leveraging your mental health is key to finding fulfillment.
     image: images/features-01.png
-    subtitle: Secondary Speciality
-    title: Find Fulfillment with Financial Freedom
+    subtitle: Money Isn't Everything
+    title: Find Fulfillment With Your Journey
   enable: true
   
 intro_video:
