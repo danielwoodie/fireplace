@@ -21,7 +21,7 @@ brands_carousel:
   enable: false
   
 features:
-  description: We combine statistics and psychology to provide a holistic approach to FIRE.
+  description: Fulfillment isn't just about money. We cover money but we also explore topics in neuroscience and psychology.
     <br> Werat viverra id et aliquet. vulputate egestas sollicitudin.
   enable: true
   features_blocks:
