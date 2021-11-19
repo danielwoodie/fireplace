@@ -21,8 +21,7 @@ brands_carousel:
   enable: false
   
 features:
-  description: Fulfillment isn't just about money. We cover money but we also explore topics in neuroscience and psychology.
-    <br> Werat viverra id et aliquet. vulputate egestas sollicitudin.
+  description: FIRE isn't just about money. We cover money but we <br> also explore topics in neuroscience and behavioral economics to provide a fuller picture.
   enable: true
   features_blocks:
   - content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque enim id
@@ -49,7 +48,7 @@ features:
       diam ornare volutpat in sagitis, aliquet. Arcu cursus
     icon: las la-wallet
     title: Have More Money
-  subtitle: Special Features
+  subtitle: Our Approach
   title: Multimodal Approach To <br> get you started
   
 how_it_works:
