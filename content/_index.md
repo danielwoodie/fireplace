@@ -24,7 +24,7 @@ features:
   description: FIRE isn't just about money. We cover money but we <br> also explore topics in neuroscience and behavioral economics.
   enable: true
   features_blocks:
-  - content: Our calculators help you understand things like "How much do I need to retire?" or "Will my money last through retirement?"
+  - content: Our calculators help you understand things like "How much do I need to retire?" or "Will my money last?"
     icon: las la-calculator
     title: Retirement Calculators
   - content: Getting your money in order is the easy part. Finding fulfillment along 
