@@ -13,7 +13,7 @@ author = "Themefisher"
 image = "images/logo.png" # this image will be used as fallback if a page has no image of its own
 
 # footer information
-footer_info = "Lorem ipsum dolor sit sed dmi amet, consectetur adipiscing. Cdo tellus, sed condimentum volutpat."
+footer_info = "We tell cool stories with data and make tools so you can build wealth confidently."
 
 # contact form action
 contact_form_action = "https://formspree.io/f/xgernlzd" # contact form works with https://formspree.io
