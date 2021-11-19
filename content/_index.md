@@ -50,7 +50,7 @@ features:
     icon: las la-wallet
     title: Have More Money
   subtitle: Special Features
-  title: Bimodal Approach To <br> get you started
+  title: Multimodal Approach To <br> get you started
   
 how_it_works:
   block:
