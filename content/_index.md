@@ -58,7 +58,7 @@ how_it_works:
     title: Build Wealth Confidently
   - description: Whether you're chasing the moving target of hedonic adaptation or just trying to get out of debt, understanding and leveraging your mental health is key to finding fulfillment.
     image: images/features-01.png
-    subtitle: Money Isn't Everything
+    subtitle: Money Isn't Everything, Though
     title: Find Fulfillment With Your Journey
   enable: true
   
