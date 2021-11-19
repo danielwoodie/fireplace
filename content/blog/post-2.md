@@ -1,6 +1,6 @@
 ---
 author_info:
-  image: images/denise.png
+  image: images/denise.jpeg
   name: Daniel Woodie
 date: "2021-07-13"
 draft: false

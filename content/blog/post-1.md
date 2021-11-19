@@ -4,7 +4,7 @@ date: '2021-07-14'
 draft: no
 image: images/blog/01.jpg
 author_info:
-  image: images/denise.png
+  image: images/denise.jpeg
   name: Denise Baxindine
 ---
 

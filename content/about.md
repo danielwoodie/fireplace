@@ -52,10 +52,10 @@ our_team:
   subtitle: Our members
   team:
   - designation: Psychology
-    image: images/denise.png
+    image: images/denise.jpeg
     name: Denise Baxindine
   - designation: Math
-    image: images/denise.png
+    image: images/denise.jpeg
     name: Daniel Woodie
   title: The People Behind
 title: About
