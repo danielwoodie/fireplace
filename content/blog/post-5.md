@@ -3,7 +3,7 @@ author_info:
   image: images/author/derick.jpg
   name: Derick Barker
 date: "2021-07-10"
-draft: false
+draft: true
 image: images/blog/05.jpg
 title: Using Wakanda for project management when working remote
 ---

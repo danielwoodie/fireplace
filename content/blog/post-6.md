@@ -3,7 +3,7 @@ author_info:
   image: images/author/abdullah.jpg
   name: Abdullah Al Shifat
 date: "2021-07-09"
-draft: false
+draft: true
 image: images/blog/06.jpg
 title: How to write a brief for a new website or app.
 ---

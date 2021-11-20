@@ -3,7 +3,7 @@ author_info:
   image: images/author/derick.jpg
   name: Derick Barker
 date: "2021-07-08"
-draft: false
+draft: true
 image: images/blog/02.jpg
 title: How and why we decided to launch an EMI scheme for our employees.
 ---

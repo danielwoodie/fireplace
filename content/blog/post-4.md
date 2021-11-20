@@ -3,7 +3,7 @@ author_info:
   image: images/author/abdullah.jpg
   name: Abdullah Al Shifat
 date: "2021-07-11"
-draft: false
+draft: true
 image: images/blog/04.jpg
 title: Five eCommerce lessons to learn from Bloom & Wild
 ---

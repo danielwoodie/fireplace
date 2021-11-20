@@ -3,7 +3,7 @@ author_info:
   image: images/author/derick.jpg
   name: Derick Barker
 date: "2021-07-12"
-draft: false
+draft: true
 image: images/blog/03.jpg
 title: Three reasons you DON’T need an app on the App Store
 ---

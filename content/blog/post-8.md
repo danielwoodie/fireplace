@@ -3,7 +3,7 @@ author_info:
   image: images/author/abdullah.jpg
   name: Abdullah Al Shifat
 date: "2021-07-07"
-draft: false
+draft: true
 image: images/blog/03.jpg
 title: What to consider before starting a business – Inside The Studio
 ---
