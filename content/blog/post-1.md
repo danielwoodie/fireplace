@@ -1,7 +1,7 @@
 ---
 title: "FIRE's Hierarchy of Needs"
 date: '2021-07-14'
-draft: no
+draft: TRUE
 image: images/blog/01.jpg
 author_info:
   image: images/denise.jpeg
