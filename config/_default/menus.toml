@@ -11,14 +11,8 @@ weight = 2
 
   [[main]]
   parent = "FIRE Calculators"
-  name = "CoastFIRE Calculator"
-  url = "calculators/coast/"
-  weight = 1
-
-  [[main]]
-  parent = "FIRE Calculators"
-  name = "Safe Withdrawal Rate"
-  url = "calculators/swr/"
+  name = "FIRE Calculator"
+  url = "calculators/fire/"
   weight = 2
 
 [[main]]
