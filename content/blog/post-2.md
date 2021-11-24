@@ -2,7 +2,7 @@
 author_info:
   image: images/denise.jpeg
   name: Daniel Woodie
-date: "2022-01-01"
+date: "2021-01-01"
 draft: FALSE
 image: images/blog/random_walk_with_fire.png
 title: A Random Walk with FIRE
