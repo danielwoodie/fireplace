@@ -1,8 +1,8 @@
 {
-  "name": "Andromeda-light - Software and SAAS Landing Hugo Theme",
-  "short_name": "Andromeda-light - Software and SAAS Landing Hugo Theme",
+  "name": "FirePlace",
+  "short_name": "FirePlace",
   "lang": "en-us",
-  "theme_color": "#FE6019",
+  "theme_color": "#3CB371",
   
 
   
@@ -16,37 +16,37 @@
   
   "icons": [
     {
-      "src": "/andromeda-light/images/favicon_hua8d82528b23aa4d62c16e21fd49d287e_490_48x0_resize_box_3.png",
+      "src": "/images/favicon_hu50681853eb423d8fe48aec6748154359_576_48x0_resize_box_3.png",
       "sizes": "48x48",
       "type": "image/png"
     },
     {
-      "src": "/andromeda-light/images/favicon_hua8d82528b23aa4d62c16e21fd49d287e_490_72x0_resize_box_3.png",
+      "src": "/images/favicon_hu50681853eb423d8fe48aec6748154359_576_72x0_resize_box_3.png",
       "sizes": "72x72",
       "type": "image/png"
     },
     {
-      "src": "/andromeda-light/images/favicon_hua8d82528b23aa4d62c16e21fd49d287e_490_96x0_resize_box_3.png",
+      "src": "/images/favicon_hu50681853eb423d8fe48aec6748154359_576_96x0_resize_box_3.png",
       "sizes": "96x96",
       "type": "image/png"
     },
     {
-      "src": "/andromeda-light/images/favicon_hua8d82528b23aa4d62c16e21fd49d287e_490_144x0_resize_box_3.png",
+      "src": "/images/favicon_hu50681853eb423d8fe48aec6748154359_576_144x0_resize_box_3.png",
       "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "/andromeda-light/images/favicon_hua8d82528b23aa4d62c16e21fd49d287e_490_192x0_resize_box_3.png",
+      "src": "/images/favicon_hu50681853eb423d8fe48aec6748154359_576_192x0_resize_box_3.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/andromeda-light/images/favicon_hua8d82528b23aa4d62c16e21fd49d287e_490_512x0_resize_box_3.png",
+      "src": "/images/favicon_hu50681853eb423d8fe48aec6748154359_576_512x0_resize_box_3.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
   
   "display": "standalone",
-  "start_url": "/andromeda-light?utm_source=web_app_manifest"
+  "start_url": "/?utm_source=web_app_manifest"
 }
