@@ -507,7 +507,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   var parentDiv = document.getElementById("my_bootstrap_dataviz");
   const width_bs = parentDiv.clientWidth;
   const height_bs = 400;
-  const radius_bs = 5;
+  const radius_bs = 10;
   const dodge_bs = dodger(radius_bs * 2 + 1);
   const margin_bs = { top: 0, right: 10, bottom: 20, left: 10 };
   const values = real_returns;
