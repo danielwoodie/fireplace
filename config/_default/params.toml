@@ -68,22 +68,22 @@ button = "Sign Up"
 button_link = "https://gethugothemes.com/products/andromeda/"
 
 ############################# social site ########################
-[[social]]
-title = "Andromeda"
-icon = "lab la-facebook-f" # https://icons8.com/line-awesome
-link = "#!"
-
-[[social]]
-title = "AndromedaTweet"
-icon = "lab la-twitter" # https://icons8.com/line-awesome
-link = "#!"
-
-[[social]]
-title = "AndromedaIn"
-icon = "lab la-linkedin-in" # https://icons8.com/line-awesome
-link = "#!"
-
-[[social]]
-title = "AndromedaPin"
-icon = "lab la-pinterest" # https://icons8.com/line-awesome
-link = "#!"
+# [[social]]
+# title = "Andromeda"
+# icon = "lab la-facebook-f" # https://icons8.com/line-awesome
+# link = "#!"
+#
+# [[social]]
+# title = "AndromedaTweet"
+# icon = "lab la-twitter" # https://icons8.com/line-awesome
+# link = "#!"
+#
+# [[social]]
+# title = "AndromedaIn"
+# icon = "lab la-linkedin-in" # https://icons8.com/line-awesome
+# link = "#!"
+#
+# [[social]]
+# title = "AndromedaPin"
+# icon = "lab la-pinterest" # https://icons8.com/line-awesome
+# link = "#!"

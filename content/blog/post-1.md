@@ -19,12 +19,11 @@ author_info:
       <p>A random walk is a tool from probability theory to simulate potential outcomes based on a series of independent events. For example, let's use the example of an actual walk where someone can take a step to th or either stay in place depending on the outcome of a coin flip. Heads for step 
       </p>
       <h3>How does this relate to FIRE?</h3>
-
-Instead of taking steps, you may be interested in something that could follow a similar framework: investment returns over a number of years. This is relevant because you may be investing over a series of years and want to have some idea about how your investments might look after 10, 20, 30 years or more. 
-
-Note about investment advice. It's important to keep in mind a common quote in forecasting: All models are wrong, some are useful. That is to say, there is no guarantee in these simulations. Rather, they 
-
-The FIRE community has many rules of thumbs like the 4% rule or if you invest your entirety of annual expenses in an index fund, you'll likely reach FI (or 25x your annual expenses) in about 10 years.  
+      <p>Instead of taking steps, you may be interested in something that could follow a similar framework: investment returns over a number of years. This is relevant because you may be investing over a series of years and want to have some idea about how your investments might look after 10, 20, 30 years or more. 
+      </p>
+      <p>Note about investment advice. It's important to keep in mind a common quote in forecasting: All models are wrong, some are useful. That is to say, there is no guarantee in these simulations. Rather, they 
+      </p>
+      <p>The FIRE community has many rules of thumbs like the 4% rule or if you invest your entirety of annual expenses in an index fund, you'll likely reach FI (or 25x your annual expenses) in about 10 years.  
     </p>
   </section>
   <section id="scrolly1">
@@ -84,9 +83,6 @@ I need to mention something about modeling.
 
 ### What does this impact?
 
-
-
-
 Laoreet mauris odio ut nec. Nisl, sed adipiscing dignissim arcu placerat ornare pharetra nec in. Ultrices in nisl potenti vitae tempus. Auctor consectetur luctus eu in amet sagittis. Dis urna, vel hendrerit convallis Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissim mauris, eu, eget
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec et ipsum ullamcorper venenatis fringilla. Pretium, purus eu nec vulputate vel habitant egestas. Congue ornare at ipsum, viverra. Vitae magna faucibus eros, lectus sociis. Etiam nunc amet id dignissim. Feugiat id tempor vel sit in ornare turpis posuere. Eu quisque integer non rhoncus elementum vel. Quis nec viverra lectus augue nec praesent
@@ -99,8 +95,6 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   
   
   </section>
-  
-  
   <section id="scrolly2">
     <figure>
       <p>0</p>
@@ -131,19 +125,6 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   
   </section>
 </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ### Before We Get Too Far Along
@@ -236,6 +217,17 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
 
 <script>
 
+
+  /* How this script is organized as follows
+  1. Everything for the first visualization is defined in the following order:
+  1.a. Constants
+  1.b. Functions
+  1.c. Calls
+  2. This same format is followed for the second visualization.
+  */
+  
+  // Constants for the first visualization
+  // Constants for the second visualization
   // Set the S&P Returns
   const sp = [
       18.40, 31.49, -4.38, 21.83, 11.96, 1.36, 13.52, 32.15, 15.89,
@@ -270,8 +262,278 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     return +(Math.round(item - cpi[index] + "e+2") + "e-2");
   });
   
+  
+  
+  
+  // Functions for the first visualization
+  // generic window resize listener event
+  function dodger(radius) {
+      const radius2 = radius ** 2;
+      const bisect = d3.bisector(d => d.x);
+      const circles = [];
+      return function(x) {
+        const l = bisect.left(circles, x - radius);
+        const r = bisect.right(circles, x + radius);
+        let y = 0;
+        for (let i = l; i < r; ++i) {
+          const { x: xi, y: yi } = circles[i];
+          const x2 = (xi - x) ** 2;
+          const y2 = (yi - y) ** 2;
+          if (radius2 > x2 + y2) {
+            y = yi + Math.sqrt(radius2 - x2) + 1e-6;
+            i = l - 1;
+            continue;
+          }
+        }
+        circles.splice(bisect.left(circles, x, l, r), 0, { x, y }); //what is this?
+        return y;
+      };
+    }
+  
+  
+  
+  function handleResize_bs() {
+    // 1. update height of step elements
+    var stepH = Math.floor(window.innerHeight * 0.25);
+    step_bs.style("height", stepH + "px");
+    step_bs.style("margin-top", stepH + "px");
+    var figureHeight = window.innerHeight / 2;
+    var figureMarginTop = (window.innerHeight - figureHeight) / 2;
+    figure_bs
+      .style("height", figureHeight + "px")
+      .style("top", figureMarginTop + "px");
+    // 3. tell scrollama to update new element dimensions
+    scroller_bs.resize();
+  }
+  
+  // Create a function that takes a dataset as input and update the plot:
+  function update_bs(myindex) {
+  
+    svg_bs
+      .append("g")
+      .attr("transform", `translate(0,${height_bs - margin_bs.bottom})`)
+      .call(d3.axisBottom(x_bs));
+          
+    if (myindex == 0) {
+    
+        var cx = x_bs(d3.mean(values));
+        var cy = height_bs - margin_bs.bottom - dodge_bs(cx) - radius_bs - 1;
+      
+        svg_bs
+          .append("circle")
+          .attr("cx", cx)
+          .attr("cy", -400)
+          .attr("r", radius_bs)
+          .attr("fill", "#3CB371")
+          .transition()
+          .duration(1000)
+          .ease(d3.easeBounce)
+          .attr("cy", cy);
+    
+        
+      
+    } else if (myindex == 1) {
+
+        for (let i = 0; i < values.length; ++i) {
+          var cx = x_bs(values[i]);
+          var cy = height_bs - margin_bs.bottom - dodge_bs(cx) - radius_bs - 1;
+      
+          svg_bs
+            .append("circle")
+            .attr("cx", cx)
+            .attr("cy", -400)
+            .attr("r", radius_bs)
+            .attr("fill", "#3CB371")
+            .transition()
+            .duration(1000)
+            .ease(d3.easeBounce)
+            .attr("cy", cy);
+        };
+    
+    /*
+    
+      var genratorAnimation = gen(200); 
+  
+      let result = genratorAnimation.next();
+
+      let interval = setInterval(function(){
+         if(!result.done) {
+           genratorAnimation.next();
+         }
+         else {
+          clearInterval(interval)
+         }
+      }, 50);
+      */
+    
+    } else if (myindex == 2) {
+        
+    } else if (myindex == 3) {
+    
+    } else if (myindex == 4) {
+    
+    }
+  };
+  
+  
+  // scrollama event handlers
+  function handleStepEnter_bs(response) {
+    console.log(response);
+    // response = { element, direction, index }
+    // add color to current step only
+    step_bs.classed("is-active", function(d, i) {
+      return i === response.index;
+    });
+    // update graphic based on step
+    figure_bs
+      .select("p").text(response.index + 1);
+    update_bs(response.index);
+  }
+  
+  function setupStickyfill_bs() {
+    d3.selectAll(".sticky").each(function() {
+      Stickyfill.add(this);
+    });
+  }
+  
+  function init_bs() {
+    setupStickyfill_bs();
+    // 1. force a resize on load to ensure proper dimensions are sent to scrollama
+    handleResize_bs();
+    // 2. setup the scroller passing options
+    // 		this will also initialize trigger observations
+    // 3. bind scrollama event handlers (this can be chained like below)
+    scroller_bs
+      .setup({
+        step: "#scrolly1 article .step",
+        offset: 0.33,
+        debug: false
+      })
+      .onStepEnter(handleStepEnter_bs);
+    // setup resize event
+    window.addEventListener("resize", handleResize_bs);
+  }
+  
+  /*
+  function* gen(n) {
+
+    var parentDiv = document.getElementById("my_bootstrap_dataviz");
+    const width = parentDiv.clientWidth;
+    const height = 400;
+    const radius = 5;
+    const dodge = dodger(radius * 2 + 1);
+    const margin = { top: 0, right: 10, bottom: 20, left: 10 };
+  
+    // Set real returns to the value of S&P minus 
+    const values = real_returns;
+
+  
+    const x = d3.scaleLinear(d3.extent(values), [
+      margin.left,
+      width - margin.right
+    ]);
+    const svg = d3
+      .select("#my_bootstrap_dataviz")
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height)
+      .style("overflow", "visible");
+  
+    // var fillScale = d3.scaleSequentialLog(chroma.interpolateSinebow)
+  
+    svg
+      .append("g")
+      .attr("transform", `translate(0,${height - margin.bottom})`)
+      .call(d3.axisBottom(x));
+  
+    function dodger(radius) {
+      const radius2 = radius ** 2;
+      const bisect = d3.bisector(d => d.x);
+      const circles = [];
+  
+      return function(x) {
+        const l = bisect.left(circles, x - radius);
+        const r = bisect.right(circles, x + radius);
+        let y = 0;
+        for (let i = l; i < r; ++i) {
+          const { x: xi, y: yi } = circles[i];
+          const x2 = (xi - x) ** 2;
+          const y2 = (yi - y) ** 2;
+          if (radius2 > x2 + y2) {
+            y = yi + Math.sqrt(radius2 - x2) + 1e-6;
+            i = l - 1;
+            continue;
+          }
+        }
+        circles.splice(bisect.left(circles, x, l, r), 0, { x, y }); //what is this?
+        return y;
+      };
+    }
+  
+    for (let i = 0; i < n; ++i) {
+      if (i % 5 === 0) yield svg.node();
+      const cx = x(values[i]); // x(values[i]);->what is this?
+      const cy = height - margin.bottom - dodge(cx) - radius - 1;
+  
+      svg
+        .append("circle")
+        .attr("cx", cx)
+        .attr("cy", -400)
+        .attr("r", radius)
+        .attr("fill", "#3CB371") //purple
+        .transition()
+        .duration(650)
+        .ease(d3.easeBounce)
+        .attr("cy", cy);
+    }
+  
+    yield svg.node();
+  }
+  
+  */
+  
+  
+  // Calls for the first visualization
+  // kick things off
+  // using d3 for convenience
+  var main_bs = d3.select("main");
+    scrolly_bs = main_bs.select("#scrolly1");
+    figure_bs = scrolly_bs.select("figure");
+    article_bs = scrolly_bs.select("article");
+    step_bs = article_bs.selectAll(".step");
+    scroller_bs = scrollama();
+  
+  
+  var parentDiv = document.getElementById("my_bootstrap_dataviz");
+  const width_bs = parentDiv.clientWidth;
+  const height_bs = 400;
+  const radius_bs = 5;
+  const dodge_bs = dodger(radius_bs * 2 + 1);
+  const margin_bs = { top: 0, right: 10, bottom: 20, left: 10 };
+  const values = real_returns;
+  
+  const x_bs = d3.scaleLinear(d3.extent(values), [
+    margin_bs.left,
+    width_bs - margin_bs.right
+  ]);
+  
+  const svg_bs = d3
+    .select("#my_bootstrap_dataviz")
+    .append("svg")
+    .attr("width", width_bs)
+    .attr("height", height_bs)
+    .style("overflow", "visible");
+  
+  
+  
+  
+  init_bs();
+  
+  
+  
+  
   // Set initial parameter values
-  var age = 20;
+  const age = 20;
    goal_coast_fire_age = 50;
    goal_fire_age = 50;
    annual_expenses = 100000;
@@ -279,10 +541,48 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
    annual_contributions = 75000;
   
   // Get years contributing, years coasting, and full years contributing
-  var coast_years_contributing = goal_coast_fire_age - age;
+  const coast_years_contributing = goal_coast_fire_age - age;
    years_coasting = goal_fire_age - goal_coast_fire_age;
    full_years_contributing = goal_fire_age - age;
+   
+  // set the dimensions and margins of the graph
+  const margin = {top: 10, right: 30, bottom: 30, left: 50},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+    
+  // append the svg object to the body of the page
+  const svg = d3.select("#my_dataviz")
+    .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+      
+  // Initialise a X axis:
+  const x = d3.scaleLinear().range([0,width]);
+  const xAxis = d3.axisBottom().scale(x);
+  svg.append("g")
+    .attr("transform", `translate(0, ${height})`)
+    .attr("class","myXaxis")
+    
+  // Initialize an Y axis
+  const y = d3.scaleLinear().range([height, 0]);
+  const yAxis = d3.axisLeft().scale(y);
+  svg.append("g")
+    .attr("class","myYaxis");
   
+  // using d3 for convenience
+  var main = d3.select("main");
+  var scrolly = main.select("#scrolly2");
+  var figure = scrolly.select("figure");
+  var article = scrolly.select("article");
+  var step = article.selectAll(".step");
+  
+  // initialize the scrollama
+  var scroller = scrollama();
+   
+   
+  // Functions for the second visualization
   // Define random number generator
   function getRandomInt(min, max) {
       min = Math.ceil(min);
@@ -322,95 +622,10 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     return tmp;
   };
   
-  // using d3 for convenience
-  var main_bs = d3.select("main");
-  var scrolly_bs = main_bs.select("#scrolly1");
-  var figure_bs = scrolly_bs.select("figure");
-  var article_bs = scrolly_bs.select("article");
-  var step_bs = article_bs.selectAll(".step");
   
-  // initialize the scrollama
-  var scroller_bs = scrollama();
-  
-  // generic window resize listener event
-  function handleResize_bs() {
-    // 1. update height of step elements
-    var stepH = Math.floor(window.innerHeight * 0.25);
-    step_bs.style("height", stepH + "px");
-    step_bs.style("margin-top", stepH + "px");
-    var figureHeight = window.innerHeight / 2;
-    var figureMarginTop = (window.innerHeight - figureHeight) / 2;
-    figure_bs
-      .style("height", figureHeight + "px")
-      .style("top", figureMarginTop + "px");
-    // 3. tell scrollama to update new element dimensions
-    scroller_bs.resize();
-  }
-  
-  // scrollama event handlers
-  function handleStepEnter_bs(response) {
-    console.log(response);
-    // response = { element, direction, index }
-    // add color to current step only
-    step_bs.classed("is-active", function(d, i) {
-      return i === response.index;
-    });
-    // update graphic based on step
-    figure_bs
-      .select("p").text(response.index + 1);
-  }
-  
-  function setupStickyfill_bs() {
-    d3.selectAll(".sticky").each(function() {
-      Stickyfill.add(this);
-    });
-  }
-  
-  function init_bs() {
-    setupStickyfill_bs();
-    // 1. force a resize on load to ensure proper dimensions are sent to scrollama
-    handleResize_bs();
-    // 2. setup the scroller passing options
-    // 		this will also initialize trigger observations
-    // 3. bind scrollama event handlers (this can be chained like below)
-    scroller_bs
-      .setup({
-        step: "#scrolly1 article .step",
-        offset: 0.33,
-        debug: false
-      })
-      .onStepEnter(handleStepEnter_bs);
-    // setup resize event
-    window.addEventListener("resize", handleResize_bs);
-  }
-  
-  // kick things off
-  init_bs();
-  
-  // set the dimensions and margins of the graph
-  const margin = {top: 10, right: 30, bottom: 30, left: 50},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
-  // append the svg object to the body of the page
-  const svg = d3.select("#my_dataviz")
-    .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-      .attr("transform", `translate(${margin.left},${margin.top})`);
-  // Initialise a X axis:
-  const x = d3.scaleLinear().range([0,width]);
-  const xAxis = d3.axisBottom().scale(x);
-  svg.append("g")
-    .attr("transform", `translate(0, ${height})`)
-    .attr("class","myXaxis")
-  // Initialize an Y axis
-  const y = d3.scaleLinear().range([height, 0]);
-  const yAxis = d3.axisLeft().scale(y);
-  svg.append("g")
-    .attr("class","myYaxis")
   // Create a function that takes a dataset as input and update the plot:
   function update(myindex) {
+  
     if (myindex == 0) {
     var data = [
       {ser1: 0, ser2: 0},
@@ -430,7 +645,9 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     // Create a update selection: bind to the new data
     const u = svg.selectAll(".lineTest")
       .data([data], function(d){ return d.ser1 });
+      
     } else if (myindex == 1) {
+    
     var data = [
       {ser1: 0, ser2: 2500000},
       {ser1: 30, ser2:2500000}
@@ -461,7 +678,9 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         .attr("fill", "none")
         .attr("stroke", "black")
         .attr("stroke-width", 3.5)
+        
     } else if (myindex == 2) {
+    
     var data = [
       {ser1: 0, ser2: 2500000},
       {ser1: 30, ser2:2500000}
@@ -497,18 +716,14 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         .attr("fill", "none")
         .attr("stroke", "#3CB371")
         .attr("stroke-width", 3.5);
+        
     } else if (myindex == 3) {
+    
     } else if (myindex == 4) {
+    
     }
-  }
-  // using d3 for convenience
-  var main = d3.select("main");
-  var scrolly = main.select("#scrolly2");
-  var figure = scrolly.select("figure");
-  var article = scrolly.select("article");
-  var step = article.selectAll(".step");
-  // initialize the scrollama
-  var scroller = scrollama();
+  };
+  
   // generic window resize listener event
   function handleResize() {
     // 1. update height of step elements
@@ -558,6 +773,9 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     // setup resize event
     window.addEventListener("resize", handleResize);
   }
+  
+  
+  // Calls for the second visualization
   // kick things off
   init();
 
