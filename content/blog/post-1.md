@@ -34,7 +34,7 @@ author_info:
     <article>
       <div class="step" data-step="1">
         <p>Average Returns</p>
-        <div>Your FIRE number is 25 times your annual expenses. For example, if you annually spend $100,000 then your FIRE number is $2,500,000 (25 x $100k).</div>
+        <div>On average, the stock market has returned 8% each year for the last 100 years. This number was calculated by taking the annual returns from the last hundred years with dividends re-invested, and subtracting any effect of inflation. As such, if you were to run a typical future value calculation to get an idea of what an investment might be worth, using a growth rate of 8% growth rate will give you an idea of what your investments might be worth.</div>
       </div>
       <div class="step" data-step="2">
         <p>All Returns</p>
@@ -190,6 +190,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     font-size: 8rem;
     font-weight: 900;
     color: #8a8a8a;
+    z-index: 1;
   }
   .step {
     margin: 0 auto 2rem auto;
@@ -316,6 +317,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
           
     if (myindex == 0) {
     
+        console.log(d3.mean(values));
         var cx = x_bs(d3.mean(values));
         var cy = height_bs - margin_bs.bottom - dodge_bs(cx) - radius_bs - 1;
       
