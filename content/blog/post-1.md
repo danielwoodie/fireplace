@@ -190,7 +190,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     font-size: 8rem;
     font-weight: 900;
     color: #8a8a8a;
-    z-index: 1;
+    z-index: 10;
   }
   .step {
     margin: 0 auto 2rem auto;
