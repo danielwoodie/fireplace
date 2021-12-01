@@ -201,7 +201,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   figure p {
     text-align: center;
     padding: 1rem;
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     -moz-transform: translate(-50%, -50%);
