@@ -193,8 +193,13 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     -moz-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     background-color: #fff;
-    z-index: 0;
+    -webkit-transform:translateZ(0px);
+    -moz-transform:translateZ(0px);
+    -o-transform:translateZ(0px);
+    transform:translateZ(0px);
+    z-index:0;
   }
+  
   figure p {
     text-align: center;
     padding: 1rem;
@@ -204,6 +209,11 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     -moz-transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    -webkit-transform:translateZ(0px);
+    -moz-transform:translateZ(0px);
+    -o-transform:translateZ(0px);
+    transform:translateZ(0px);
+    z-index:0;
     font-size: 8rem;
     font-weight: 900;
     color: #fff;
@@ -213,12 +223,15 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     margin: 0 auto 2rem auto;
     color: #000000;
     background-color: rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    -webkit-transform:translateZ(0px);
+    -moz-transform:translateZ(1000px);
+    -o-transform:translateZ(1000px);
+    transform:translateZ(1000px);
+    z-index:1000;
   }
   .step:last-child {
     margin-bottom: 80vh;
   }
-  
   .step.is-active p {
     background-color: #3CB371;
     color: #fff;
