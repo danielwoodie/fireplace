@@ -5,7 +5,7 @@ draft: no
 image: images/blog/random_walk_with_fire.png
 author_info:
   name: Daniel Woodie
-  image: images/denise.jpeg
+  image: images/daniel.jpg
 ---
 
 <script src="https://unpkg.com/intersection-observer"></script>
@@ -28,39 +28,59 @@ author_info:
   </section>
   <section id="scrolly1">
     <figure>
-      <p>0</p>
+      <!-- <p>0</p> -->
       <div id="my_bootstrap_dataviz"></div>
     </figure>
     <article>
       <div class="step" data-step="1">
         <p>Average Returns</p>
-        <div>On average, the stock market has returned 8% each year for the last 100 years. This number was calculated by taking the annual returns from the last hundred years with dividends re-invested, and subtracting any effect of inflation. As such, if you were to run a typical future value calculation to get an idea of what an investment might be worth, using a growth rate of 8% growth rate will give you an idea of what your investments might be worth.</div>
+        <div>On average, the stock market has returned 8% each year for the last 100 years.  As such, if you were to run a typical future value calculation to get an idea of what an investment might be worth, using a growth rate of 8% growth rate will give you an idea of what your investments might be worth.</div>
       </div>
       <div class="step" data-step="2">
-        <p>All Returns</p>
-        <div>This number is based on some assumptions from the S&P 500. Specifically, the assumption is that the S&P 500, on average, will return about 7% per year over most 10 year time periods. This holds fairly true when looking over the last 100 years -- which includes periods global warfare, hyperinflation, and a few economic crashes. That is to say, it's not cherry-picked to include especially good runs of the stock market.</div>
+        <p>How is this used?</p>
+        <div>To get an idea of what an investment might be worth in the future, people will use this one number to calculate the future value.</div>
       </div>
       <div class="step" data-step="3">
-        <p>World Wars</p>
-        <div>This number is based on some assumptions from the S&P 500. Specifically, the assumption is that the S&P 500, on average, will return about 7% per year over most 10 year time periods. This holds fairly true when looking over the last 100 years -- which includes periods global warfare, hyperinflation, and a few economic crashes. That is to say, it's not cherry-picked to include especially good runs of the stock market.</div>
+        <p>What about inflation?</p>
+        <div>This number was calculated by taking the annual returns from the last hundred years with dividends re-invested, and subtracting any effect of inflation. This provides the added benefit that any future value estimate will be in today's dollars.</div>
       </div>
-    <div class="step" data-step="4">
-      <p>Recessions</p>
-        <div>This number is based on some assumptions from the S&P 500. Specifically, the assumption is that the S&P 500, on average, will return about 7% per year over most 10 year time periods. This holds fairly true when looking over the last 100 years -- which includes periods global warfare, hyperinflation, and a few economic crashes. That is to say, it's not cherry-picked to include especially good runs of the stock market.</div>
+      <div class="step" data-step="4">
+        <p>Really? Just 8%?</p>
+        <div>I don't make the rules. This is just what people use. If you want to be more conservative, people use say 5% or 6% returns. If you're more optimistic, you may use, say, 10% returns.</div>
       </div>
-    <div class="step" data-step="5">
-      <p>Hyper Inflation</p>
-        <div>This number is based on some assumptions from the S&P 500. Specifically, the assumption is that the S&P 500, on average, will return about 7% per year over most 10 year time periods. This holds fairly true when looking over the last 100 years -- which includes periods global warfare, hyperinflation, and a few economic crashes. That is to say, it's not cherry-picked to include especially good runs of the stock market.</div>
+      <div class="step" data-step="5">
+        <p>The Reality</p>
+        <div>The reality is that the stock market has had many ups and downs.</div>
       </div>
-    <div class="step" data-step="6">
-      <p>The Bootstrap</p>
-        <div>This number is based on some assumptions from the S&P 500. Specifically, the assumption is that the S&P 500, on average, will return about 7% per year over most 10 year time periods. This holds fairly true when looking over the last 100 years -- which includes periods global warfare, hyperinflation, and a few economic crashes. That is to say, it's not cherry-picked to include especially good runs of the stock market.</div>
+      <div class="step" data-step="6">
+        <p>Actual Returns</p>
+        <div>These are actual returns from the last 100 years (again corrected for inflation).
+        </div>
       </div>
       <div class="step" data-step="7">
-        <p>Bootstrap Returns</p>
-        <div>As you might imagine, using a single value to model market returns can provide a less than precise idea about the range of possibilities when investing. To get an understanding of the distribution, you can instead run a bootstrap simulation. A bootstrap simulation takes actual returns (minus CPI for the corresponding year) and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes.</div>
+        <p>World Wars</p>
+        <div>These numbers include multiple wars.</div>
       </div>
-      <div class="step" data-step="8">
+    <div class="step" data-step="8">
+      <p>Recessions</p>
+        <div>The great depression, dot com bust, 2008.
+        </div>
+      </div>
+    <div class="step" data-step="9">
+      <p>Hyper Inflation</p>
+        <div>Periods of hyper-inflation.
+        </div>
+      </div>
+    <div class="step" data-step="10">
+      <p>Enter The Bootstrap</p>
+        <div>As such, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes.
+        </div>
+      </div>
+      <div class="step" data-step="11">
+        <p>Bootstrap Returns</p>
+        <div>To get an understanding of the distribution, you can instead run a bootstrap simulation. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes.</div>
+      </div>
+      <div class="step" data-step="12">
         <p>Bootstrap Returns</p>
       </div>
     </article>
@@ -157,7 +177,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
 
   #scrolly1, #scrolly2 {
     position: relative;
-    background-color: #f3f3f3;
+    background-color: #ffffff;
     padding: 1rem;
   }
   article {
@@ -189,26 +209,27 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     transform: translate(-50%, -50%);
     font-size: 8rem;
     font-weight: 900;
-    color: #8a8a8a;
+    color: #fff;
     z-index: 10;
   }
   .step {
     margin: 0 auto 2rem auto;
-    color: #fff;
+    color: #000000;
     background-color: rgba(0, 0, 0, 0.1);
   }
   .step:last-child {
     margin-bottom: 0;
   }
   .step.is-active p {
-    background-color: goldenrod;
-    color: #3b3b3b;
+    background-color: #3CB371;
+    color: #fff;
   }
   .step p {
     text-align: center;
     padding: 1rem;
     font-size: 1.5rem;
     background-color: #3b3b3b;
+    color: fff;
   }
 
 
@@ -331,10 +352,8 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
           .duration(1000)
           .ease(d3.easeBounce)
           .attr("cy", cy);
-    
-        
       
-    } else if (myindex == 1) {
+    } else if (myindex == 5) {
 
         for (let i = 0; i < values.length; ++i) {
           var cx = x_bs(values[i]);
@@ -368,11 +387,31 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
       }, 50);
       */
     
-    } else if (myindex == 2) {
-        
-    } else if (myindex == 3) {
+    } else if (myindex == 6) {
     
-    } else if (myindex == 4) {
+        svg_bs
+          .selectAll("circle")
+          .transition()
+          .duration(1000)
+          .attr("fill", function(d,i) {return i%2==0?"#3CB371":"#d5d5d5";});
+          
+    } else if (myindex == 7) {
+    
+        svg_bs
+          .selectAll("circle")
+          .transition()
+          .duration(700)
+          .attr("fill", function(d,i) {return i%3==0?"#3CB371":"#d5d5d5";});
+
+    
+    } else if (myindex == 8) {
+    
+        svg_bs
+          .selectAll("circle")
+          .transition()
+          .duration(700)
+          .attr("fill", function(d,i) {return i%4==0?"#3CB371":"#d5d5d5";});
+
     
     }
   };
@@ -387,8 +426,8 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
       return i === response.index;
     });
     // update graphic based on step
-    figure_bs
-      .select("p").text(response.index + 1);
+    // figure_bs
+    //   .select("p").text(response.index + 1);
     update_bs(response.index);
   }
   
