@@ -80,9 +80,6 @@ author_info:
         <p>Bootstrap Returns</p>
         <div>To get an understanding of the distribution, you can instead run a bootstrap simulation. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes.</div>
       </div>
-      <div class="step" data-step="12">
-        <p>Bootstrap Returns</p>
-      </div>
     </article>
   </section>
   
@@ -212,14 +209,16 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     color: #fff;
   }
   .step {
+    position: relative;
     margin: 0 auto 2rem auto;
     color: #000000;
     background-color: rgba(0, 0, 0, 0.1);
     z-index: 1000;
   }
   .step:last-child {
-    margin-bottom: 0;
+    margin-bottom: 80vh;
   }
+  
   .step.is-active p {
     background-color: #3CB371;
     color: #fff;
@@ -349,7 +348,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
           .attr("r", radius_bs)
           .attr("fill", "#3CB371")
           .transition()
-          .duration(1000)
+          .duration(500)
           .ease(d3.easeBounce)
           .attr("cy", cy);
       
@@ -366,7 +365,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
             .attr("r", radius_bs)
             .attr("fill", "#3CB371")
             .transition()
-            .duration(1000)
+            .duration(500)
             .ease(d3.easeBounce)
             .attr("cy", cy);
         };
@@ -447,7 +446,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     scroller_bs
       .setup({
         step: "#scrolly1 article .step",
-        offset: 0.33,
+        offset: 0.66,
         debug: false
       })
       .onStepEnter(handleStepEnter_bs);
