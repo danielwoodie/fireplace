@@ -196,11 +196,12 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     -moz-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     background-color: #fff;
+    z-index: 0;
   }
   figure p {
     text-align: center;
     padding: 1rem;
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 50%;
     -moz-transform: translate(-50%, -50%);
@@ -209,13 +210,12 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     font-size: 8rem;
     font-weight: 900;
     color: #fff;
-    z-index: 1000;
-    
   }
   .step {
     margin: 0 auto 2rem auto;
     color: #000000;
     background-color: rgba(0, 0, 0, 0.1);
+    z-index: 1000;
   }
   .step:last-child {
     margin-bottom: 0;
