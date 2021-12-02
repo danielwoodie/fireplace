@@ -34,18 +34,18 @@ author_info:
     <article>
       <div class="step" data-step="1">
         <p>Average Returns</p>
-        <div>On average, the stock market has returned 8% each year for the last 100 years.  As such, if you were to run a typical future value calculation to get an idea of what an investment might be worth, using a growth rate of 8% growth rate will give you an idea of what your investments might be worth.</div>
+        <div>On average, the stock market has returned 8% each year for the last 100 years.</div>
       </div>
       <div class="step" data-step="2">
         <p>How is this used?</p>
-        <div>To get an idea of what an investment might be worth in the future, people will use this one number to calculate the future value.</div>
+        <div>People will use this one number to calculate the future value of their investments.</div>
       </div>
       <div class="step" data-step="3">
         <p>What about inflation?</p>
-        <div>This number was calculated by taking the annual returns from the last hundred years with dividends re-invested, and subtracting any effect of inflation. This provides the added benefit that any future value estimate will be in today's dollars.</div>
+        <div>This number is corrected for inflation. As such, any future value estimate will be in today's dollars.</div>
       </div>
       <div class="step" data-step="4">
-        <p>Really? Just 8%?</p>
+        <p>Really? 8%?</p>
         <div>I don't make the rules. This is just what people use. If you want to be more conservative, people use say 5% or 6% returns. If you're more optimistic, you may use, say, 10% returns.</div>
       </div>
       <div class="step" data-step="5">
@@ -71,20 +71,15 @@ author_info:
         <div>Periods of hyper-inflation.
         </div>
       </div>
-    <div class="step" data-step="10">
-      <p>Enter The Bootstrap</p>
-        <div>As such, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes.
-        </div>
-      </div>
-      <div class="step" data-step="11">
-        <p>Bootstrap Returns</p>
-        <div>To get an understanding of the distribution, you can instead run a bootstrap simulation. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes.</div>
-      </div>
     </article>
   </section>
   
   <section>
   
+### Enter The Bootstrap
+
+As such, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes. To get an understanding of the distribution, you can instead run a bootstrap simulation. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes.
+
 ### Before We Get Too Far Along
 
 I need to mention something about modeling. 
@@ -123,28 +118,38 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         <div>Your FIRE number is 25 times your annual expenses. For example, if you annually spend $100,000 then your FIRE number is $2,500,000 (25 x $100k).</div>
       </div>
       <div class="step" data-step="2">
-        <p>Average Returns</p>
-        <div>This number is based on some assumptions from the S&P 500. Specifically, the assumption is that the S&P 500, on average, will return about 7% per year over most 10 year time periods. This holds fairly true when looking over the last 100 years -- which includes periods global warfare, hyperinflation, and a few economic crashes. That is to say, it's not cherry-picked to include especially good runs of the stock market.</div>
+        <p>Using 8%</p>
+        <div>We can get an idea of when and what it will take to reach our FIRE number.</div>
       </div>
       <div class="step" data-step="3">
-        <p>Bootstrap Returns</p>
-        <div>As you might imagine, using a single value to model market returns can provide a less than precise idea about the range of possibilities when investing. To get an understanding of the distribution, you can instead run a bootstrap simulation. A bootstrap simulation takes actual returns (minus CPI for the corresponding year) and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes.</div>
+        <p>Future Value</p>
+        <div>An important lesson is that wealth grows exponentially. As such, to reach $2.5M you don't need to invest $2.5M cash.</div>
       </div>
       <div class="step" data-step="4">
+        <p>Future Value</p>
+        <div>An important lesson is that wealth grows exponentially. As such, to reach $2.5M you don't need to invest $2.5M cash.</div>
+      </div>
+      <div class="step" data-step="5">
+        <p>Using Actual Returns</p>
+        <div>We can get a potentially more realistic idea of what can happen over a longer time period.
+        </div>
+      </div>
+      <div class="step" data-step="6">
         <p>Bootstrap Returns</p>
+        <div>By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.</div>
       </div>
     </article>
   </section>
   
   
-  <section id="outro">
+  <section>
   
-  
-  </section>
-</main>
+### Test
 
 
-### Before We Get Too Far Along
+This number is based on some assumptions from the S&P 500. Specifically, the assumption is that the S&P 500, on average, will return about 7% per year over most 10 year time periods. This holds fairly true when looking over the last 100 years -- which includes periods global warfare, hyperinflation, and a few economic crashes. That is to say, it's not cherry-picked to include especially good runs of the stock market.
+
+As you might imagine, using a single value to model market returns can provide a less than precise idea about the range of possibilities when investing. To get an understanding of the distribution, you can instead run a bootstrap simulation. A bootstrap simulation takes actual returns (minus CPI for the corresponding year) and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes.
 
 I need to mention something about modeling. 
 
@@ -168,6 +173,13 @@ Pharetra odio amet pellentesque. Egestas nisi adipiscing sed in lectus. Vitae ul
 Laoreet mauris odio ut nec. Nisl, sed adipiscing dignissim arcu placerat ornare pharetra nec in. Ultrices in nisl potenti vitae tempus. Auctor consectetur luctus eu in amet sagittis. Dis urna, vel hendrerit convallis cursus id.
 
 Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissim mauris, eu, eget pharetra odio amet pellentesque. Egestas nisi adipiscing sed in lectus. Vitae ultrices malesuada aliquet dignissim. Faucibus non tristique eu.
+  
+  
+  </section>
+</main>
+
+
+
 
 
 <style>
@@ -222,7 +234,11 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     position: relative;
     margin: 0 auto 2rem auto;
     color: #000000;
-    background-color: rgba(0, 0, 0, 0.1);
+    // background-color: rgba(0, 0, 0, .1);
+    background-color: #fff;
+    border: 1px solid;
+    box-shadow: 2px 5px 2px 2px #888888;
+    text-align: center;
     -webkit-transform:translateZ(0px);
     -moz-transform:translateZ(1000px);
     -o-transform:translateZ(1000px);
@@ -242,6 +258,10 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     font-size: 1.5rem;
     background-color: #3b3b3b;
     color: fff;
+  }
+  .step div {
+    padding-left: .5rem;
+    padding-right: .5rem;
   }
 
 
@@ -348,7 +368,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
       .attr("transform", `translate(0,${height_bs - margin_bs.bottom})`)
       .call(d3.axisBottom(x_bs));
           
-    if (myindex == 0) {
+    if (myindex == 1) {
     
         console.log(d3.mean(values));
         var cx = x_bs(d3.mean(values));
@@ -827,7 +847,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     scroller
       .setup({
         step: "#scrolly2 article .step",
-        offset: 0.33,
+        offset: 0.66,
         debug: false
       })
       .onStepEnter(handleStepEnter);
