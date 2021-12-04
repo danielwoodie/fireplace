@@ -38,7 +38,7 @@ author_info:
       </div>
       <div class="step" data-step="2">
         <p>How is this used?</p>
-        <div>People will use this one number to calculate the future value of their investments.</div>
+        <div>People use this one number to calculate the future value of their investments.</div>
       </div>
       <div class="step" data-step="3">
         <p>What about inflation?</p>
@@ -46,29 +46,43 @@ author_info:
       </div>
       <div class="step" data-step="4">
         <p>Really? 8%?</p>
-        <div>I don't make the rules. This is just what people use. If you want to be more conservative, people use say 5% or 6% returns. If you're more optimistic, you may use, say, 10% returns.</div>
+        <div>I don't make the rules. This is just what people use. If you want to be more conservative, you can use 5% or 6% returns.</div>
       </div>
       <div class="step" data-step="5">
+        <p>Seriously?</p>
+        <div>If you want to be more optimistic, you could use 10% but people generally don't recommend expecting much higher than that.</div>
+      </div>
+      <div class="step" data-step="6">
         <p>The Reality</p>
         <div>The reality is that the stock market has had many ups and downs.</div>
       </div>
-      <div class="step" data-step="6">
+      <div class="step" data-step="7">
         <p>Actual Returns</p>
         <div>These are actual returns from the last 100 years (again corrected for inflation).
         </div>
       </div>
-      <div class="step" data-step="7">
-        <p>World Wars</p>
-        <div>These numbers include multiple wars.</div>
-      </div>
-    <div class="step" data-step="8">
-      <p>Recessions</p>
-        <div>The great depression, dot com bust, 2008.
-        </div>
+      <div class="step" data-step="8">
+        <p>Multiple Wars</p>
+        <div>These numbers include World War II, Korean War, Vietnam War, Desert Storm, and America's war on terror.</div>
       </div>
     <div class="step" data-step="9">
-      <p>Hyper Inflation</p>
-        <div>Periods of hyper-inflation.
+      <p>Recessions</p>
+        <div>The great depression, dot com bubble, sub-prime mortgage crisis, and the COVID-19 pandemic.
+        </div>
+      </div>
+    <div class="step" data-step="10">
+      <p>High Inflation</p>
+        <div>There's also multiple years of greater than 5% inflation, some years even over 10%.
+        </div>
+      </div>
+      <div class="step" data-step="11">
+      <p>The Good Stuff, Too</p>
+        <div>It goes without saying but there's also been many years with above average returns. 
+        </div>
+      </div>
+      <div class="step" data-step="12">
+      <p>So What?</p>
+        <div>Taken together, these real returns could be used to provide not just single estimates but a distribution of possible outcomes.
         </div>
       </div>
     </article>
@@ -316,9 +330,6 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     return +(Math.round(item - cpi[index] + "e+2") + "e-2");
   });
   
-  
-  
-  
   // Functions for the first visualization
   // generic window resize listener event
   function dodger(radius) {
@@ -344,8 +355,6 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
       };
     }
   
-  
-  
   function handleResize_bs() {
     // 1. update height of step elements
     var stepH = Math.floor(window.innerHeight * 0.25);
@@ -361,93 +370,107 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   }
   
   // Create a function that takes a dataset as input and update the plot:
-  function update_bs(myindex) {
-  
-    svg_bs
-      .append("g")
-      .attr("transform", `translate(0,${height_bs - margin_bs.bottom})`)
-      .call(d3.axisBottom(x_bs));
+  function update_bs(myindex, direction) {
           
-    if (myindex == 1) {
+    if (myindex == 1 && direction == "down") {
     
-        console.log(d3.mean(values));
-        var cx = x_bs(d3.mean(values));
-        var cy = height_bs - margin_bs.bottom - dodge_bs(cx) - radius_bs - 1;
-      
         svg_bs
           .append("circle")
-          .attr("cx", cx)
+          .attr("cx", cx_avg)
           .attr("cy", -400)
           .attr("r", radius_bs)
           .attr("fill", "#3CB371")
+          .attr("class", "avg_return")
           .transition()
           .duration(500)
           .ease(d3.easeBounce)
-          .attr("cy", cy);
+          .attr("cy", cy_avg);
+    
+    } else if (myindex == 0 && direction == "up") {
+    
+      svg_bs
+        .selectAll(".avg_return")
+        .remove();
+    
+   } else if (myindex == 1 && direction == "up") {
+    
+      svg_bs
+        .selectAll(".avg_return")
+        .remove();
       
-    } else if (myindex == 5) {
-
+    } else if (myindex == 6 && direction == "down") {
+    
+        svg_bs
+        .selectAll(".avg_return")
+        .transition()
+        .duration(500)
+        .attr("fill", "#fff");
+    
         for (let i = 0; i < values.length; ++i) {
-          var cx = x_bs(values[i]);
-          var cy = height_bs - margin_bs.bottom - dodge_bs(cx) - radius_bs - 1;
+          var cx_tmp = cx_all[i];
+          var cy_tmp = cy_all[i];
       
           svg_bs
             .append("circle")
-            .attr("cx", cx)
+            .attr("cx", cx_tmp)
             .attr("cy", -400)
             .attr("r", radius_bs)
             .attr("fill", "#3CB371")
+            .attr("class", "real_returns")
             .transition()
             .duration(500)
             .ease(d3.easeBounce)
-            .attr("cy", cy);
+            .attr("cy", cy_tmp);
         };
+        
+    } else if (myindex == 6 && direction == "up") {
     
-    /*
-    
-      var genratorAnimation = gen(200); 
-  
-      let result = genratorAnimation.next();
+      svg_bs
+        .selectAll(".real_returns")
+        .remove();
 
-      let interval = setInterval(function(){
-         if(!result.done) {
-           genratorAnimation.next();
-         }
-         else {
-          clearInterval(interval)
-         }
-      }, 50);
-      */
-    
-    } else if (myindex == 6) {
-    
-        svg_bs
-          .selectAll("circle")
-          .transition()
-          .duration(1000)
-          .attr("fill", function(d,i) {return i%2==0?"#3CB371":"#d5d5d5";});
-          
+      svg_bs
+        .select(".avg_return")
+        .transition()
+        .duration(500)
+        .attr("fill", "#3CB371")
+
     } else if (myindex == 7) {
     
         svg_bs
           .selectAll("circle")
           .transition()
-          .duration(700)
-          .attr("fill", function(d,i) {return i%3==0?"#3CB371":"#d5d5d5";});
-
-    
+          .duration(1000)
+          .attr("fill", function(d,i) {return i%2==0?"#3CB371":"#d5d5d5";})
+          .selectAll(".avg_return")
+          .attr("fill", "#fff");
+          
     } else if (myindex == 8) {
     
         svg_bs
           .selectAll("circle")
           .transition()
           .duration(700)
+          .attr("fill", function(d,i) {return i%3==0?"#3CB371":"#d5d5d5";});
+          
+        svg_bs
+          .selectAll(".avg_return")
+          .attr("fill", "#fff");
+    
+    } else if (myindex == 9) {
+    
+        svg_bs
+          .selectAll("circle")
+          .transition()
+          .duration(700)
           .attr("fill", function(d,i) {return i%4==0?"#3CB371":"#d5d5d5";});
-
+          
+        svg_bs
+          .selectAll(".avg_return")
+          .attr("fill", "#fff");
     
     }
   };
-  
   
   // scrollama event handlers
   function handleStepEnter_bs(response) {
@@ -460,7 +483,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     // update graphic based on step
     // figure_bs
     //   .select("p").text(response.index + 1);
-    update_bs(response.index);
+    update_bs(response.index, response.direction);
   }
   
   function setupStickyfill_bs() {
@@ -487,84 +510,6 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     window.addEventListener("resize", handleResize_bs);
   }
   
-  /*
-  function* gen(n) {
-
-    var parentDiv = document.getElementById("my_bootstrap_dataviz");
-    const width = parentDiv.clientWidth;
-    const height = 400;
-    const radius = 5;
-    const dodge = dodger(radius * 2 + 1);
-    const margin = { top: 0, right: 10, bottom: 20, left: 10 };
-  
-    // Set real returns to the value of S&P minus 
-    const values = real_returns;
-
-  
-    const x = d3.scaleLinear(d3.extent(values), [
-      margin.left,
-      width - margin.right
-    ]);
-    const svg = d3
-      .select("#my_bootstrap_dataviz")
-      .append("svg")
-      .attr("width", width)
-      .attr("height", height)
-      .style("overflow", "visible");
-  
-    // var fillScale = d3.scaleSequentialLog(chroma.interpolateSinebow)
-  
-    svg
-      .append("g")
-      .attr("transform", `translate(0,${height - margin.bottom})`)
-      .call(d3.axisBottom(x));
-  
-    function dodger(radius) {
-      const radius2 = radius ** 2;
-      const bisect = d3.bisector(d => d.x);
-      const circles = [];
-  
-      return function(x) {
-        const l = bisect.left(circles, x - radius);
-        const r = bisect.right(circles, x + radius);
-        let y = 0;
-        for (let i = l; i < r; ++i) {
-          const { x: xi, y: yi } = circles[i];
-          const x2 = (xi - x) ** 2;
-          const y2 = (yi - y) ** 2;
-          if (radius2 > x2 + y2) {
-            y = yi + Math.sqrt(radius2 - x2) + 1e-6;
-            i = l - 1;
-            continue;
-          }
-        }
-        circles.splice(bisect.left(circles, x, l, r), 0, { x, y }); //what is this?
-        return y;
-      };
-    }
-  
-    for (let i = 0; i < n; ++i) {
-      if (i % 5 === 0) yield svg.node();
-      const cx = x(values[i]); // x(values[i]);->what is this?
-      const cy = height - margin.bottom - dodge(cx) - radius - 1;
-  
-      svg
-        .append("circle")
-        .attr("cx", cx)
-        .attr("cy", -400)
-        .attr("r", radius)
-        .attr("fill", "#3CB371") //purple
-        .transition()
-        .duration(650)
-        .ease(d3.easeBounce)
-        .attr("cy", cy);
-    }
-  
-    yield svg.node();
-  }
-  
-  */
-  
   
   // Calls for the first visualization
   // kick things off
@@ -590,15 +535,27 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     width_bs - margin_bs.right
   ]);
   
-  const svg_bs = d3
+  const cx_avg = x_bs(d3.mean(values));
+  const cy_avg = height_bs - margin_bs.bottom - dodge_bs(cx_avg) - radius_bs - 1;
+  
+  const cx_all = [];
+  const cy_all = [];
+  for (let i = 0; i < values.length; ++i) {
+          cx_all.push(x_bs(values[i]));
+          cy_all.push(height_bs - margin_bs.bottom - dodge_bs(cx_all[i]) - radius_bs - 1);
+          };
+
+  var svg_bs = d3
     .select("#my_bootstrap_dataviz")
     .append("svg")
     .attr("width", width_bs)
     .attr("height", height_bs)
     .style("overflow", "visible");
-  
-  
-  
+
+  svg_bs
+    .append("g")
+    .attr("transform", `translate(0,${height_bs - margin_bs.bottom})`)
+    .call(d3.axisBottom(x_bs));
   
   init_bs();
   
@@ -618,9 +575,6 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
    years_coasting = goal_fire_age - goal_coast_fire_age;
    full_years_contributing = goal_fire_age - age;
    
-   
-  
-   
   // set the dimensions and margins of the graph
   const margin = {top: 10, right: 30, bottom: 30, left: 50},
     // width = 460 - margin.left - margin.right,
@@ -629,8 +583,6 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     width = parentDivmd.clientWidth - margin.left - margin.right;
     height = 400;
   
-    
-    
   // append the svg object to the body of the page
   const svg = d3.select("#my_dataviz")
     .append("svg")
