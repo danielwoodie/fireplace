@@ -46,11 +46,11 @@ author_info:
       </div>
       <div class="step" data-step="4">
         <p>Really? 8%?</p>
-        <div>I don't make the rules. This is just what people use. If you want to be more conservative, you can use 5% or 6% returns.</div>
+        <div>I don't make the rules. This is just what people use. If you want to be more conservative, you can use 5% or 6%.</div>
       </div>
       <div class="step" data-step="5">
         <p>Seriously?</p>
-        <div>If you want to be more optimistic, you could use 10% but people generally don't recommend expecting much higher than that.</div>
+        <div>If you want to go higher, you could use 10% but people generally don't go much higher than that.</div>
       </div>
       <div class="step" data-step="6">
         <p>The Reality</p>
@@ -82,7 +82,7 @@ author_info:
       </div>
       <div class="step" data-step="12">
       <p>So What?</p>
-        <div>Taken together, these real returns could be used to provide not just single estimates but a distribution of possible outcomes.
+        <div>These real returns could be used to provide not just single estimates but a distribution of possible outcomes.
         </div>
       </div>
     </article>
@@ -123,32 +123,44 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   </section>
   <section id="scrolly2">
     <figure>
-      <p>0</p>
+      <!-- <p>0</p> -->
       <div id="my_dataviz"></div>
     </figure>
     <article>
       <div class="step" data-step="1">
         <p>FIRE Number</p>
-        <div>Your FIRE number is 25 times your annual expenses. For example, if you annually spend $100,000 then your FIRE number is $2,500,000 (25 x $100k).</div>
+        <div>Your FIRE number is 25 times your annual expenses.</div>
       </div>
       <div class="step" data-step="2">
+        <p>Wait, what?</p>
+        <div>For example, if you annually spend $100,000 then your FIRE number is $2.5M (25 x $100k).</div>
+      </div>
+      <div class="step" data-step="3">
+        <p>The 4% Rule</p>
+        <div>This rule says that you will generally be able to spend 4% of your portfolio in retirement ($2.5M * .04 = $100k).</div>
+      </div>
+      <div class="step" data-step="4">
+        <p>Getting There</p>
+        <div>Fortunately, our investments can compound and this compounding can accelerate our growth.</div>
+      </div>
+      <div class="step" data-step="5">
         <p>Using 8%</p>
         <div>We can get an idea of when and what it will take to reach our FIRE number.</div>
       </div>
-      <div class="step" data-step="3">
-        <p>Future Value</p>
-        <div>An important lesson is that wealth grows exponentially. As such, to reach $2.5M you don't need to invest $2.5M cash.</div>
+      <div class="step" data-step="6">
+        <p>The Problem</p>
+        <div>This only provides a single estimate but in reality there's a lot of potential ways this can go.</div>
       </div>
-      <div class="step" data-step="4">
-        <p>Future Value</p>
-        <div>An important lesson is that wealth grows exponentially. As such, to reach $2.5M you don't need to invest $2.5M cash.</div>
+      <div class="step" data-step="7">
+        <p>The Solution</p>
+        <div>Using a bootstrap simulation we can get a distribution of potential outcomes -- helping us understand both the low-end and high-end.</div>
       </div>
-      <div class="step" data-step="5">
+      <div class="step" data-step="8">
         <p>Using Actual Returns</p>
         <div>We can get a potentially more realistic idea of what can happen over a longer time period.
         </div>
       </div>
-      <div class="step" data-step="6">
+      <div class="step" data-step="9">
         <p>Bootstrap Returns</p>
         <div>By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.</div>
       </div>
@@ -780,8 +792,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
       return i === response.index;
     });
     // update graphic based on step
-    figure
-      .select("p").text(response.index + 1);
+    // figure.select("p").text(response.index + 1);
     update(response.index + 1);
   }
   function setupStickyfill() {
