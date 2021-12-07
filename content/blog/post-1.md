@@ -631,40 +631,92 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   
   // Create a function that takes a dataset as input and update the plot:
   function update(myindex) {
-  
-    var data = [
-        {x: 0, y: 2500000},
-        {x: 20, y:2500000}
-      ];
-  
-    // Create the X axis:
-    x.domain([0, d3.max(data, function(d) { return d.x }) ]);
-    svg.selectAll(".myXaxis")
-      .call(xAxis);
       
-    // create the Y axis
-    y.domain([0, d3.max(data, function(d) { return d.y  }) + 200000 ]);
-    svg.selectAll(".myYaxis")
-      .call(yAxis);
-  
     if (myindex == 1) {
     
+      // create the Y axis
+      y.domain([0, d3.max(tmp_data, function(d) { return d.y  }) + 200000 ]);
+      
       // Create scales
       const yScale = d3
         .scaleLinear()
         .range([height, 0])
-        .domain([0, d3.max(data, function(d) { return d.y  }) + 200000 ]);
+        .domain([0, d3.max(tmp_data, function(d) { return d.y  }) + 200000 ]);
         
       const xScale = d3
         .scaleLinear()
         .range([0, width])
-        .domain(d3.extent(data, dataPoint => dataPoint.x));
+        .domain(d3.extent(tmp_data, dataPoint => dataPoint.x));
         
       const line = d3
            .line()
            .x(d => xScale(d.x))
            .y(d => yScale(d.y));
 
+      // Add path
+      const path = svg
+        .append("path")
+        .datum(tmp_data)
+        .attr("fill", "none")
+        .attr("stroke", "black")
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("stroke-width", 1.5)
+        .attr("d", line);
+
+      const pathLength = path.node().getTotalLength();
+      
+      svg.selectAll(".myYaxis")
+        .transition()
+        .duration(1000)
+        .call(yAxis);
+      
+      svg.append("text")
+        .attr("x", margin.left/2)
+        .attr("y", margin.top)
+        .text("FIRE Number $2.5M");
+      
+      const transitionPath = d3
+        .transition()
+        .ease(d3.easeSin)
+        .duration(2000);
+
+      path
+        .attr("stroke-dashoffset", pathLength)
+        .attr("stroke-dasharray", pathLength)
+        .transition(transitionPath)
+        .attr("stroke-dashoffset", 0);
+      
+    } else if (myindex == 2) {
+    
+      var data = [
+        {ser1: 0, ser2: 0},
+        {ser1: 10, ser2: 750000},
+        {ser1: 20, ser2:2500000}
+      ];
+      
+      // Create scales
+      const yScale = d3
+        .scaleLinear()
+        .range([height, 0])
+        .domain([0, d3.max(data, function(d) { return d.ser2  }) + 200000 ]);
+        
+      const xScale = d3
+        .scaleLinear()
+        .range([0, width])
+        .domain(d3.extent(data, dataPoint => dataPoint.ser1));
+        
+      const line = d3
+           .line()
+           .x(d => xScale(d.ser1))
+           .y(d => yScale(d.ser2));
+      
+      // Create the X axis:
+      x.domain([0, d3.max(data, function(d) { return d.ser1 }) ]);
+        
+      // create the Y axis
+      y.domain([0, d3.max(data, function(d) { return d.ser2  }) + 200000 ]);
+      
       // Add path
       const path = svg
         .append("path")
@@ -678,6 +730,11 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
 
       const pathLength = path.node().getTotalLength();
       
+      svg.selectAll(".myYaxis")
+        .transition()
+        .duration(1000)
+        .call(yAxis);
+      
       const transitionPath = d3
         .transition()
         .ease(d3.easeSin)
@@ -688,50 +745,10 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         .attr("stroke-dasharray", pathLength)
         .transition(transitionPath)
         .attr("stroke-dashoffset", 0);
-      
+        
     } 
     
-    
-    /* else if (myindex == 3) {
-    
-    var data = [
-      {ser1: 0, ser2: 2500000},
-      {ser1: 20, ser2:2500000}
-    ];
-    
-    // Create the X axis:
-    x.domain([0, d3.max(data, function(d) { return d.ser1 }) ]);
-    
-    svg.selectAll(".myXaxis").transition()
-      .duration(3000)
-      .call(xAxis);
-      
-    // create the Y axis
-    y.domain([0, d3.max(data, function(d) { return d.ser2  }) + 200000 ]);
-    svg.selectAll(".myYaxis")
-      .transition()
-      .duration(3000)
-      .call(yAxis);
-      
-    // Create a update selection: bind to the new data
-    const u = svg.selectAll(".lineTest")
-      .data([data], function(d){return d.ser1 });
-      
-    // Updata the line
-    u
-      .join("path")
-      .attr("class","lineTest")
-      .transition()
-      .ease(d3.easeSin)
-      .duration(3000)
-      .attr("d", d3.line()
-        .x(function(d) { return x(d.ser1); })
-        .y(function(d) { return y(d.ser2); }))
-        .attr("fill", "none")
-        .attr("stroke", "black")
-        .attr("stroke-width", 3.5)
-        
-    } else if (myindex == 4) {
+    /* else if (myindex == 4) {
     
     var data = [
       {ser1: 0, ser2: 2500000},
@@ -790,6 +807,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     // 3. tell scrollama to update new element dimensions
     scroller.resize();
   }
+  
   // scrollama event handlers
   function handleStepEnter(response) {
     console.log(response);
@@ -802,11 +820,13 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     // figure.select("p").text(response.index + 1);
     update(response.index);
   }
+  
   function setupStickyfill() {
     d3.selectAll(".sticky").each(function() {
       Stickyfill.add(this);
     });
   }
+  
   function init() {
     setupStickyfill();
     // 1. force a resize on load to ensure proper dimensions are sent to scrollama
@@ -847,13 +867,23 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   const xAxis = d3.axisBottom().scale(x);
   svg.append("g")
     .attr("transform", `translate(0, ${height})`)
-    .attr("class","myXaxis")
+    .attr("class","myXaxis");
     
   // Initialize an Y axis
   const y = d3.scaleLinear().range([height, 0]);
   const yAxis = d3.axisLeft().scale(y);
   svg.append("g")
     .attr("class","myYaxis");
+    
+  var tmp_data = [
+        {x: 0, y: 2500000},
+        {x: 20, y:2500000}
+      ];
+  
+  // Create the X axis:
+  x.domain([0, d3.max(tmp_data, function(d) { return d.x }) ]);
+  svg.selectAll(".myXaxis")
+    .call(xAxis);
   
   // using d3 for convenience
   var main = d3.select("main");
