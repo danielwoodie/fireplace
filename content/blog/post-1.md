@@ -136,31 +136,35 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         <div>For example, if you annually spend $100,000 then your FIRE number is $2.5M (25 x $100k).</div>
       </div>
       <div class="step" data-step="3">
-        <p>The 4% Rule</p>
-        <div>This rule says that you will generally be able to spend 4% of your portfolio in retirement ($2.5M * .04 = $100k).</div>
+        <p>Then what?</p>
+        <div>This is your target. Now it's time to come up with a savings plan to reach your target.</div>
       </div>
       <div class="step" data-step="4">
         <p>Getting There</p>
-        <div>Fortunately, our investments can compound and this compounding can accelerate our growth.</div>
+        <div>Starting from $0, if you're able to save $75,000/year then you'd be able to reach your goal within 20 years.</div>
       </div>
       <div class="step" data-step="5">
         <p>Using 8%</p>
-        <div>We can get an idea of when and what it will take to reach our FIRE number.</div>
+        <div>This scenario uses a flat 8% annual return. Where these lines cross is where you hit  your number and are able to retire early.</div>
       </div>
       <div class="step" data-step="6">
+        <p>FIRE Age</p>
+        <div>We can also get an idea of how long it will take you to reach your goal. In this case, about 17 years.</div>
+      </div>
+      <div class="step" data-step="7">
         <p>The Problem</p>
         <div>This only provides a single estimate but in reality there's a lot of potential ways this can go.</div>
       </div>
-      <div class="step" data-step="7">
+      <div class="step" data-step="8">
         <p>The Solution</p>
         <div>Using a bootstrap simulation we can get a distribution of potential outcomes -- helping us understand both the low-end and high-end.</div>
       </div>
-      <div class="step" data-step="8">
+      <div class="step" data-step="9">
         <p>Using Actual Returns</p>
         <div>We can get a potentially more realistic idea of what can happen over a longer time period.
         </div>
       </div>
-      <div class="step" data-step="9">
+      <div class="step" data-step="10">
         <p>Bootstrap Returns</p>
         <div>By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.</div>
       </div>
@@ -629,11 +633,20 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   
   // Create a function that takes a dataset as input and update the plot:
   function update(myindex) {
-      
+  
+  
     if (myindex == 0) {
     
       // create the Y axis
       y.domain([0, d3.max(fire_number_data, function(d) { return d.y  }) + 200000 ]);
+      
+      svg.selectAll(".myYaxis")
+        .transition()
+        .duration(1000)
+        .call(yAxis);
+    
+    } else if (myindex == 1) {
+    
       
       // Create scales
       const yScale = d3
@@ -665,11 +678,6 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
 
       const pathLength = path.node().getTotalLength();
       
-      svg.selectAll(".myYaxis")
-        .transition()
-        .duration(1000)
-        .call(yAxis);
-      
       svg.append("text")
         .attr("x", margin.left/2)
         .attr("y", margin.top)
@@ -687,7 +695,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         .transition(transitionPath)
         .attr("stroke-dashoffset", 0);
       
-    } else if (myindex == 2) {
+    } else if (myindex == 3) {
     
       var data = [
         {ser1: 0, ser2: 0},
@@ -785,7 +793,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
          .attr("d", fire_number_line);
       
         
-    } else if (myindex == 3) {
+    } else if (myindex == 5) {
     
       var fire_age = [
         {ser1: 16.85, ser2: 0},
