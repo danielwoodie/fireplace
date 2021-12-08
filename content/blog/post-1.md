@@ -282,8 +282,8 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     text-align: center;
     padding: 1rem;
     font-size: 1.5rem;
-    background-color: #3b3b3b;
-    color: fff;
+    background-color: #d5d5d5;
+    color: #fff;
   }
   .step div {
     padding-left: .5rem;
@@ -572,14 +572,12 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   init_bs();
   
   
-  
-  
   // Set initial parameter values
-  const age = 20;
-   goal_coast_fire_age = 50;
-   goal_fire_age = 50;
+  const age = 0;
+   goal_coast_fire_age = 20;
+   goal_fire_age = 20;
    annual_expenses = 100000;
-   current_investments = 100000;
+   current_investments = 0;
    annual_contributions = 75000;
   
   // Get years contributing, years coasting, and full years contributing
@@ -606,7 +604,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   }
   
   // Repeat the scenario
-  function repeat_bootstrap(returns, years_contributing, starting_amount, annual_contributions,   num_repeats) {
+  function repeat_bootstrap(returns, years_contributing, starting_amount, annual_contributions, num_repeats) {
     var tmp = [];
     for (var i = 0; i < num_repeats; i++) {
       tmp.push(get_bootstrap(real_returns, coast_years_contributing, current_investments,   annual_contributions));
@@ -632,23 +630,23 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   // Create a function that takes a dataset as input and update the plot:
   function update(myindex) {
       
-    if (myindex == 1) {
+    if (myindex == 0) {
     
       // create the Y axis
-      y.domain([0, d3.max(tmp_data, function(d) { return d.y  }) + 200000 ]);
+      y.domain([0, d3.max(fire_number_data, function(d) { return d.y  }) + 200000 ]);
       
       // Create scales
       const yScale = d3
         .scaleLinear()
         .range([height, 0])
-        .domain([0, d3.max(tmp_data, function(d) { return d.y  }) + 200000 ]);
+        .domain([0, d3.max(fire_number_data, function(d) { return d.y  }) + 200000 ]);
         
       const xScale = d3
         .scaleLinear()
         .range([0, width])
-        .domain(d3.extent(tmp_data, dataPoint => dataPoint.x));
+        .domain(d3.extent(fire_number_data, dataPoint => dataPoint.x));
         
-      const line = d3
+      const fire_number_line = d3
            .line()
            .x(d => xScale(d.x))
            .y(d => yScale(d.y));
@@ -656,13 +654,14 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
       // Add path
       const path = svg
         .append("path")
-        .datum(tmp_data)
+        .datum(fire_number_data)
+        .attr("class", "fire_number_line")
         .attr("fill", "none")
         .attr("stroke", "black")
         .attr("stroke-linejoin", "round")
         .attr("stroke-linecap", "round")
         .attr("stroke-width", 1.5)
-        .attr("d", line);
+        .attr("d", fire_number_line);
 
       const pathLength = path.node().getTotalLength();
       
@@ -674,6 +673,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
       svg.append("text")
         .attr("x", margin.left/2)
         .attr("y", margin.top)
+        .attr("class", "firenumber")
         .text("FIRE Number $2.5M");
       
       const transitionPath = d3
@@ -691,8 +691,26 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     
       var data = [
         {ser1: 0, ser2: 0},
-        {ser1: 10, ser2: 750000},
-        {ser1: 20, ser2:2500000}
+        {ser1: 1, ser2: 75000},
+        {ser1: 2, ser2: 156000},
+        {ser1: 3, ser2: 243480},
+        {ser1: 4, ser2: 337958.40},
+        {ser1: 5, ser2: 439995.07},
+        {ser1: 6, ser2: 550194.68},
+        {ser1: 7, ser2: 669210.25},
+        {ser1: 8, ser2: 797747.07},
+        {ser1: 9, ser2: 936566.84},
+        {ser1: 10, ser2: 1086492.18},
+        {ser1: 11, ser2: 1248411.56},
+        {ser1: 12, ser2: 1423284.48},
+        {ser1: 13, ser2: 1612147.24},
+        {ser1: 14, ser2: 1816119.02},
+        {ser1: 15, ser2: 2036408.54},
+        {ser1: 16, ser2: 2274321.23},
+        {ser1: 17, ser2: 2531266.93},
+        {ser1: 18, ser2: 2808768.28},
+        {ser1: 19, ser2: 3108469.74},
+        {ser1: 20, ser2: 3432147.32}
       ];
       
       // Create scales
@@ -722,10 +740,10 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         .append("path")
         .datum(data)
         .attr("fill", "none")
-        .attr("stroke", "black")
+        .attr("stroke", "#3CB371")
         .attr("stroke-linejoin", "round")
         .attr("stroke-linecap", "round")
-        .attr("stroke-width", 1.5)
+        .attr("stroke-width", 3)
         .attr("d", line);
 
       const pathLength = path.node().getTotalLength();
@@ -734,6 +752,15 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         .transition()
         .duration(1000)
         .call(yAxis);
+      
+      svg.select(".firenumber")
+        .remove();
+      
+      svg.append("text")
+        .attr("x", margin.left/2)
+        .attr("y", margin.top + 300)
+        .attr("class", "investments")
+        .text("Value of Investments");
       
       const transitionPath = d3
         .transition()
@@ -745,52 +772,157 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         .attr("stroke-dasharray", pathLength)
         .transition(transitionPath)
         .attr("stroke-dashoffset", 0);
+      
+      
+      const fire_number_line = d3
+           .line()
+           .x(d => xScale(d.x))
+           .y(d => yScale(d.y));
+      
+      svg.select(".fire_number_line")
+         .transition()
+         .duration(1000)
+         .attr("d", fire_number_line);
+      
         
-    } 
+    } else if (myindex == 3) {
     
-    /* else if (myindex == 4) {
-    
-    var data = [
-      {ser1: 0, ser2: 2500000},
-      {ser1: 20, ser2:2500000}
-    ];
-    var tmp_test = repeat_bootstrap(real_returns, coast_years_contributing, current_investments,   annual_contributions, 10);
-    var average_tmp_test = get_average(tmp_test);
-    var data_sim = []
-    for (var i = 0; i < average_tmp_test.length; i++) {
-      data_sim[i] = {ser1: i, ser2: average_tmp_test[i]}
-    }
-    // Create the X axis:
-    x.domain([0, d3.max(data_sim, function(d) { return d.ser1 }) ]);
-    svg.selectAll(".myXaxis").transition()
-      .duration(3000)
-      .call(xAxis);
-    // create the Y axis
-    y.domain([0, d3.max(data_sim, function(d) { return d.ser2  }) ]);
-    svg.selectAll(".myYaxis")
-      .transition()
-      .duration(3000)
-      .call(yAxis);
-    // Create a update selection: bind to the new data
-    const u = svg.selectAll(".lineTest")
-    u
-      .data([data], function(d){ return d.ser1 })
-      .join("path")
-      .attr("class","lineTest")
-      .transition()
-      .duration(3000)
-      .attr("d", d3.line()
-        .x(function(d) { return x(d.ser1); })
-        .y(function(d) { return y(d.ser2); }))
+      var fire_age = [
+        {ser1: 16.85, ser2: 0},
+        {ser1: 16.85, ser2:3500000}
+      ];
+      
+      
+      var data = [
+        {ser1: 0, ser2: 0},
+        {ser1: 1, ser2: 75000},
+        {ser1: 2, ser2: 156000},
+        {ser1: 3, ser2: 243480},
+        {ser1: 4, ser2: 337958.40},
+        {ser1: 5, ser2: 439995.07},
+        {ser1: 6, ser2: 550194.68},
+        {ser1: 7, ser2: 669210.25},
+        {ser1: 8, ser2: 797747.07},
+        {ser1: 9, ser2: 936566.84},
+        {ser1: 10, ser2: 1086492.18},
+        {ser1: 11, ser2: 1248411.56},
+        {ser1: 12, ser2: 1423284.48},
+        {ser1: 13, ser2: 1612147.24},
+        {ser1: 14, ser2: 1816119.02},
+        {ser1: 15, ser2: 2036408.54},
+        {ser1: 16, ser2: 2274321.23},
+        {ser1: 17, ser2: 2531266.93},
+        {ser1: 18, ser2: 2808768.28},
+        {ser1: 19, ser2: 3108469.74},
+        {ser1: 20, ser2: 3432147.32}
+      ];
+      
+      svg.select(".investments")
+        .remove();
+      
+      svg.append("text")
+        .attr("x", margin.left + margin.right + 200)
+        .attr("y", margin.top + 300)
+        .attr("class", "fire_age")
+        .text("FIRE Age");
+      
+      // Create scales
+      const yScale = d3
+        .scaleLinear()
+        .range([height, 0])
+        .domain([0, d3.max(data, function(d) { return d.ser2  }) + 200000 ]);
+        
+      const xScale = d3
+        .scaleLinear()
+        .range([0, width])
+        .domain(d3.extent(data, dataPoint => dataPoint.ser1));
+       
+      const fire_age_line = d3
+           .line()
+           .x(d => xScale(d.ser1))
+           .y(d => yScale(d.ser2));
+      
+      // Add path
+      const fire_age_path = svg
+        .append("path")
+        .datum(fire_age)
         .attr("fill", "none")
         .attr("stroke", "#3CB371")
-        .attr("stroke-width", 3.5);
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("stroke-width", 3)
+        .attr("d", fire_age_line);
+
+      const fire_age_path_length = fire_age_path.node().getTotalLength();
+      
+      const fire_age_transition_path = d3
+        .transition()
+        .ease(d3.easeSin)
+        .duration(2000);
+
+      fire_age_path
+        .attr("stroke-dashoffset", fire_age_path_length)
+        .attr("stroke-dasharray", fire_age_path_length)
+        .transition(fire_age_transition_path)
+        .attr("stroke-dashoffset", 0);
+      
+      const fire_number_line = d3
+           .line()
+           .x(d => xScale(d.x))
+           .y(d => yScale(d.y));
+      
+      svg.select(".fire_number_line")
+         .transition()
+         .duration(1000)
+         .attr("d", fire_number_line);
+      
+      
+/*
+      
+      var tmp_test = repeat_bootstrap(real_returns, coast_years_contributing, current_investments,   annual_contributions, 10);
+      var average_tmp_test = get_average(tmp_test);
+      var data_sim = []
+      
+      for (var i = 0; i <= average_tmp_test.length; i++) {
+        data_sim[i] = {ser1: i, ser2: average_tmp_test[i]}
+      }
+      
+      // Create the X axis:
+      x.domain([0, d3.max(data_sim, function(d) { return d.ser1 }) ]);
+      svg.selectAll(".myXaxis").transition()
+        .duration(3000)
+        .call(xAxis);
+        
+      // create the Y axis
+      y.domain([0, d3.max(data_sim, function(d) { return d.ser2  }) ]);
+      svg.selectAll(".myYaxis")
+        .transition()
+        .duration(3000)
+        .call(yAxis);
+      
+      // Create a update selection: bind to the new data
+      const u = svg.selectAll(".lineTest")
+      
+      u
+        .data([data], function(d){ return d.ser1 })
+        .join("path")
+        .attr("class","lineTest")
+        .transition()
+        .duration(3000)
+        .attr("d", d3.line()
+          .x(function(d) { return x(d.ser1); })
+          .y(function(d) { return y(d.ser2); }))
+          .attr("fill", "none")
+          .attr("stroke", "#3CB371")
+          .attr("stroke-width", 3.5);
+          
+*/
         
     } else if (myindex == 5) {
     
     } else if (myindex == 6) {
     
-    } */
+    }
   };
   
   // generic window resize listener event
@@ -875,13 +1007,13 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   svg.append("g")
     .attr("class","myYaxis");
     
-  var tmp_data = [
+  var fire_number_data = [
         {x: 0, y: 2500000},
         {x: 20, y:2500000}
       ];
   
   // Create the X axis:
-  x.domain([0, d3.max(tmp_data, function(d) { return d.x }) ]);
+  x.domain([0, d3.max(fire_number_data, function(d) { return d.x }) ]);
   svg.selectAll(".myXaxis")
     .call(xAxis);
   
