@@ -638,7 +638,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     if (myindex == 0) {
     
       // create the Y axis
-      y.domain([0, d3.max(fire_number_data, function(d) { return d.y  }) + 200000 ]);
+      y.domain([0, 3432147.32 + 200000 ]);
       
       svg.selectAll(".myYaxis")
         .transition()
@@ -647,12 +647,11 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     
     } else if (myindex == 1) {
     
-      
       // Create scales
       const yScale = d3
         .scaleLinear()
         .range([height, 0])
-        .domain([0, d3.max(fire_number_data, function(d) { return d.y  }) + 200000 ]);
+        .domain([0, 3432147.32 + 200000 ]);
         
       const xScale = d3
         .scaleLinear()
@@ -670,17 +669,17 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         .datum(fire_number_data)
         .attr("class", "fire_number_line")
         .attr("fill", "none")
-        .attr("stroke", "black")
+        .attr("stroke", "#3CB371")
         .attr("stroke-linejoin", "round")
         .attr("stroke-linecap", "round")
-        .attr("stroke-width", 1.5)
+        .attr("stroke-width", 3)
         .attr("d", fire_number_line);
 
       const pathLength = path.node().getTotalLength();
       
       svg.append("text")
-        .attr("x", margin.left/2)
-        .attr("y", margin.top)
+        .attr("x", xScale(2))
+        .attr("y", yScale(2700000))
         .attr("class", "firenumber")
         .text("FIRE Number $2.5M");
       
@@ -694,6 +693,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         .attr("stroke-dasharray", pathLength)
         .transition(transitionPath)
         .attr("stroke-dashoffset", 0);
+      
       
     } else if (myindex == 3) {
     
@@ -747,6 +747,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
       const path = svg
         .append("path")
         .datum(data)
+        .attr("class", "future_value_line")
         .attr("fill", "none")
         .attr("stroke", "#3CB371")
         .attr("stroke-linejoin", "round")
@@ -761,12 +762,9 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         .duration(1000)
         .call(yAxis);
       
-      svg.select(".firenumber")
-        .remove();
-      
       svg.append("text")
-        .attr("x", margin.left/2)
-        .attr("y", margin.top + 300)
+        .attr("x", xScale(2))
+        .attr("y", yScale(1000000))
         .attr("class", "investments")
         .text("Value of Investments");
       
@@ -780,26 +778,18 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         .attr("stroke-dasharray", pathLength)
         .transition(transitionPath)
         .attr("stroke-dashoffset", 0);
-      
-      
-      const fire_number_line = d3
-           .line()
-           .x(d => xScale(d.x))
-           .y(d => yScale(d.y));
-      
+
       svg.select(".fire_number_line")
          .transition()
          .duration(1000)
-         .attr("d", fire_number_line);
+         .attr("stroke", "#d5d5d5");
       
-        
     } else if (myindex == 5) {
     
       var fire_age = [
         {ser1: 16.85, ser2: 0},
         {ser1: 16.85, ser2:3500000}
       ];
-      
       
       var data = [
         {ser1: 0, ser2: 0},
@@ -825,14 +815,6 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         {ser1: 20, ser2: 3432147.32}
       ];
       
-      svg.select(".investments")
-        .remove();
-      
-      svg.append("text")
-        .attr("x", margin.left + margin.right + 200)
-        .attr("y", margin.top + 300)
-        .attr("class", "fire_age")
-        .text("FIRE Age");
       
       // Create scales
       const yScale = d3
@@ -844,6 +826,12 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         .scaleLinear()
         .range([0, width])
         .domain(d3.extent(data, dataPoint => dataPoint.ser1));
+        
+      svg.append("text")
+        .attr("x", xScale(14))
+        .attr("y", yScale(1000000))
+        .attr("class", "fire_age")
+        .text("FIRE Age");
        
       const fire_age_line = d3
            .line()
@@ -854,6 +842,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
       const fire_age_path = svg
         .append("path")
         .datum(fire_age)
+        .attr("class", "fire_age_line")
         .attr("fill", "none")
         .attr("stroke", "#3CB371")
         .attr("stroke-linejoin", "round")
@@ -866,7 +855,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
       const fire_age_transition_path = d3
         .transition()
         .ease(d3.easeSin)
-        .duration(2000);
+        .duration(1500);
 
       fire_age_path
         .attr("stroke-dashoffset", fire_age_path_length)
@@ -874,15 +863,10 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         .transition(fire_age_transition_path)
         .attr("stroke-dashoffset", 0);
       
-      const fire_number_line = d3
-           .line()
-           .x(d => xScale(d.x))
-           .y(d => yScale(d.y));
-      
-      svg.select(".fire_number_line")
+      svg.select(".future_value_line")
          .transition()
          .duration(1000)
-         .attr("d", fire_number_line);
+         .attr("stroke", "#d5d5d5");
       
       
 /*
