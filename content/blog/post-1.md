@@ -198,26 +198,13 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
 
 <style>
 
-  #scrolly1, #scrolly2 {
-        position: relative;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        padding: 1rem;
-  }
 
-  #scrolly1, #scrolly2 > * {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-  }
-/*
   #scrolly1, #scrolly2 {
     position: relative;
     background-color: #ffffff;
     padding: 1rem;
   }
-*/
+
   article {
     position: relative;
     padding: 0;
