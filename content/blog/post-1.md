@@ -623,13 +623,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   
     if (myindex == 0) {
     
-      // create the Y axis
-      y.domain([0, 3432147.32 + 200000 ]);
       
-      svg.selectAll(".myYaxis")
-        .transition()
-        .duration(1000)
-        .call(yAxis);
     
     } else if (myindex == 1) {
     
@@ -854,7 +848,6 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
          .duration(1000)
          .attr("stroke", "#d5d5d5");
       
-      
 /*
       
       var tmp_test = repeat_bootstrap(real_returns, coast_years_contributing, current_investments,   annual_contributions, 10);
@@ -994,6 +987,13 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   x.domain([0, d3.max(fire_number_data, function(d) { return d.x }) ]);
   svg.selectAll(".myXaxis")
     .call(xAxis);
+  
+  // create the Y axis
+  y.domain([0, 3432147.32 + 200000 ]);
+  svg.selectAll(".myYaxis")
+    .transition()
+    .duration(1000)
+    .call(yAxis);
   
   // using d3 for convenience
   var main = d3.select("main");
