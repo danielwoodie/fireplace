@@ -26,6 +26,69 @@ author_info:
       <p>The FIRE community has many rules of thumbs like the 4% rule or if you invest your entirety of annual expenses in an index fund, you'll likely reach FI (or 25x your annual expenses) in about 10 years.  
     </p>
   </section>
+  
+  <section id="scrolly2">
+    <figure>
+      <!-- <p>0</p> -->
+      <div id="my_dataviz"></div>
+    </figure>
+    <article>
+      <div class="step" data-step="1">
+        <p>FIRE Number</p>
+        <div>Your FIRE number is 25 times your annual expenses.</div>
+      </div>
+      <div class="step" data-step="2">
+        <p>Wait, what?</p>
+        <div>For example, if you annually spend $100,000 then your FIRE number is $2.5M (25 x $100k).</div>
+      </div>
+      <div class="step" data-step="3">
+        <p>Then what?</p>
+        <div>This is your target. Now it's time to come up with a savings plan to reach your target.</div>
+      </div>
+      <div class="step" data-step="4">
+        <p>Getting There</p>
+        <div>Starting from $0, if you're able to save $75,000/year then you'd be able to reach your goal within 20 years.</div>
+      </div>
+      <div class="step" data-step="5">
+        <p>Using 8%</p>
+        <div>This scenario uses a flat 8% annual return. Where these lines cross is where you hit  your number and are able to retire early.</div>
+      </div>
+      <div class="step" data-step="6">
+        <p>FIRE Age</p>
+        <div>We can also get an idea of how long it will take you to reach your goal. In this case, about 17 years.</div>
+      </div>
+      <div class="step" data-step="7">
+        <p>The Problem</p>
+        <div>This only provides a single estimate but in reality there's a lot of potential ways this can go.</div>
+      </div>
+    </article>
+  </section>
+  
+<section>
+
+### The Solution: Enter the Bootstrap
+
+Using a bootstrap simulation we can get a distribution of potential outcomes -- helping us understand both the low-end and high-end. Using actual returns, we can get a potentially more realistic idea of what can happen over a longer time period. By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.
+  
+### Enter The Bootstrap
+
+As such, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes. To get an understanding of the distribution, you can instead run a bootstrap simulation. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes.
+
+### Before We Get Too Far Along
+
+I need to mention something about modeling. 
+
+
+>All models are wrong but some are useful.
+>
+> <cite>George Box</cite>
+  
+  
+  </section>  
+  
+  
+  
+  
   <section id="scrolly1">
     <figure>
       <div id="my_bootstrap_dataviz"></div>
@@ -33,7 +96,7 @@ author_info:
     <article>
       <div class="step" data-step="1">
         <p>Average Returns</p>
-        <div>On average, the stock market has returned 8% each year for the last 100 years.</div>
+        <div>As presented earlier, the stock market has returned 8% each year for the last 100 years.</div>
       </div>
       <div class="step" data-step="2">
         <p>How is this used?</p>
@@ -89,86 +152,8 @@ author_info:
   
   <section>
   
-### Enter The Bootstrap
 
-As such, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes. To get an understanding of the distribution, you can instead run a bootstrap simulation. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes.
-
-### Before We Get Too Far Along
-
-I need to mention something about modeling. 
-
-
->All models are wrong but some are useful.
->
-> <cite>George Box</cite>
-
-
-### Distribution of Returns
-
-
-### What does this impact?
-
-Laoreet mauris odio ut nec. Nisl, sed adipiscing dignissim arcu placerat ornare pharetra nec in. Ultrices in nisl potenti vitae tempus. Auctor consectetur luctus eu in amet sagittis. Dis urna, vel hendrerit convallis Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissim mauris, eu, eget
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec et ipsum ullamcorper venenatis fringilla. Pretium, purus eu nec vulputate vel habitant egestas. Congue ornare at ipsum, viverra. Vitae magna faucibus eros, lectus sociis. Etiam nunc amet id dignissim. Feugiat id tempor vel sit in ornare turpis posuere. Eu quisque integer non rhoncus elementum vel. Quis nec viverra lectus augue nec praesent
-
-Pharetra odio amet pellentesque. Egestas nisi adipiscing sed in lectus. Vitae ultrices malesuada aliquet Faucibus consectetur tempus adipiscing vitae. Nec blandit tincidunt nibh nisi, quam volutpat. In lacus laoreet diam risus. Mauris, risus faucibus sagittis sagittis tincidunt id justo. Diam massa pretium consequat mauris viverra. Sagittis eu libero
-
-Laoreet mauris odio ut nec. Nisl, sed adipiscing dignissim arcu placerat ornare pharetra nec in. Ultrices in nisl potenti vitae tempus. Auctor consectetur luctus eu in amet sagittis. Dis urna, vel hendrerit convallis cursus id.
-
-Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissim mauris, eu, eget pharetra odio amet pellentesque. Egestas nisi adipiscing sed in lectus. Vitae ultrices malesuada aliquet dignissim. Faucibus non tristique eu.
   
-  
-  </section>
-  <section id="scrolly2">
-    <figure>
-      <!-- <p>0</p> -->
-      <div id="my_dataviz"></div>
-    </figure>
-    <article>
-      <div class="step" data-step="1">
-        <p>FIRE Number</p>
-        <div>Your FIRE number is 25 times your annual expenses.</div>
-      </div>
-      <div class="step" data-step="2">
-        <p>Wait, what?</p>
-        <div>For example, if you annually spend $100,000 then your FIRE number is $2.5M (25 x $100k).</div>
-      </div>
-      <div class="step" data-step="3">
-        <p>Then what?</p>
-        <div>This is your target. Now it's time to come up with a savings plan to reach your target.</div>
-      </div>
-      <div class="step" data-step="4">
-        <p>Getting There</p>
-        <div>Starting from $0, if you're able to save $75,000/year then you'd be able to reach your goal within 20 years.</div>
-      </div>
-      <div class="step" data-step="5">
-        <p>Using 8%</p>
-        <div>This scenario uses a flat 8% annual return. Where these lines cross is where you hit  your number and are able to retire early.</div>
-      </div>
-      <div class="step" data-step="6">
-        <p>FIRE Age</p>
-        <div>We can also get an idea of how long it will take you to reach your goal. In this case, about 17 years.</div>
-      </div>
-      <div class="step" data-step="7">
-        <p>The Problem</p>
-        <div>This only provides a single estimate but in reality there's a lot of potential ways this can go.</div>
-      </div>
-      <div class="step" data-step="8">
-        <p>The Solution</p>
-        <div>Using a bootstrap simulation we can get a distribution of potential outcomes -- helping us understand both the low-end and high-end.</div>
-      </div>
-      <div class="step" data-step="9">
-        <p>Using Actual Returns</p>
-        <div>We can get a potentially more realistic idea of what can happen over a longer time period.
-        </div>
-      </div>
-      <div class="step" data-step="10">
-        <p>Bootstrap Returns</p>
-        <div>By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.</div>
-      </div>
-    </article>
-  </section>
   
   
   <section>
