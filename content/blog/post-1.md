@@ -28,7 +28,6 @@ author_info:
   </section>
   <section id="scrolly1">
     <figure>
-      <!-- <p>0</p> -->
       <div id="my_bootstrap_dataviz"></div>
     </figure>
     <article>
@@ -374,13 +373,15 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   function handleResize_bs() {
     // 1. update height of step elements
     var stepH = Math.floor(window.innerHeight * 0.25);
-    step_bs.style("height", stepH + "px");
-    step_bs.style("margin-top", stepH + "px");
-    var figureHeight = window.innerHeight / 2;
-    var figureMarginTop = (window.innerHeight - figureHeight) / 2;
+      step_bs.style("height", stepH + "px");
+      step_bs.style("margin-top", stepH*2 + "px");
+      figureHeight = window.innerHeight / 2;
+      figureMarginTop = (window.innerHeight - figureHeight) / 2;
+      
     figure_bs
       .style("height", figureHeight + "px")
       .style("top", figureMarginTop + "px");
+      
     // 3. tell scrollama to update new element dimensions
     scroller_bs.resize();
   }
@@ -922,7 +923,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     // 1. update height of step elements
     var stepH = Math.floor(window.innerHeight * 0.25);
     step.style("height", stepH + "px");
-    step.style("margin-top", stepH + "px");
+    step.style("margin-top", stepH*2 + "px");
     var figureHeight = window.innerHeight / 2;
     var figureMarginTop = (window.innerHeight - figureHeight) / 2;
     figure
@@ -961,7 +962,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     scroller
       .setup({
         step: "#scrolly2 article .step",
-        offset: 0.66,
+        offset: 0.75,
         debug: false
       })
       .onStepEnter(handleStepEnter);
