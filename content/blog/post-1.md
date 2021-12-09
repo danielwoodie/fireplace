@@ -829,7 +829,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         
       svg.append("text")
         .attr("x", xScale(14))
-        .attr("y", yScale(1000000))
+        .attr("y", yScale(500000))
         .attr("class", "fire_age")
         .text("FIRE Age");
        
