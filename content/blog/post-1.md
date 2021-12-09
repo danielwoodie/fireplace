@@ -149,12 +149,7 @@ I need to mention something about modeling.
       </div>
     </article>
   </section>
-  
-  <section>
-  
 
-  
-  
   
   <section>
   
@@ -162,6 +157,21 @@ I need to mention something about modeling.
 
 
 This number is based on some assumptions from the S&P 500. Specifically, the assumption is that the S&P 500, on average, will return about 7% per year over most 10 year time periods. This holds fairly true when looking over the last 100 years -- which includes periods global warfare, hyperinflation, and a few economic crashes. That is to say, it's not cherry-picked to include especially good runs of the stock market.
+
+</section>
+
+
+<section id="scrolly3">
+    <button class="btn btn-primary" onclick="runsim(1)">Run Once</button>
+    <button class="btn btn-primary" onclick="runsim(10)">Run 10x</button>
+    <button class="btn btn-primary" onclick="runsim(100)">Run 100x</button>
+    <button class="btn btn-primary" onclick="reset_sim()">Reset</button>
+    <figure>
+      <div id="random_walk"></div>
+    </figure>
+</section>
+  
+<section>
 
 As you might imagine, using a single value to model market returns can provide a less than precise idea about the range of possibilities when investing. To get an understanding of the distribution, you can instead run a bootstrap simulation. A bootstrap simulation takes actual returns (minus CPI for the corresponding year) and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes.
 
