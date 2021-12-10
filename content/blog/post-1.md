@@ -165,7 +165,6 @@ This number is based on some assumptions from the S&P 500. Specifically, the ass
     <div class="btn-holder">
     <button class="btn btn-primary vis-btn" onclick="runsim(1)">Run Once</button>
     <button class="btn btn-primary vis-btn" onclick="runsim(10)">Run 10x</button>
-    <button class="btn btn-primary vis-btn" onclick="runsim(100)">Run 100x</button>
     <button class="btn btn-primary vis-btn" onclick="runsim(0)">Reset</button>
     </div>
     <figure>
@@ -1108,6 +1107,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   svg_rw.append("text")
     .attr("x", xScale_rw(2))
     .attr("y", yScale_rw(2700000))
+    .attr("z-index", 1000)
     .attr("class", "firenumber_rw")
     .text("FIRE Number $2.5M");
   
