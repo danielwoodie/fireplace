@@ -581,8 +581,8 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   
   // Set initial parameter values
   const age = 0;
-   goal_coast_fire_age = 20;
-   goal_fire_age = 20;
+   goal_coast_fire_age = 21;
+   goal_fire_age = 21;
    annual_expenses = 100000;
    current_investments = 0;
    annual_contributions = 75000;
@@ -1069,12 +1069,59 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     .call(xAxis_rw);
   
   // create the Y axis
-  y_rw.domain([0, 3432147.32 + 200000 ]);
+  y_rw.domain([0, 5000000 ]);
   svg_rw.selectAll(".myYaxis_rw")
     .transition()
     .duration(1000)
     .call(yAxis_rw);
+    
+  // Create scales
+  const yScale_rw = d3
+    .scaleLinear()
+    .range([height_rw, 0])
+    .domain([0, 5000000]);
+        
+  const xScale_rw = d3
+    .scaleLinear()
+    .range([0, width_rw])
+    .domain([0, 20]);
+    
+  const fire_number_line_rw = d3
+           .line()
+           .x(d => xScale_rw(d.x))
+           .y(d => yScale_rw(d.y));
+
+  // Add path
+  const path_rw = svg_rw
+    .append("path")
+    .datum(fire_number_data)
+    .attr("class", "fire_number_line_rw")
+    .attr("fill", "none")
+    .attr("stroke", "#d5d5d5")
+    .attr("stroke-linejoin", "round")
+    .attr("stroke-linecap", "round")
+    .attr("stroke-width", 3)
+    .attr("d", fire_number_line_rw)
+    
+  const pathLength_rw = path_rw.node().getTotalLength();
   
+  svg_rw.append("text")
+    .attr("x", xScale_rw(2))
+    .attr("y", yScale_rw(2700000))
+    .attr("class", "firenumber_rw")
+    .text("FIRE Number $2.5M");
+  
+  const transitionPath_rw = d3
+    .transition()
+    .ease(d3.easeSin)
+    .duration(2000);
+    
+  path_rw
+    .attr("stroke-dashoffset", pathLength_rw)
+    .attr("stroke-dasharray", pathLength_rw)
+    .transition(transitionPath_rw)
+    .attr("stroke-dashoffset", 0);
+        
   // using d3 for convenience
   var main = d3.select("main");
   var scrolly = main.select("#scrolly2");
@@ -1086,51 +1133,23 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     
     if (numsims == 1) {
     
-      var data_rw = [
-        {ser1: 0, ser2: 0},
-        {ser1: 1, ser2: 75000},
-        {ser1: 2, ser2: 156000},
-        {ser1: 3, ser2: 243480},
-        {ser1: 4, ser2: 337958.40},
-        {ser1: 5, ser2: 439995.07},
-        {ser1: 6, ser2: 550194.68},
-        {ser1: 7, ser2: 669210.25},
-        {ser1: 8, ser2: 797747.07},
-        {ser1: 9, ser2: 936566.84},
-        {ser1: 10, ser2: 1086492.18},
-        {ser1: 11, ser2: 1248411.56},
-        {ser1: 12, ser2: 1423284.48},
-        {ser1: 13, ser2: 1612147.24},
-        {ser1: 14, ser2: 1816119.02},
-        {ser1: 15, ser2: 2036408.54},
-        {ser1: 16, ser2: 2274321.23},
-        {ser1: 17, ser2: 2531266.93},
-        {ser1: 18, ser2: 2808768.28},
-        {ser1: 19, ser2: 3108469.74},
-        {ser1: 20, ser2: 3432147.32}
-      ];
+      var tmp_test = repeat_bootstrap(real_returns, coast_years_contributing, current_investments,   annual_contributions, 1);
+      var average_tmp_test = get_average(tmp_test);
+      var data_rw = []
       
-      // Create scales
-      const yScale_rw = d3
-        .scaleLinear()
-        .range([height_rw, 0])
-        .domain([0, d3.max(data_rw, function(d) { return d.ser2  }) + 200000 ]);
-        
-      const xScale_rw = d3
-        .scaleLinear()
-        .range([0, width_rw])
-        .domain(d3.extent(data_rw, dataPoint => dataPoint.ser1));
-        
+      for (var i = 0; i <= average_tmp_test.length; i++) {
+        data_rw[i] = {ser1: i, ser2: average_tmp_test[i]}
+      }
+      
       const line_rw = d3
            .line()
            .x(d => xScale_rw(d.ser1))
            .y(d => yScale_rw(d.ser2));
       
-      // Create the X axis:
-      x_rw.domain([0, d3.max(data_rw, function(d) { return d.ser1 }) ]);
-        
-      // create the Y axis
-      y_rw.domain([0, d3.max(data_rw, function(d) { return d.ser2  }) + 200000 ]);
+      // Change the color of past lines
+      svg_rw
+        .selectAll(".future_value_line")
+        .attr("stroke", "#d5d5d5");
       
       // Add path
       const path_rw = svg_rw
@@ -1146,11 +1165,6 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
 
       const pathLength_rw = path_rw.node().getTotalLength();
       
-      svg_rw.selectAll(".myYaxis_rw")
-        .transition()
-        .duration(1000)
-        .call(yAxis_rw);
-      
       const transitionPath_rw = d3
         .transition()
         .ease(d3.easeSin)
@@ -1162,10 +1176,111 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         .transition(transitionPath_rw)
         .attr("stroke-dashoffset", 0);
     
+    } else if (numsims == 10) {
+    
+      for (var j = 0; j < 10; j++) {
+    
+        var tmp_test = repeat_bootstrap(real_returns, coast_years_contributing, current_investments,   annual_contributions, 1);
+      var average_tmp_test = get_average(tmp_test);
+      var data_rw = []
+      
+      for (var i = 0; i <= average_tmp_test.length; i++) {
+        data_rw[i] = {ser1: i, ser2: average_tmp_test[i]}
+      }
+      
+      const line_rw = d3
+           .line()
+           .x(d => xScale_rw(d.ser1))
+           .y(d => yScale_rw(d.ser2));
+      
+      // Change the color of past lines
+      svg_rw
+        .selectAll(".future_value_line")
+        .attr("stroke", "#d5d5d5");
+      
+      // Add path
+      const path_rw = svg_rw
+        .append("path")
+        .datum(data_rw)
+        .attr("class", "future_value_line")
+        .attr("fill", "none")
+        .attr("stroke", "#3CB371")
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("stroke-width", 3)
+        .attr("d", line_rw);
+
+      const pathLength_rw = path_rw.node().getTotalLength();
+      
+      const transitionPath_rw = d3
+        .transition()
+        .ease(d3.easeSin)
+        .duration(2000);
+
+      path_rw
+        .attr("stroke-dashoffset", pathLength_rw)
+        .attr("stroke-dasharray", pathLength_rw)
+        .transition(transitionPath_rw)
+        .attr("stroke-dashoffset", 0);
+        
+    };
+    
+    
+    
+    } else if (numsims == 100) {
+    
+    
+    for (var j = 0; j < 100; j++) {
+    
+        var tmp_test = repeat_bootstrap(real_returns, coast_years_contributing, current_investments,   annual_contributions, 1);
+      var average_tmp_test = get_average(tmp_test);
+      var data_rw = []
+      
+      for (var i = 0; i <= average_tmp_test.length; i++) {
+        data_rw[i] = {ser1: i, ser2: average_tmp_test[i]}
+      }
+      
+      const line_rw = d3
+           .line()
+           .x(d => xScale_rw(d.ser1))
+           .y(d => yScale_rw(d.ser2));
+      
+      // Change the color of past lines
+      svg_rw
+        .selectAll(".future_value_line")
+        .attr("stroke", "#d5d5d5");
+      
+      // Add path
+      const path_rw = svg_rw
+        .append("path")
+        .datum(data_rw)
+        .attr("class", "future_value_line")
+        .attr("fill", "none")
+        .attr("stroke", "#3CB371")
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("stroke-width", 3)
+        .attr("d", line_rw);
+
+      const pathLength_rw = path_rw.node().getTotalLength();
+      
+      const transitionPath_rw = d3
+        .transition()
+        .ease(d3.easeSin)
+        .duration(2000);
+
+      path_rw
+        .attr("stroke-dashoffset", pathLength_rw)
+        .attr("stroke-dasharray", pathLength_rw)
+        .transition(transitionPath_rw)
+        .attr("stroke-dashoffset", 0);
+        
+    };
+    
     } else if (numsims == 0) {
     
       svg_rw
-        .select(".future_value_line")
+        .selectAll(".future_value_line")
         .remove();
     }
   
