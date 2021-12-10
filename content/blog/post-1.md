@@ -1109,7 +1109,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     .attr("y", yScale_rw(2700000))
     .attr("z-index", 1000)
     .attr("class", "firenumber_rw")
-    .text("FIRE Number $2.5M");
+    .text("FIRE Number");
   
   const transitionPath_rw = d3
     .transition()
