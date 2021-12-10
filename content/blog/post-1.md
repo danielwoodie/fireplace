@@ -162,10 +162,12 @@ This number is based on some assumptions from the S&P 500. Specifically, the ass
 
 
 <section id="scrolly3">
-    <button class="btn btn-primary" onclick="runsim(1)">Run Once</button>
-    <button class="btn btn-primary" onclick="runsim(10)">Run 10x</button>
-    <button class="btn btn-primary" onclick="runsim(100)">Run 100x</button>
-    <button class="btn btn-primary" onclick="reset_sim()">Reset</button>
+    <div class="btn-holder">
+    <button class="btn btn-primary vis-btn" onclick="runsim(1)">Run Once</button>
+    <button class="btn btn-primary vis-btn" onclick="runsim(10)">Run 10x</button>
+    <button class="btn btn-primary vis-btn" onclick="runsim(100)">Run 100x</button>
+    <button class="btn btn-primary vis-btn" onclick="runsim(0)">Reset</button>
+    </div>
     <figure>
       <div id="random_walk"></div>
     </figure>
@@ -289,7 +291,10 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
     padding-left: .5rem;
     padding-right: .5rem;
   }
-
+  
+  .btn-holder {
+    text-align: center;
+  }
 
 </style>
 
@@ -633,11 +638,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   function update(myindex) {
   
   
-    if (myindex == 0) {
-    
-      
-    
-    } else if (myindex == 1) {
+    if (myindex == 1) {
     
       // Create scales
       const yScale = d3
@@ -1018,6 +1019,161 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
   var scroller = scrollama();
   
   init();
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  // Calls for the final visualization
+  // kick things off
+  // set the dimensions and margins of the graph
+  const margin_rw = {top: 10, right: 30, bottom: 30, left: 75},
+    parentDivmd_rw = document.getElementById("random_walk");
+    width_rw = parentDivmd_rw.clientWidth - margin_rw.left - margin_rw.right;
+    height_rw = 400;
+  
+  // append the svg object to the body of the page
+  const svg_rw = d3.select("#random_walk")
+    .append("svg")
+      .attr("width", width_rw + margin_rw.left + margin.right)
+      .attr("height", height_rw + margin_rw.top + margin_rw.bottom)
+    .append("g")
+      .attr("transform", `translate(${margin_rw.left},${margin_rw.top})`);
+      
+  // Initialise a X axis:
+  const x_rw = d3.scaleLinear().range([0,width_rw]);
+  const xAxis_rw = d3.axisBottom().scale(x_rw);
+  svg_rw.append("g")
+    .attr("transform", `translate(0, ${height})`)
+    .attr("class","myXaxis_rw");
+    
+  // Initialize an Y axis
+  const y_rw = d3.scaleLinear().range([height_rw, 0]);
+  const yAxis_rw = d3.axisLeft().scale(y_rw);
+  svg_rw.append("g")
+    .attr("class","myYaxis_rw");
+    
+  var fire_number_data = [
+        {x: 0, y: 2500000},
+        {x: 20, y:2500000}
+      ];
+  
+  // Create the X axis:
+  x_rw.domain([0, d3.max(fire_number_data, function(d) { return d.x }) ]);
+  svg_rw.selectAll(".myXaxis_rw")
+    .call(xAxis_rw);
+  
+  // create the Y axis
+  y_rw.domain([0, 3432147.32 + 200000 ]);
+  svg_rw.selectAll(".myYaxis_rw")
+    .transition()
+    .duration(1000)
+    .call(yAxis_rw);
+  
+  // using d3 for convenience
+  var main = d3.select("main");
+  var scrolly = main.select("#scrolly2");
+  var figure = scrolly.select("figure");
+  var article = scrolly.select("article");
+  var step = article.selectAll(".step");
+  
+  function runsim(numsims) {
+    
+    if (numsims == 1) {
+    
+      var data_rw = [
+        {ser1: 0, ser2: 0},
+        {ser1: 1, ser2: 75000},
+        {ser1: 2, ser2: 156000},
+        {ser1: 3, ser2: 243480},
+        {ser1: 4, ser2: 337958.40},
+        {ser1: 5, ser2: 439995.07},
+        {ser1: 6, ser2: 550194.68},
+        {ser1: 7, ser2: 669210.25},
+        {ser1: 8, ser2: 797747.07},
+        {ser1: 9, ser2: 936566.84},
+        {ser1: 10, ser2: 1086492.18},
+        {ser1: 11, ser2: 1248411.56},
+        {ser1: 12, ser2: 1423284.48},
+        {ser1: 13, ser2: 1612147.24},
+        {ser1: 14, ser2: 1816119.02},
+        {ser1: 15, ser2: 2036408.54},
+        {ser1: 16, ser2: 2274321.23},
+        {ser1: 17, ser2: 2531266.93},
+        {ser1: 18, ser2: 2808768.28},
+        {ser1: 19, ser2: 3108469.74},
+        {ser1: 20, ser2: 3432147.32}
+      ];
+      
+      // Create scales
+      const yScale_rw = d3
+        .scaleLinear()
+        .range([height_rw, 0])
+        .domain([0, d3.max(data_rw, function(d) { return d.ser2  }) + 200000 ]);
+        
+      const xScale_rw = d3
+        .scaleLinear()
+        .range([0, width_rw])
+        .domain(d3.extent(data_rw, dataPoint => dataPoint.ser1));
+        
+      const line_rw = d3
+           .line()
+           .x(d => xScale_rw(d.ser1))
+           .y(d => yScale_rw(d.ser2));
+      
+      // Create the X axis:
+      x_rw.domain([0, d3.max(data_rw, function(d) { return d.ser1 }) ]);
+        
+      // create the Y axis
+      y_rw.domain([0, d3.max(data_rw, function(d) { return d.ser2  }) + 200000 ]);
+      
+      // Add path
+      const path_rw = svg_rw
+        .append("path")
+        .datum(data_rw)
+        .attr("class", "future_value_line")
+        .attr("fill", "none")
+        .attr("stroke", "#3CB371")
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("stroke-width", 3)
+        .attr("d", line_rw);
+
+      const pathLength_rw = path_rw.node().getTotalLength();
+      
+      svg_rw.selectAll(".myYaxis_rw")
+        .transition()
+        .duration(1000)
+        .call(yAxis_rw);
+      
+      const transitionPath_rw = d3
+        .transition()
+        .ease(d3.easeSin)
+        .duration(2000);
+
+      path_rw
+        .attr("stroke-dashoffset", pathLength_rw)
+        .attr("stroke-dasharray", pathLength_rw)
+        .transition(transitionPath_rw)
+        .attr("stroke-dashoffset", 0);
+    
+    } else if (numsims == 0) {
+    
+      svg_rw
+        .select(".future_value_line")
+        .remove();
+    }
+  
+  };
+  
+  
+  
+  
 
 </script>
 
