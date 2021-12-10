@@ -1199,7 +1199,7 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         .attr("stroke", "#d5d5d5");
       
       // Add path
-      const path_rw = svg_rw
+      var path_rw = svg_rw
         .append("path")
         .datum(data_rw)
         .attr("class", "future_value_line")
@@ -1210,61 +1210,9 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
         .attr("stroke-width", 3)
         .attr("d", line_rw);
 
-      const pathLength_rw = path_rw.node().getTotalLength();
+      var pathLength_rw = path_rw.node().getTotalLength();
       
-      const transitionPath_rw = d3
-        .transition()
-        .ease(d3.easeSin)
-        .duration(2000);
-
-      path_rw
-        .attr("stroke-dashoffset", pathLength_rw)
-        .attr("stroke-dasharray", pathLength_rw)
-        .transition(transitionPath_rw)
-        .attr("stroke-dashoffset", 0);
-        
-    };
-    
-    
-    
-    } else if (numsims == 100) {
-    
-    
-    for (var j = 0; j < 100; j++) {
-    
-        var tmp_test = repeat_bootstrap(real_returns, coast_years_contributing, current_investments,   annual_contributions, 1);
-      var average_tmp_test = get_average(tmp_test);
-      var data_rw = []
-      
-      for (var i = 0; i <= average_tmp_test.length; i++) {
-        data_rw[i] = {ser1: i, ser2: average_tmp_test[i]}
-      }
-      
-      const line_rw = d3
-           .line()
-           .x(d => xScale_rw(d.ser1))
-           .y(d => yScale_rw(d.ser2));
-      
-      // Change the color of past lines
-      svg_rw
-        .selectAll(".future_value_line")
-        .attr("stroke", "#d5d5d5");
-      
-      // Add path
-      const path_rw = svg_rw
-        .append("path")
-        .datum(data_rw)
-        .attr("class", "future_value_line")
-        .attr("fill", "none")
-        .attr("stroke", "#3CB371")
-        .attr("stroke-linejoin", "round")
-        .attr("stroke-linecap", "round")
-        .attr("stroke-width", 3)
-        .attr("d", line_rw);
-
-      const pathLength_rw = path_rw.node().getTotalLength();
-      
-      const transitionPath_rw = d3
+      var transitionPath_rw = d3
         .transition()
         .ease(d3.easeSin)
         .duration(2000);
