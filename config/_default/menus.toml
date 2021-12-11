@@ -1,19 +1,25 @@
 # main menu
 [[main]]
-name = "Blog"
-url = "blog/"
-weight = 1
-
-[[main]]
 name = "FIRE Calculators"
 hasChildren = true
-weight = 2
+weight = 1
 
   [[main]]
   parent = "FIRE Calculators"
-  name = "FIRE Calculator"
+  name = "Future Value"
+  url = "calculators/fire/"
+  weight = 1
+
+  [[main]]
+  parent = "FIRE Calculators"
+  name = "RW Future Value"
   url = "calculators/fire/"
   weight = 2
+
+[[main]]
+name = "Blog"
+url = "blog/"
+weight = 2
 
 [[main]]
 name = "Data Policy"

@@ -15,16 +15,10 @@ author_info:
 <main>
   <section id="intro">
     <p class="intro__dek">
-      <h3>What is a random walk?</h3>
-      <p>A random walk is a tool from probability theory to simulate potential outcomes based on a series of independent events. For example, let's use the example of an actual walk where someone can take a step to th or either stay in place depending on the outcome of a coin flip. Heads for step 
-      </p>
-      <h3>How does this relate to FIRE?</h3>
-      <p>Instead of taking steps, you may be interested in something that could follow a similar framework: investment returns over a number of years. This is relevant because you may be investing over a series of years and want to have some idea about how your investments might look after 10, 20, 30 years or more. 
-      </p>
-      <p>Note about investment advice. It's important to keep in mind a common quote in forecasting: All models are wrong, some are useful. That is to say, there is no guarantee in these simulations. Rather, they 
-      </p>
-      <p>The FIRE community has many rules of thumbs like the 4% rule or if you invest your entirety of annual expenses in an index fund, you'll likely reach FI (or 25x your annual expenses) in about 10 years.  
-    </p>
+      <h3>What is FIRE?</h3>
+      <p>FIRE stands for Financial Independence Retire Early and is a personal finance philosophy focused on living below your means, investing aggressively when you're young, reaping the benefits of compound interest, and living off the gains well before typical retirement years. These principles have been around for quite some time but only recently have they become mainstream.</p>
+      <h3>Give me the Cliff Notes</h3>
+      <p>The FIRE community (and it's various sub-communities) have their nuances but there's a few core beliefs that most people can agree on. For example, the 25x rule states that when you're able to have 25 times your annual expenses invested in a low-cost index fund (oh yeah, they also love low-cost index funds) then you have reached the financial independence part of FIRE. That is, you now have enough money invested to live off the returns for about 30 years (length of a typical retirement).</p>
   </section>
   
   <section id="scrolly2">
@@ -66,12 +60,21 @@ author_info:
   
 <section>
 
-### The Solution: Enter the Bootstrap
+<h3>What is a random walk?</h3>
+      <p>A random walk is a tool from probability theory to simulate potential outcomes based on a series of independent events. For example, let's use the example of an actual walk where someone can take a step to th or either stay in place depending on the outcome of a coin flip. Heads for step 
+      </p>
+      <h3>How does this relate to FIRE?</h3>
+      <p>Instead of taking steps, you may be interested in something that could follow a similar framework: investment returns over a number of years. This is relevant because you may be investing over a series of years and want to have some idea about how your investments might look after 10, 20, 30 years or more. 
+      </p>
+      <p>Note about investment advice. It's important to keep in mind a common quote in forecasting: All models are wrong, some are useful. That is to say, there is no guarantee in these simulations. Rather, they 
+      </p>
+      <p>The FIRE community has many rules of thumbs like the 4% rule or if you invest your entirety of annual expenses in an index fund, you'll likely reach FI (or 25x your annual expenses) in about 10 years.  
+    </p>
+
+### Enter the Bootstrap
 
 Using a bootstrap simulation we can get a distribution of potential outcomes -- helping us understand both the low-end and high-end. Using actual returns, we can get a potentially more realistic idea of what can happen over a longer time period. By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.
   
-### Enter The Bootstrap
-
 As such, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes. To get an understanding of the distribution, you can instead run a bootstrap simulation. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes.
 
 ### Before We Get Too Far Along
@@ -153,7 +156,7 @@ I need to mention something about modeling.
   
   <section>
   
-### Test
+### The Random Walk with FIRE
 
 
 This number is based on some assumptions from the S&P 500. Specifically, the assumption is that the S&P 500, on average, will return about 7% per year over most 10 year time periods. This holds fairly true when looking over the last 100 years -- which includes periods global warfare, hyperinflation, and a few economic crashes. That is to say, it's not cherry-picked to include especially good runs of the stock market.
@@ -174,31 +177,10 @@ This number is based on some assumptions from the S&P 500. Specifically, the ass
   
 <section>
 
+
+### So what?
+
 As you might imagine, using a single value to model market returns can provide a less than precise idea about the range of possibilities when investing. To get an understanding of the distribution, you can instead run a bootstrap simulation. A bootstrap simulation takes actual returns (minus CPI for the corresponding year) and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes.
-
-I need to mention something about modeling. 
-
-
->All models are wrong but some are useful.
->
-> <cite>George Box</cite>
-
-
-### Distribution of Returns
-
-
-### What does this impact?
-
-Laoreet mauris odio ut nec. Nisl, sed adipiscing dignissim arcu placerat ornare pharetra nec in. Ultrices in nisl potenti vitae tempus. Auctor consectetur luctus eu in amet sagittis. Dis urna, vel hendrerit convallis Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissim mauris, eu, eget
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec et ipsum ullamcorper venenatis fringilla. Pretium, purus eu nec vulputate vel habitant egestas. Congue ornare at ipsum, viverra. Vitae magna faucibus eros, lectus sociis. Etiam nunc amet id dignissim. Feugiat id tempor vel sit in ornare turpis posuere. Eu quisque integer non rhoncus elementum vel. Quis nec viverra lectus augue nec praesent
-
-Pharetra odio amet pellentesque. Egestas nisi adipiscing sed in lectus. Vitae ultrices malesuada aliquet Faucibus consectetur tempus adipiscing vitae. Nec blandit tincidunt nibh nisi, quam volutpat. In lacus laoreet diam risus. Mauris, risus faucibus sagittis sagittis tincidunt id justo. Diam massa pretium consequat mauris viverra. Sagittis eu libero
-
-Laoreet mauris odio ut nec. Nisl, sed adipiscing dignissim arcu placerat ornare pharetra nec in. Ultrices in nisl potenti vitae tempus. Auctor consectetur luctus eu in amet sagittis. Dis urna, vel hendrerit convallis cursus id.
-
-Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissim mauris, eu, eget pharetra odio amet pellentesque. Egestas nisi adipiscing sed in lectus. Vitae ultrices malesuada aliquet dignissim. Faucibus non tristique eu.
-  
   
   </section>
 </main>
@@ -208,7 +190,6 @@ Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissi
 
 
 <style>
-
 
   #scrolly1, #scrolly2 {
     position: relative;
