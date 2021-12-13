@@ -12,13 +12,13 @@ weight = 2
   [[main]]
   parent = "FIRE Calculators"
   name = "Future Value"
-  url = "calculators/fire/"
+  url = "calculators/futurevalue/"
   weight = 1
 
   [[main]]
   parent = "FIRE Calculators"
   name = "RW Future Value"
-  url = "calculators/fire/"
+  url = "calculators/rwfuturevalue/"
   weight = 2
 
 [[main]]
