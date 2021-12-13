@@ -1,6 +1,11 @@
 ---
-title: "Future Value Calculator"
+title: "Random Walk FIRE Calculator"
+date: '2021-01-01'
 draft: no
+image: images/blog/random_walk_with_fire.png
+author_info:
+  name: Daniel Woodie
+  image: images/daniel.jpg
 ---
 
 <script src="https://unpkg.com/intersection-observer"></script>
@@ -23,18 +28,23 @@ draft: no
       </div>
     </div>
     <div class="row">
-      <div class="form-group col-sm-6">
+      <div class="form-group col-sm-4">
         <label for="current_investments">Current investments</label>
         <input type="numeric" class="form-control" id="current_investments" aria-describedby="current_investments_help" placeholder="100000">
         <small id="current_investments_help" class="form-text text-muted">How much do you currently have invested in the stock market?</small>
       </div>
-      <div class="form-group col-sm-6">
-        <label for="growth_rate">Growth Rate</label>
-        <input type="numeric" class="form-control" id="current_investments" aria-describedby="current_investments_help" placeholder="8">
-        <small id="current_investments_help" class="form-text text-muted">On average, the stock market has returned 8% (adjusted for inflation).</small>
+      <div class="form-group col-sm-4">
+        <label for="current_age">Current Age</label>
+        <input type="numeric" class="form-control" id="current_age" aria-describedby="current_age_help" placeholder="30">
+        <small id="current_age_help" class="form-text text-muted">How old are you?</small>
+      </div>
+      <div class="form-group col-sm-4">
+        <label for="growth_rate">Goal FIRE Age</label>
+        <input type="numeric" class="form-control" id="current_investments" aria-describedby="current_investments_help" placeholder="45">
+        <small id="current_investments_help" class="form-text text-muted">What age would you like to be FI or RE?</small>
       </div>
     </div>
-    <button class="btn btn-primary vis-btn" onclick="runfv()">Calculate</button>
+    <button class="btn btn-primary vis-btn" onclick="runfv()">Simulate 1000x</button>
   </div>
 </form>
 <section id="scrolly3">
