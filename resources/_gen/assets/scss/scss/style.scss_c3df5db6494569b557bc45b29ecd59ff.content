@@ -596,12 +596,10 @@ header {
       left: 50%;
       transform: translate(-50%, -6px);
       z-index: 1;
-      border: 0;
-      background-color: transparent; }
+      border: 0; }
       header .dropdown-menu::after {
         position: absolute;
         content: "";
-        height: 0;
         width: 100%;
         top: 0;
         left: 0;
@@ -616,8 +614,7 @@ header {
         opacity: 0;
         transition: .1s; }
     header .dropdown:hover .dropdown-menu {
-      visibility: visible;
-      height: 0; }
+      visibility: visible; }
       header .dropdown:hover .dropdown-menu::after {
         transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         height: 100%; }
@@ -1374,3 +1371,6 @@ footer.footer {
 .form-status {
   color: #3CB371;
   font-weight: 500; }
+
+li.nav-item.dropdown.show, li.nav-item.dropdown.show > ul {
+  height: 100% !important; }

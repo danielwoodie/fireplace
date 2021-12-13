@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on FirePlace</title>
-    <link>https://www.fireplace.cash/blog/</link>
-    <description>Recent content in Blog on FirePlace</description>
+    <title>Calculators on FirePlace</title>
+    <link>https://www.fireplace.cash/calculators/</link>
+    <description>Recent content in Calculators on FirePlace</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.fireplace.cash/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.fireplace.cash/calculators/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Random Walk with FIRE</title>
-      <link>https://www.fireplace.cash/blog/post-1/</link>
+      <link>https://www.fireplace.cash/calculators/post-1/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://www.fireplace.cash/blog/post-1/</guid>
+      <guid>https://www.fireplace.cash/calculators/post-1/</guid>
       <description>What is FIRE? FIRE stands for Financial Independence Retire Early and is a personal finance philosophy focused on living below your means, investing aggressively when you&#39;re young, reaping the benefits of compound interest, and living off the gains well before typical retirement years.</description>
     </item>
     

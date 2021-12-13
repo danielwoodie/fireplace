@@ -130,7 +130,7 @@ header {
         color: $primary-color;
         background-color: lighten($primary-color, 40);
       }
-      
+
       &.active {
         color: $primary-color;
         background-color: transparent;
@@ -152,11 +152,11 @@ header {
       transform: translate(-50%, -6px);
       z-index: 1;
       border: 0;
-      background-color: transparent;
+      // background-color: transparent;
       &::after {
         position: absolute;
         content: "";
-        height: 0;
+        // height: 0;
         width: 100%;
         top: 0;
         left: 0;
@@ -176,7 +176,7 @@ header {
 
     .dropdown:hover .dropdown-menu {
       visibility: visible;
-      height: 0;
+      // height: 0;
       &::after {
         transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         height: 100%;
