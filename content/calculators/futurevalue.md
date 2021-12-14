@@ -13,36 +13,36 @@ draft: no
     <div class="row">
       <div class="form-group col-sm-6">
         <label for="annual_expenses">Annual Expenses</label>
-        <input type="numeric" class="form-control" id="annual_expenses" aria-describedby="annual_expenses_help" placeholder="100000">
+        <input type="number" class="form-control" id="annual_expenses" aria-describedby="annual_expenses_help" value="100000" min="0" max="1000000000">
         <small id="annual_expenses_help" class="form-text text-muted">How much do you plan to spend in retirement?</small>
       </div>
       <div class="form-group col-sm-6">
         <label for="annual_contributions">Annual Contributions</label>
-        <input type="numeric" class="form-control" id="annual_contributions" aria-describedby="annual_contributions_help" placeholder="100000">
+        <input type="number" class="form-control" id="annual_contributions" aria-describedby="annual_contributions_help" value="100000" min="0" max="1000000000">
         <small id="annual_contributions_help" class="form-text text-muted">How much do you invest in the stock market annually?</small>
       </div>
     </div>
     <div class="row">
       <div class="form-group col-sm-4">
         <label for="current_investments">Current investments</label>
-        <input type="numeric" class="form-control" id="current_investments" aria-describedby="current_investments_help" placeholder="100000">
+        <input type="number" class="form-control" id="current_investments" aria-describedby="current_investments_help" value="100000" min="0" max="1000000000">
         <small id="current_investments_help" class="form-text text-muted">How much do you currently have invested in the stock market?</small>
       </div>
       <div class="form-group col-sm-4">
         <label for="growth_rate">Growth Rate</label>
-        <input type="numeric" class="form-control" id="current_investments" aria-describedby="current_investments_help" placeholder="8">
+        <input type="number" class="form-control" id="growth_rate" aria-describedby="current_investments_help" value="8" min="0" max="100">
         <small id="current_investments_help" class="form-text text-muted">On average, the stock market has returned 8% (adjusted for inflation).</small>
       </div>
       <div class="form-group col-sm-4">
         <label for="years_contributing">Years Contributing</label>
-        <input type="numeric" class="form-control" id="years_contributing" aria-describedby="years_contributing" placeholder="20">
+        <input type="number" class="form-control" id="years_contributing" aria-describedby="years_contributing" value="20" min="2" max="100">
         <small id="years_contributing_help" class="form-text text-muted">For how many years would you like to run this scenario?</small>
       </div>
     </div>
-    <button class="btn btn-primary vis-btn" onclick="runfv()">Calculate</button>
   </div>
 </form>
 <section id="scrolly3">
+    <button class="btn btn-primary vis-btn" onclick="runfv()">Calculate</button>
     <figure>
       <div id="random_walk"></div>
     </figure>
@@ -148,6 +148,42 @@ As you might imagine, using a single value to model market returns can provide a
 
 
 <script>
+
+
+
+  function runfv() {
+  
+    var annual_expenses = Number(document.getElementById('annual_expenses').value);
+      annual_contributions = Number(document.getElementById('annual_contributions').value);
+      current_investments = Number(document.getElementById('current_investments').value);
+      growth_rate = Number(document.getElementById('growth_rate').value);
+      years_contributing = Number(document.getElementById('years_contributing').value);
+      fire_number = [25*annual_expenses];
+      future_value = [current_investments];
+
+    // Plot FIRE Number
+    
+    // Plot FV Value Number
+    for(let i=0; i < years_contributing; i++) {
+    
+      future_value.push((future_value[i] + annual_contributions) * (1 + growth_rate/100));
+    
+    }
+    
+    future_value = future_value.map(function(each_element){
+      return Number(each_element.toFixed(2));
+    })
+    
+    // If FV > Fire Number, plot time to FIRE
+    if (d3.max(future_value) < fire_number) {
+      console.log("You never reached FIRE");
+    
+    } else {
+      console.log("You made it.");
+    
+    };
+
+  }
 
 
 
