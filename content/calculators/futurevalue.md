@@ -41,6 +41,7 @@ draft: no
     </div>
   </div>
 </form>
+
 <section id="scrolly3">
     <button class="btn btn-primary vis-btn" onclick="runfv()">Calculate</button>
     <figure>
@@ -149,45 +150,50 @@ As you might imagine, using a single value to model market returns can provide a
 
 <script>
 
-
-
   function runfv() {
   
+    // Get variables from inputs
     var annual_expenses = Number(document.getElementById('annual_expenses').value);
       annual_contributions = Number(document.getElementById('annual_contributions').value);
       current_investments = Number(document.getElementById('current_investments').value);
       growth_rate = Number(document.getElementById('growth_rate').value);
       years_contributing = Number(document.getElementById('years_contributing').value);
       fire_number = [25*annual_expenses];
-      future_value = [current_investments];
 
     // Plot FIRE Number
+    var fire_number_data = [
+      {x: 0, y: fire_number},
+      {x: years_contributing, y: fire_number}
+    ];
     
     // Plot FV Value Number
+    var future_value_data = [{x: 0, y: current_investments}];
+    
     for(let i=0; i < years_contributing; i++) {
     
-      future_value.push((future_value[i] + annual_contributions) * (1 + growth_rate/100));
+      future_value_data[i+1] = {x: i, y: Number(((future_value_data[i].y + annual_contributions) * (1 + growth_rate/100)).toFixed(2))};
     
     }
     
-    future_value = future_value.map(function(each_element){
-      return Number(each_element.toFixed(2));
-    })
-    
     // If FV > Fire Number, plot time to FIRE
-    if (d3.max(future_value) < fire_number) {
-      console.log("You never reached FIRE");
+    if (d3.max(future_value_data, d => d.y) < fire_number) {
+    
+      console.log(d3.max(future_value_data) + " is less than " + fire_number + ". You never reached FIRE.");
     
     } else {
-      console.log("You made it.");
     
+      console.log(d3.max(future_value_data, d => d.y) + " is greater than " + fire_number + ". You made it.");
+
     };
+    
+    // Create a paragraph summary
+    
+    // Generate a table of the outputs
 
   }
-
-
-
   
-
+  // Have things run on load
+  runfv();
+  
 </script>
 
