@@ -14,7 +14,7 @@ draft: no
       <div class="form-group col-sm-6">
         <label for="annual_expenses">Annual Expenses</label>
         <input type="numeric" class="form-control" id="annual_expenses" aria-describedby="annual_expenses_help" placeholder="100000">
-        <small id="annual_expenses_help" class="form-text text-muted">After taxes, how much do you spend?</small>
+        <small id="annual_expenses_help" class="form-text text-muted">How much do you plan to spend in retirement?</small>
       </div>
       <div class="form-group col-sm-6">
         <label for="annual_contributions">Annual Contributions</label>
@@ -23,15 +23,20 @@ draft: no
       </div>
     </div>
     <div class="row">
-      <div class="form-group col-sm-6">
+      <div class="form-group col-sm-4">
         <label for="current_investments">Current investments</label>
         <input type="numeric" class="form-control" id="current_investments" aria-describedby="current_investments_help" placeholder="100000">
         <small id="current_investments_help" class="form-text text-muted">How much do you currently have invested in the stock market?</small>
       </div>
-      <div class="form-group col-sm-6">
+      <div class="form-group col-sm-4">
         <label for="growth_rate">Growth Rate</label>
         <input type="numeric" class="form-control" id="current_investments" aria-describedby="current_investments_help" placeholder="8">
         <small id="current_investments_help" class="form-text text-muted">On average, the stock market has returned 8% (adjusted for inflation).</small>
+      </div>
+      <div class="form-group col-sm-4">
+        <label for="years_contributing">Years Contributing</label>
+        <input type="numeric" class="form-control" id="years_contributing" aria-describedby="years_contributing" placeholder="20">
+        <small id="years_contributing_help" class="form-text text-muted">For how many years would you like to run this scenario?</small>
       </div>
     </div>
     <button class="btn btn-primary vis-btn" onclick="runfv()">Calculate</button>

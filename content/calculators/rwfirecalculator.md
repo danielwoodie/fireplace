@@ -19,7 +19,7 @@ author_info:
       <div class="form-group col-sm-6">
         <label for="annual_expenses">Annual Expenses</label>
         <input type="numeric" class="form-control" id="annual_expenses" aria-describedby="annual_expenses_help" placeholder="100000">
-        <small id="annual_expenses_help" class="form-text text-muted">After taxes, how much do you spend?</small>
+        <small id="annual_expenses_help" class="form-text text-muted">How much do you plan to spend in retirement?</small>
       </div>
       <div class="form-group col-sm-6">
         <label for="annual_contributions">Annual Contributions</label>
