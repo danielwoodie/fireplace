@@ -1,7 +1,7 @@
 ---
 banner:
   button: Learn More
-  button_link: https://fireplace.cash/about/
+  button_link: https://fireplace.cash/blog/
   image: images/banner-app.png
   title: We tell cool stories with data and make tools so you can build wealth confidently.
   
@@ -21,7 +21,7 @@ brands_carousel:
   enable: false
   
 features:
-  description: FIRE isn't just about money. We cover money but <br> we also explore topics in neuroscience and behavioral economics.
+  description: FIRE isn't just about money. We cover money but <br> we also explore cover psychology to help <br> you build wealth confidently.
   enable: true
   features_blocks:
   - content: Our calculators help you understand things like "How much do I need to retire?" or "Will my money last?"
@@ -61,11 +61,11 @@ how_it_works:
     subtitle: Money Isn't Everything, Though
     title: Find Fulfillment With Your Journey
   enable: true
-  
+
 intro_video:
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas
     <br> Werat viverra id et aliquet. vulputate egestas sollicitudin.
-  enable: true
+  enable: false
   subtitle: Short Intro Video
   title: Built exclusively for you
   video_thumbnail: images/video-popup.png

@@ -48,7 +48,7 @@ preloader = "images/favicon.png" # use jpg, png, svg or gif format.
 
 # Navigation button
 [navigation_button]
-enable = true
+enable = false
 label = "Newsletter"
 link = "https://gethugothemes.com/products/andromeda/"
 
@@ -61,9 +61,9 @@ button = "I Accept"
 
 # call-to-action
 [cta]
-enable = true
+enable = false
 title = "Sign Up for the Newsletter Now"
-content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas <br> Werat viverra id et aliquet. vulputate egestas sollicitudin."
+content = "Don't worry. We only use your email to send updates on when new content is available."
 button = "Sign Up"
 button_link = "https://gethugothemes.com/products/andromeda/"
 

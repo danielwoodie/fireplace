@@ -429,7 +429,7 @@ As you might imagine, using a single value to model market returns can provide a
           .selectAll("circle")
           .transition()
           .duration(1000)
-          .attr("fill", function(d,i) {return i%2==0?"#3CB371":"#d5d5d5";})
+          .attr("fill", function(d,i) {return i%2==0?"#3CB371":"#f5f5f5";})
           .selectAll(".avg_return")
           .attr("fill", "#fff");
           
@@ -439,7 +439,7 @@ As you might imagine, using a single value to model market returns can provide a
           .selectAll("circle")
           .transition()
           .duration(700)
-          .attr("fill", function(d,i) {return i%3==0?"#3CB371":"#d5d5d5";});
+          .attr("fill", function(d,i) {return i%3==0?"#3CB371":"#f5f5f5";});
           
         svg_bs
           .selectAll(".avg_return")
@@ -451,7 +451,7 @@ As you might imagine, using a single value to model market returns can provide a
           .selectAll("circle")
           .transition()
           .duration(700)
-          .attr("fill", function(d,i) {return i%4==0?"#3CB371":"#d5d5d5";});
+          .attr("fill", function(d,i) {return i%4==0?"#3CB371":"#f5f5f5";});
           
         svg_bs
           .selectAll(".avg_return")
@@ -744,7 +744,7 @@ As you might imagine, using a single value to model market returns can provide a
       svg.select(".fire_number_line")
          .transition()
          .duration(1000)
-         .attr("stroke", "#d5d5d5");
+         .attr("stroke", "#f5f5f5");
       
     } else if (myindex == 5) {
     
@@ -828,7 +828,7 @@ As you might imagine, using a single value to model market returns can provide a
       svg.select(".future_value_line")
          .transition()
          .duration(1000)
-         .attr("stroke", "#d5d5d5");
+         .attr("stroke", "#f5f5f5");
       
 /*
       
@@ -1066,7 +1066,7 @@ As you might imagine, using a single value to model market returns can provide a
     .datum(fire_number_data)
     .attr("class", "fire_number_line_rw")
     .attr("fill", "none")
-    .attr("stroke", "#d5d5d5")
+    .attr("stroke", "#f5f5f5")
     .attr("stroke-linejoin", "round")
     .attr("stroke-linecap", "round")
     .attr("stroke-width", 3)
@@ -1119,7 +1119,7 @@ As you might imagine, using a single value to model market returns can provide a
       // Change the color of past lines
       svg_rw
         .selectAll(".future_value_line")
-        .attr("stroke", "#d5d5d5");
+        .attr("stroke", "#f5f5f5");
       
       // Add path
       const path_rw = svg_rw
@@ -1166,7 +1166,7 @@ As you might imagine, using a single value to model market returns can provide a
       // Change the color of past lines
       svg_rw
         .selectAll(".future_value_line")
-        .attr("stroke", "#d5d5d5");
+        .attr("stroke", "#f5f5f5");
       
       // Add path
       var path_rw = svg_rw
