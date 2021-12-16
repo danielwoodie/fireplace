@@ -165,7 +165,7 @@ As you might imagine, using a single value to model market returns can provide a
       current_investments = Number(document.getElementById('current_investments').value);
       growth_rate = Number(document.getElementById('growth_rate').value);
       years_contributing = Number(document.getElementById('years_contributing').value);
-      fire_number = [25*annual_expenses];
+      fire_number = 25*annual_expenses;
     
     // Calculate FIRE Numbers
     var fire_number_data = [
@@ -176,12 +176,11 @@ As you might imagine, using a single value to model market returns can provide a
     // Calculate FV Numbers
     var future_value_data = [{x: 0, y: current_investments}];
     
-    for(let i=0; i < years_contributing; i++) {
+    for(let i=0; i <= years_contributing; i++) {
     
       future_value_data[i+1] = {x: i, y: Number(((future_value_data[i].y + annual_contributions) * (1 + growth_rate/100)).toFixed(2))};
     
     }
-    
     
     // If FV > Fire Number, plot time to FIRE
     if (d3.max(future_value_data, d => d.y) < fire_number) {
@@ -209,6 +208,75 @@ As you might imagine, using a single value to model market returns can provide a
         .scaleLinear()
         .range([0, width])
         .domain([0, years_contributing]);
+        
+      const fire_number_line = d3
+           .line()
+           .x(d => xScale(d.x))
+           .y(d => yScale(d.y));
+
+      // Add path
+      const path = svg
+        .append("path")
+        .datum(fire_number_data)
+        .attr("class", "fire_number_line")
+        .attr("fill", "none")
+        .attr("stroke", "#3CB371")
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("stroke-width", 3)
+        .attr("d", fire_number_line);
+
+      const pathLength = path.node().getTotalLength();
+      
+      svg.append("text")
+        .attr("x", xScale(2))
+        .attr("y", yScale(fire_number*1.07))
+        .attr("class", "fire_number")
+        .text("FIRE Number $2.5M");
+      
+      const transitionPath = d3
+        .transition()
+        .ease(d3.easeSin)
+        .duration(2000);
+
+      path
+        .attr("stroke-dashoffset", pathLength)
+        .attr("stroke-dasharray", pathLength)
+        .transition(transitionPath)
+        .attr("stroke-dashoffset", 0);
+        
+      
+      // Add path
+      const fv_path = svg
+        .append("path")
+        .datum(future_value_data)
+        .attr("class", "future_value_line")
+        .attr("fill", "none")
+        .attr("stroke", "#3CB371")
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("stroke-width", 3)
+        .attr("d", fire_number_line);
+
+      const fv_pathLength = fv_path.node().getTotalLength();
+      
+      svg.append("text")
+        .attr("x", xScale(10))
+        .attr("y", yScale(d3.max(future_value_data, d => d.y)*.2))
+        .attr("class", "future_value")
+        .text("Future Value");
+      
+      const fv_transitionPath = d3
+        .transition()
+        .ease(d3.easeSin)
+        .duration(2000);
+
+      fv_path
+        .attr("stroke-dashoffset", fv_pathLength)
+        .attr("stroke-dasharray", fv_pathLength)
+        .transition(fv_transitionPath)
+        .attr("stroke-dashoffset", 0);
+    
 
       console.log(d3.max(future_value_data) + " is less than " + fire_number + ". You never reached FIRE.");
     
