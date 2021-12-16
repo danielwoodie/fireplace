@@ -218,18 +218,27 @@ function runrwfv() {
       {x: goal_fire_age, y: fire_number}
     ];
     
-    // Plot FV Value Number
-    var future_value_data = [{x: current_age, y: current_investments}];
+    var future_value_data_full = [];
     
-    for(let i=0; i < years_contributing; i++) {
+    for(let j=0; j < 1000; j++) {
+    
+      // Plot FV Value Number
+      var future_value_data = [{x: current_age, y: current_investments, sim: j}];
       
-      seed = i/years_contributing;
-      index = getRandomInt(0, real_returns.length-1, seed);
+      for(let i=0; i < years_contributing; i++) {
+        
+        seed = (i+j)/(years_contributing+1000);
+        index = getRandomInt(0, real_returns.length-1, seed);
+      
+        future_value_data[i+1] = {x: current_age + i, y: Number(((future_value_data[i].y + annual_contributions) * (1 + real_returns[index]/100)).toFixed(2)), sim: j};
+      
+      }
     
-      future_value_data[i+1] = {x: current_age + i, y: Number(((future_value_data[i].y + annual_contributions) * (1 + real_returns[index]/100)).toFixed(2))};
+      future_value_data_full[j] = future_value_data;
     
     }
     
+
     // If FV > Fire Number, plot time to FIRE
     if (d3.max(future_value_data, d => d.y) < fire_number) {
     
@@ -241,7 +250,21 @@ function runrwfv() {
 
     };
     
-    // Create a paragraph summary
+    // Remove past visualization
+    
+    // Create x and y axis
+    
+    // Draw FIRE Line
+    
+    // Draw Future Value Lines
+    
+    // Draw FIRE age line
+    
+    // Create a paragraph summary for the average
+    
+    // Create a paragraph summary for the 75th percentile
+    
+    // Create a paragraph summary for the 25th percentile
     
     // Generate a table of the outputs
 
