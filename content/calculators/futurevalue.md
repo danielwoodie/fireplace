@@ -232,7 +232,7 @@ As you might imagine, using a single value to model market returns can provide a
         .attr("x", xScale(2))
         .attr("y", yScale(fire_number*1.07))
         .attr("class", "fire_number")
-        .text("FIRE Number $2.5M");
+        .text("FIRE Number");
       
       const transitionPath = d3
         .transition()
@@ -329,7 +329,7 @@ As you might imagine, using a single value to model market returns can provide a
         .attr("x", xScale(2))
         .attr("y", yScale(fire_number*1.07))
         .attr("class", "fire_number")
-        .text("FIRE Number $2.5M");
+        .text("FIRE Number");
       
       const transitionPath = d3
         .transition()
