@@ -14,12 +14,12 @@ draft: no
       <div class="form-group col-sm-6">
         <label for="annual_expenses">Annual Expenses</label>
         <input type="number" class="form-control" id="annual_expenses" aria-describedby="annual_expenses_help" value="100000" min="0" max="1000000000">
-        <small id="annual_expenses_help" class="form-text text-muted">In today's dollars, how much do you plan to spend in retirement?</small>
+        <small id="annual_expenses_help" class="form-text text-muted">In today's dollars, how much do you plan to spend each year in retirement?</small>
       </div>
       <div class="form-group col-sm-6">
         <label for="annual_contributions">Annual Contributions</label>
         <input type="number" class="form-control" id="annual_contributions" aria-describedby="annual_contributions_help" value="100000" min="0" max="1000000000">
-        <small id="annual_contributions_help" class="form-text text-muted">How much do you invest in the stock market annually?</small>
+        <small id="annual_contributions_help" class="form-text text-muted">How much do you invest each year in the stock market?</small>
       </div>
     </div>
     <div class="row">
@@ -261,8 +261,8 @@ As you might imagine, using a single value to model market returns can provide a
       const fv_pathLength = fv_path.node().getTotalLength();
       
       svg.append("text")
-        .attr("x", xScale(10))
-        .attr("y", yScale(d3.max(future_value_data, d => d.y)*.2))
+        .attr("x", xScale(2))
+        .attr("y", yScale(future_value_data[3].y*2))
         .attr("class", "future_value")
         .text("Future Value");
       
@@ -358,8 +358,8 @@ As you might imagine, using a single value to model market returns can provide a
       const fv_pathLength = fv_path.node().getTotalLength();
       
       svg.append("text")
-        .attr("x", xScale(10))
-        .attr("y", yScale(d3.max(future_value_data, d => d.y)*.2))
+        .attr("x", xScale(2))
+        .attr("y", yScale(future_value_data[3].y*2))
         .attr("class", "future_value")
         .text("Future Value");
       
