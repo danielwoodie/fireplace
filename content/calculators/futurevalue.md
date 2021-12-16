@@ -261,8 +261,8 @@ As you might imagine, using a single value to model market returns can provide a
       const fv_pathLength = fv_path.node().getTotalLength();
       
       svg.append("text")
-        .attr("x", xScale(2))
-        .attr("y", yScale(future_value_data[3].y*2))
+        .attr("x", xScale(future_value_data.length-7))
+        .attr("y", yScale(future_value_data[future_value_data.length-2].y))
         .attr("class", "future_value")
         .text("Future Value");
       
@@ -356,10 +356,10 @@ As you might imagine, using a single value to model market returns can provide a
         .attr("d", fire_number_line);
 
       const fv_pathLength = fv_path.node().getTotalLength();
-      
+
       svg.append("text")
-        .attr("x", xScale(2))
-        .attr("y", yScale(future_value_data[3].y*2))
+        .attr("x", xScale(future_value_data.length-7))
+        .attr("y", yScale(future_value_data[future_value_data.length-2].y))
         .attr("class", "future_value")
         .text("Future Value");
       
