@@ -176,9 +176,9 @@ As you might imagine, using a single value to model market returns can provide a
     // Calculate FV Numbers
     var future_value_data = [{x: 0, y: current_investments}];
     
-    for(let i=0; i <= years_contributing; i++) {
+    for(let i=0; i < years_contributing; i++) {
     
-      future_value_data[i+1] = {x: i, y: Number(((future_value_data[i].y + annual_contributions) * (1 + growth_rate/100)).toFixed(2))};
+      future_value_data[i+1] = {x: i+1, y: Number(((future_value_data[i].y + annual_contributions) * (1 + growth_rate/100)).toFixed(2))};
     
     }
     
