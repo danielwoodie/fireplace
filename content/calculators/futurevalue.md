@@ -143,6 +143,41 @@ As you might imagine, using a single value to model market returns can provide a
   .btn-holder {
     text-align: center;
   }
+  
+  .overlay {
+        fill: none;
+        pointer-events: all;
+    }
+
+    .focus circle {
+        fill: steelblue;
+    }
+
+    .tooltip {
+        width: 150px;
+        padding: 4px 10px;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        position: absolute;
+        background-color: white;
+        font-size: 14px;
+        pointer-events: none;
+        -webkit-transition: all 0.25s;
+        -moz-transition: all 0.25s;
+        -ms-transition: all 0.25s;
+        -o-transition: all 0.25s;
+        transition: all 0.25s;
+        opacity: 1 !important;
+    }
+
+    .tooltip div {
+        margin: 3px 0;
+    }
+
+    .tooltip-date, .tooltip-likes {
+        font-weight: bold;
+    }
 
 </style>
 
@@ -276,6 +311,57 @@ As you might imagine, using a single value to model market returns can provide a
         .attr("stroke-dasharray", fv_pathLength)
         .transition(fv_transitionPath)
         .attr("stroke-dashoffset", 0);
+        
+      
+      var tooltip = d3
+            .select("#future_value")
+            .append("div")
+            .attr("class", "tooltip")
+            .style("display", "none");
+
+        var focus = svg.append("g")
+            .attr("class", "focus")
+            .style("display", "none");
+
+        focus.append("circle")
+            .attr("r", 5);
+
+        var tooltipDate = tooltip.append("div");
+        tooltipDate.append("span")
+            .attr("class", "tooltip-title")
+            .text("Value: ");
+
+        var tooltipDateValue = tooltipDate.append("span")
+            .attr("class", "tooltip-date");
+            
+        var tooltipLikes = tooltip.append("div");
+        tooltipLikes.append("span")
+            .attr("class", "tooltip-title")
+            .text("Year: ");
+
+        var tooltipLikesValue = tooltipLikes.append("span")
+            .attr("class", "tooltip-likes");
+
+        svg.append("rect")
+            .attr("class", "overlay")
+            .attr("width", width)
+            .attr("height", height)
+            .on("mouseover", function() { focus.style("display", null); tooltip.style("display", null);  })
+            .on("mouseout", function() { focus.style("display", "none"); tooltip.style("display", "none"); })
+            .on("mousemove", mousemove);
+
+        
+        function mousemove() {
+            var x0 = x.invert(d3.pointer(event,this)[0]),
+                i = bisectX(future_value_data, x0, 1),
+                d0 = future_value_data[i - 1],
+                d1 = future_value_data[i],
+                d = x0 - d0.x > d1.x - x0 ? d1 : d0;
+            focus.attr("transform", "translate(" + x(d.x) + "," + y(d.y) + ")");
+            tooltip.attr("style", "left:" + (x(d.x) + 64) + "px;top:" + y(d.y) + "px;");
+            tooltip.select(".tooltip-date").text("$" +d.y);
+            tooltip.select(".tooltip-likes").text(d.x);
+        }
     
 
       console.log(d3.max(future_value_data) + " is less than " + fire_number + ". You never reached FIRE.");
@@ -373,6 +459,58 @@ As you might imagine, using a single value to model market returns can provide a
         .attr("stroke-dasharray", fv_pathLength)
         .transition(fv_transitionPath)
         .attr("stroke-dashoffset", 0);
+        
+        
+        var tooltip = d3
+            .select("#future_value")
+            .append("div")
+            .attr("class", "tooltip")
+            .style("display", "none");
+
+        var focus = svg.append("g")
+            .attr("class", "focus")
+            .style("display", "none");
+
+        focus.append("circle")
+            .attr("r", 5);
+
+        var tooltipDate = tooltip.append("div");
+        tooltipDate.append("span")
+            .attr("class", "tooltip-title")
+            .text("Value: ");
+
+        var tooltipDateValue = tooltipDate.append("span")
+            .attr("class", "tooltip-date");
+            
+        var tooltipLikes = tooltip.append("div");
+        tooltipLikes.append("span")
+            .attr("class", "tooltip-title")
+            .text("Year: ");
+
+        var tooltipLikesValue = tooltipLikes.append("span")
+            .attr("class", "tooltip-likes");
+
+        svg.append("rect")
+            .attr("class", "overlay")
+            .attr("width", width)
+            .attr("height", height)
+            .on("mouseover", function() { focus.style("display", null); tooltip.style("display", null);  })
+            .on("mouseout", function() { focus.style("display", "none"); tooltip.style("display", "none"); })
+            .on("mousemove", mousemove);
+
+        
+        function mousemove() {
+            var x0 = x.invert(d3.pointer(event,this)[0]),
+                i = bisectX(future_value_data, x0, 1),
+                d0 = future_value_data[i - 1],
+                d1 = future_value_data[i],
+                d = x0 - d0.x > d1.x - x0 ? d1 : d0;
+            focus.attr("transform", "translate(" + x(d.x) + "," + y(d.y) + ")");
+            tooltip.attr("style", "left:" + (x(d.x) + 64) + "px;top:" + y(d.y) + "px;");
+            tooltip.select(".tooltip-date").text("$" +d.y);
+            tooltip.select(".tooltip-likes").text(d.x);
+        }
+        
     
       console.log(d3.max(future_value_data, d => d.y) + " is greater than " + fire_number + ". You made it.");
 
@@ -386,6 +524,11 @@ As you might imagine, using a single value to model market returns can provide a
     // Generate a table of the outputs
 
   }
+  
+  // parse the date / time
+  var bisectX = d3.bisector(function(d) { return d.x; }).left;
+  
+  
   
   // Initialize graph
   // set the dimensions and margins of the graph
@@ -401,7 +544,9 @@ As you might imagine, using a single value to model market returns can provide a
       .attr("height", height + margin.top + margin.bottom)
     .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
-      
+  
+  
+        
   // Initialise a X axis:
   const x = d3.scaleLinear().range([0,width]);
   const xAxis = d3.axisBottom().scale(x);
