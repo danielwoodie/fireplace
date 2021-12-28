@@ -20,6 +20,7 @@ brands_carousel:
   - images/brands/05-colored.png
   enable: false
   
+  
 features:
   description: FIRE isn't just about money. We cover that but <br> we also explore cover psychology to help <br> you build wealth confidently.
   enable: true
