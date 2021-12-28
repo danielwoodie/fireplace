@@ -16,13 +16,12 @@ author_info:
   <section id="intro">
     <p class="intro__dek">
       <h3>What is FIRE?</h3>
-      <p>FIRE stands for Financial Independence Retire Early and is a personal finance philosophy focused on living below your means, investing aggressively when you're young, reaping the benefits of compound interest, and living off the gains well before typical retirement years. These principles have been around for quite some time but only recently have they become mainstream.</p>
-      <p>The FIRE community (and it's various sub-communities) have their nuances but there's a few core beliefs that most people can agree on. For example, the 25x rule states that when you have 25 times your annual expenses invested in a low-cost index fund (oh yeah, they also love low-cost index funds) then you have reached the financial independence part of FIRE. That is, you now have enough money invested to live off the returns for about 30 years (length of a typical retirement).</p>
+      <p>FIRE stands for Financial Independence Retire Early and is a personal finance philosophy focused on investing aggressively when you're young and living off the gains well before typical retirement years. These principles have been around for quite some time but only recently have they become mainstream.</p>
+      <p>The FIRE community (and it's various sub-communities) have their nuances but there's a few core beliefs that most people can agree on. For example, the 25x rule states that when you have 25 times your annual expenses invested in a low-cost index fund then you have reached the financial independence part of FIRE. That is, you now have enough money invested to live off the returns for about 30 years (length of a typical retirement).</p>
   </section>
   
   <section id="scrolly2">
     <figure>
-      <!-- <p>0</p> -->
       <div id="my_dataviz"></div>
     </figure>
     <article>
@@ -40,7 +39,7 @@ author_info:
       </div>
       <div class="step" data-step="4">
         <p>Getting There</p>
-        <div>Starting from $0, if you're able to save $75,000/year then you'd be able to reach your goal within 20 years.</div>
+        <div>Starting from $0, if you're able to invest $75,000/year then you'd be able to reach your goal within 20 years.</div>
       </div>
       <div class="step" data-step="5">
         <p>Using 8%</p>
@@ -60,9 +59,9 @@ author_info:
 <section>
 
 <h3>What is a random walk?</h3>
-      <p>A random walk is a tool from probability theory to simulate potential outcomes based on a series of unrelated events. For example, let's use the example of an actual walk where someone can take a step to th or either stay in place depending on the outcome of a coin flip. Heads for step 
+      <p>A random walk is a tool from probability theory to simulate potential outcomes based on a series of unrelated events. A common example is flipping a coin repeatedly until you can get a stable estimate for, say, the average number of heads. You can repeat the random walk to get a distribution of estimates.
       </p>
-      <p>Instead of taking steps, you may be interested in something that could follow a similar framework: investment returns over a number of years. This is relevant because you may be investing over a series of years and want to have some idea about how your investments might look after 10, 20, 30 years or more. 
+      <p>Instead of flipping a coin, you may be interested in something that could follow a similar framework: investment returns over multiple years. This is relevant because you may be investing over a series of years and want to have some idea about how your investments might look after 10, 20, 30 years or more. 
       </p>
       <p>Note about investment advice. It's important to keep in mind a common quote in forecasting: All models are wrong, some are useful. That is to say, there is no guarantee in these simulations. Rather, they 
       </p>
@@ -73,9 +72,6 @@ author_info:
   
   
   </section>  
-  
-  
-  
   
   <section id="scrolly1">
     <figure>
@@ -143,12 +139,10 @@ author_info:
   
 ### The Random Walk with FIRE
 
-Using a bootstrap simulation we can get a distribution of potential outcomes -- helping us understand both the low-end and high-end. Using actual returns, we can get a potentially more realistic idea of what can happen over a longer time period. By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.
+Using a bootstrap simulation we can get a distribution of potential outcomes -- helping us understand both the distribution of likely outcomes. Using actual returns, we can get a potentially more realistic idea of what can happen over a longer time period. By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.
   
 As such, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes. To get an understanding of the distribution, you can instead run a bootstrap simulation. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes.
 
-
-This number is based on some assumptions from the S&P 500. Specifically, the assumption is that the S&P 500, on average, will return about 7% per year over most 10 year time periods. This holds fairly true when looking over the last 100 years -- which includes periods global warfare, hyperinflation, and a few economic crashes. That is to say, it's not cherry-picked to include especially good runs of the stock market.
 
 </section>
 
@@ -169,8 +163,9 @@ This number is based on some assumptions from the S&P 500. Specifically, the ass
 
 ### So what?
 
-As you might imagine, using a single value to model market returns can provide a less than precise idea about the range of possibilities when investing. To get an understanding of the distribution, you can instead run a bootstrap simulation. A bootstrap simulation takes actual returns (minus CPI for the corresponding year) and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes.
-  
+You might actually prefer the simpler method of using a flat 8% return and that's totally fine. In fact, if you run these bootstrap simulations enough time they should average out to that. In these scenarios, you hit your FI number only 50% of the time. As you might imagine, using a single value to model market returns can provide a less than precise idea about the range of possibilities when investing. Instead, you may want to up your odds and adjust your investing strategy so you're hitting your target closer to 90% of the time -- a bootstrap can help you adjust your strategy.
+
+
   </section>
 </main>
 
@@ -231,7 +226,6 @@ As you might imagine, using a single value to model market returns can provide a
     position: relative;
     margin: 0 auto 2rem auto;
     color: #000000;
-    // background-color: rgba(0, 0, 0, .1);
     background-color: #fff;
     border: 1px solid;
     box-shadow: 2px 5px 2px 2px #888888;
@@ -260,7 +254,6 @@ As you might imagine, using a single value to model market returns can provide a
     padding-left: .5rem;
     padding-right: .5rem;
   }
-  
   .btn-holder {
     text-align: center;
   }

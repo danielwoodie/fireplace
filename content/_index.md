@@ -23,7 +23,7 @@ brands_carousel:
   
 features:
   description: FIRE isn't just about money. We cover that but <br> we also explore cover psychology to help <br> you build wealth confidently.
-  enable: true
+  enable: false
   features_blocks:
   - content: Our calculators help you understand things like "How much do I need to retire?" or "Will my money last?"
     icon: las la-calculator
