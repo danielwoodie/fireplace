@@ -643,7 +643,6 @@ You might actually prefer the simpler method of using a flat 8% return and that'
   // Create a function that takes a dataset as input and update the plot:
   function update(myindex) {
   
-  
     if (myindex == 1) {
     
       // Create scales
@@ -781,7 +780,7 @@ You might actually prefer the simpler method of using a flat 8% return and that'
       svg.select(".fire_number_line")
          .transition()
          .duration(1000)
-         .attr("stroke", "#f5f5f5");
+         .attr("stroke", "#d5d5d5");
       
     } else if (myindex == 5) {
     
@@ -865,7 +864,7 @@ You might actually prefer the simpler method of using a flat 8% return and that'
       svg.select(".future_value_line")
          .transition()
          .duration(1000)
-         .attr("stroke", "#f5f5f5");
+         .attr("stroke", "#d5d5d5");
       
 /*
       
@@ -1103,7 +1102,7 @@ You might actually prefer the simpler method of using a flat 8% return and that'
     .datum(fire_number_data)
     .attr("class", "fire_number_line_rw")
     .attr("fill", "none")
-    .attr("stroke", "#f5f5f5")
+    .attr("stroke", "#d5d5d5")
     .attr("stroke-linejoin", "round")
     .attr("stroke-linecap", "round")
     .attr("stroke-width", 3)
@@ -1156,7 +1155,7 @@ You might actually prefer the simpler method of using a flat 8% return and that'
       // Change the color of past lines
       svg_rw
         .selectAll(".future_value_line")
-        .attr("stroke", "#f5f5f5");
+        .attr("stroke", "#e5e5e5");
       
       // Add path
       const path_rw = svg_rw
@@ -1203,7 +1202,7 @@ You might actually prefer the simpler method of using a flat 8% return and that'
       // Change the color of past lines
       svg_rw
         .selectAll(".future_value_line")
-        .attr("stroke", "#f5f5f5");
+        .attr("stroke", "#d5d5d5");
       
       // Add path
       var path_rw = svg_rw
