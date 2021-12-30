@@ -17,7 +17,7 @@ author_info:
     <p class="intro__dek">
       <h3>What is FIRE?</h3>
       <p>FIRE stands for Financial Independence Retire Early and is a personal finance philosophy focused on investing aggressively when you're young and living off the gains well before typical retirement years. These principles have been around for quite some time but only recently have they become mainstream.</p>
-      <p>The FIRE community (and it's various sub-communities) have their nuances but there's a few core beliefs that most people can agree on. For example, the 25x rule states that when you have 25 times your annual expenses invested in a low-cost index fund then you have reached the financial independence part of FIRE. That is, you now have enough money invested to live off the returns for about 30 years (length of a typical retirement).</p>
+      <p>The FIRE community (and it's various sub-communities) have their nuances but there's a few core beliefs that most people can agree on. For example, the 25x rule states that when you have 25 times your annual expenses invested in a low-cost index fund then you have reached the financial independence part of FIRE.</p>
   </section>
   
   <section id="scrolly2">
@@ -57,11 +57,12 @@ author_info:
   </section>
   
 <section>
+<p>To explore further, visit the <a href="/calculators/futurevalue/" target="_blank">future value calculator</a>.</p>
 
 <h3>What is a random walk?</h3>
-      <p>A random walk is a tool from probability theory to simulate potential outcomes based on a series of unrelated events. A common example is flipping a coin repeatedly until you can get a stable estimate for, say, the average number of heads. You can repeat the random walk to get a distribution of estimates.
+      <p>A random walk is a tool from probability theory to simulate potential outcomes based on a series of unrelated events. A common example is flipping a coin repeatedly until you can get a stable estimate for the average number of heads. You can repeat the random walk to not only get an idea of where the average lies but also to get a distribution of estimates.
       </p>
-      <p>Instead of flipping a coin, you may be interested in something that could follow a similar framework: investment returns over multiple years. This is relevant because you may be investing over a series of years and want to have some idea about how your investments might look after 10, 20, 30 years or more. 
+      <p>Instead of flipping a coin, you may be interested in something that could follow a similar framework: investment returns over multiple years. One year you may get 8% return, another year 10%, and another 7%, and so on. This is relevant because you may be investing over a series of years and want to have some idea about how your investments might look after 10, 20, 30 years or more. 
       </p>
       <p>Note about investment advice. It's important to keep in mind a common quote in forecasting: All models are wrong, some are useful. That is to say, there is no guarantee in these simulations. Rather, they 
       </p>
@@ -122,11 +123,6 @@ author_info:
         </div>
       </div>
       <div class="step" data-step="11">
-      <p>The Good Stuff, Too</p>
-        <div>It goes without saying but there's also been many years with above average returns. 
-        </div>
-      </div>
-      <div class="step" data-step="12">
       <p>So What?</p>
         <div>These real returns could be used to provide not just single estimates but a distribution of possible outcomes.
         </div>
@@ -159,12 +155,11 @@ As such, this data provides a rich set of return values to sample from to not on
 </section>
   
 <section>
-
+<p>To explore further, visit the <a href="/calculators/rwfirecalculator/" target="_blank">random walk future value calculator</a>.</p>
 
 ### So what?
 
 You might actually prefer the simpler method of using a flat 8% return and that's totally fine. In fact, if you run these bootstrap simulations enough time they should average out to that. In these scenarios, you hit your FI number only 50% of the time. As you might imagine, using a single value to model market returns can provide a less than precise idea about the range of possibilities when investing. Instead, you may want to up your odds and adjust your investing strategy so you're hitting your target closer to 90% of the time -- a bootstrap can help you adjust your strategy.
-
 
   </section>
 </main>
@@ -303,6 +298,55 @@ You might actually prefer the simpler method of using a flat 8% return and that'
       2.10, 2.40, 1.80, 1.20
   ];
   
+  const year = [
+      2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 
+      2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001,
+      2000, 1999, 1998, 1997, 1996, 1995, 1994, 1993, 1992, 1991,
+      1990, 1989, 1988, 1987, 1986, 1985, 1984, 1983, 1982, 1981,
+      1980, 1979, 1978, 1977, 1976, 1975, 1974, 1973, 1972, 1971,
+      1970, 1969, 1968, 1967, 1966, 1965, 1964, 1963, 1962, 1961,
+      1960, 1959, 1958, 1957, 1956, 1955, 1954, 1953, 1952, 1951,
+      1950, 1949, 1948, 1947, 1946, 1945, 1944, 1943, 1942, 1941,
+      1940, 1939, 1938, 1937, 1936, 1935, 1934, 1933, 1932, 1931,
+      1930, 1929, 1928
+  ];
+  
+  const war = [
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+      1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 1, 1, 1, 1, 1,
+      1, 1, 1, 1, 1, 1, 1, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 1, 1, 1,
+      1, 0, 0, 0, 0, 1, 1, 1, 1, 1,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0
+  ];
+  
+  const recessions = [
+      1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 1, 1, 1, 0, 0, 0, 0, 0, 1,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+      1, 0, 0, 0, 0, 0, 0, 0, 1, 1,
+      1, 0, 0, 0, 0, 1, 1, 1, 0, 0,
+      1, 1, 0, 0, 0, 0, 0, 0, 0, 1,
+      1, 0, 1, 1, 0, 0, 1, 1, 0, 0,
+      0, 1, 1, 0, 0, 1, 0, 0, 0, 0,
+      0, 0, 1, 1, 0, 0, 0, 1, 1, 1,
+      1, 1, 0
+  
+  ];
+  
+  const high_inflation = [];
+  for (let i = 0; i < cpi.length; i++) {
+    if (cpi[i] > 5) {
+      high_inflation.push(1);
+    } else {
+      high_inflation.push(0);
+    }
+  }
+  
   // Set the real returns
   const real_returns = sp.map(function(item, index) {
     // Subtract inflation from S&P returns
@@ -422,7 +466,7 @@ You might actually prefer the simpler method of using a flat 8% return and that'
           .selectAll("circle")
           .transition()
           .duration(1000)
-          .attr("fill", function(d,i) {return i%2==0?"#3CB371":"#f5f5f5";})
+          .attr("fill", function(d,i) {return war[i]==1?"#3CB371":"#f5f5f5";})
           .selectAll(".avg_return")
           .attr("fill", "#fff");
           
@@ -432,7 +476,7 @@ You might actually prefer the simpler method of using a flat 8% return and that'
           .selectAll("circle")
           .transition()
           .duration(700)
-          .attr("fill", function(d,i) {return i%3==0?"#3CB371":"#f5f5f5";});
+          .attr("fill", function(d,i) {return recessions[i]==1?"#3CB371":"#f5f5f5";});
           
         svg_bs
           .selectAll(".avg_return")
@@ -444,7 +488,7 @@ You might actually prefer the simpler method of using a flat 8% return and that'
           .selectAll("circle")
           .transition()
           .duration(700)
-          .attr("fill", function(d,i) {return i%4==0?"#3CB371":"#f5f5f5";});
+          .attr("fill", function(d,i) {return high_inflation[i]==1?"#3CB371":"#f5f5f5";});
           
         svg_bs
           .selectAll(".avg_return")
