@@ -11,6 +11,8 @@ author_info:
 <script src="https://unpkg.com/intersection-observer"></script>
 <script src="https://unpkg.com/scrollama"></script>
 <script src="https://d3js.org/d3.v6.js"></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/seedrandom/2.3.10/seedrandom.min.js>
+</script>
 
 <main>
   <section id="intro">
@@ -155,6 +157,9 @@ As such, this data provides a rich set of return values to sample from to not on
 </section>
   
 <section>
+
+**Note about randomness: each draw will be different from the previous draw but proceed in the same sequence from the first draw or when the simulation is reset. For example, if you run 50x you will get the same results, regardless of whether you ran 1 at a time or 10.**
+
 <p>To explore further, visit the <a href="/calculators/rwfirecalculator/" target="_blank">random walk future value calculator</a>.</p>
 
 ### So what?
@@ -601,6 +606,8 @@ You might actually prefer the simpler method of using a flat 8% return and that'
    
   // Functions for the second visualization
   // Define random number generator
+  // Set seed
+  Math.seedrandom('hello.')
   function getRandomInt(min, max) {
       min = Math.ceil(min);
       max = Math.floor(max);
@@ -611,7 +618,7 @@ You might actually prefer the simpler method of using a flat 8% return and that'
   function get_bootstrap(returns, years_contributing, starting_amount, annual_contributions) {
       var yearly_value = [starting_amount];
       for (var i = 1; i < years_contributing; i++) {
-        yearly_value.push( Math.round((yearly_value[i-1] + annual_contributions) * ( 1 +   returns[getRandomInt(0, returns.length-1)]/100))   );
+        yearly_value.push(Math.round((yearly_value[i-1] + annual_contributions) * ( 1 + returns[getRandomInt(0, returns.length-1)]/100)));
       }
       return yearly_value;
   }
@@ -1135,35 +1142,49 @@ You might actually prefer the simpler method of using a flat 8% return and that'
   var article = scrolly.select("article");
   var step = article.selectAll(".step");
   
+  const line_rw = d3
+             .line()
+             .x(d => xScale_rw(d.ser1))
+             .y(d => yScale_rw(d.ser2));
+  
+  // Create object outside of function
+  var all_data = [];
+  var this_runs_data = [];
+  
   function runsim(numsims) {
     
     if (numsims == 1) {
-    
-      var tmp_test = repeat_bootstrap(real_returns, coast_years_contributing, current_investments,   annual_contributions, 1);
-      var average_tmp_test = get_average(tmp_test);
-      var data_rw = []
       
-      for (var i = 0; i <= average_tmp_test.length; i++) {
-        data_rw[i] = {ser1: i, ser2: average_tmp_test[i]}
+      var tmp_test = repeat_bootstrap(real_returns, coast_years_contributing, current_investments,   annual_contributions, 1)[0];
+      
+      for (var i = 0; i < tmp_test.length; i++) {
+        this_runs_data[i] = {ser1: i, ser2: tmp_test[i]}
       }
       
-      const line_rw = d3
-           .line()
-           .x(d => xScale_rw(d.ser1))
-           .y(d => yScale_rw(d.ser2));
-      
-      // Change the color of past lines
+      // Append data together
+      all_data = all_data.concat(this_runs_data);
+
+      // Take the average
+      var average_data = [];
+      for (var i=0; i < coast_years_contributing; i++) {
+        var tmp_data = [];
+        for (var j=0; j < all_data.length; j++) {
+          if (all_data[j].ser1 == i) {tmp_data.push(all_data[j].ser2)}
+        }
+        average_data[i] = {ser1: i, ser2: d3.mean(tmp_data)};
+      }
+           
       svg_rw
-        .selectAll(".future_value_line")
-        .attr("stroke", "#e5e5e5");
+        .selectAll(".average_data_line")
+        .remove();
       
       // Add path
       const path_rw = svg_rw
         .append("path")
-        .datum(data_rw)
+        .datum(this_runs_data)
         .attr("class", "future_value_line")
         .attr("fill", "none")
-        .attr("stroke", "#3CB371")
+        .attr("stroke", "#d5d5d5")
         .attr("stroke-linejoin", "round")
         .attr("stroke-linecap", "round")
         .attr("stroke-width", 3)
@@ -1181,34 +1202,12 @@ You might actually prefer the simpler method of using a flat 8% return and that'
         .attr("stroke-dasharray", pathLength_rw)
         .transition(transitionPath_rw)
         .attr("stroke-dashoffset", 0);
-    
-    } else if (numsims == 10) {
-    
-      for (var j = 0; j < 10; j++) {
-    
-        var tmp_test = repeat_bootstrap(real_returns, coast_years_contributing, current_investments,   annual_contributions, 1);
-      var average_tmp_test = get_average(tmp_test);
-      var data_rw = []
-      
-      for (var i = 0; i <= average_tmp_test.length; i++) {
-        data_rw[i] = {ser1: i, ser2: average_tmp_test[i]}
-      }
-      
-      const line_rw = d3
-           .line()
-           .x(d => xScale_rw(d.ser1))
-           .y(d => yScale_rw(d.ser2));
-      
-      // Change the color of past lines
-      svg_rw
-        .selectAll(".future_value_line")
-        .attr("stroke", "#d5d5d5");
       
       // Add path
-      var path_rw = svg_rw
+      const path_rw_avg = svg_rw
         .append("path")
-        .datum(data_rw)
-        .attr("class", "future_value_line")
+        .datum(average_data)
+        .attr("class", "average_data_line")
         .attr("fill", "none")
         .attr("stroke", "#3CB371")
         .attr("stroke-linejoin", "round")
@@ -1216,25 +1215,116 @@ You might actually prefer the simpler method of using a flat 8% return and that'
         .attr("stroke-width", 3)
         .attr("d", line_rw);
 
-      var pathLength_rw = path_rw.node().getTotalLength();
+      const pathLength_rw_avg = path_rw_avg.node().getTotalLength();
       
-      var transitionPath_rw = d3
+      const transitionPath_rw_avg = d3
         .transition()
+        .delay(2000)
         .ease(d3.easeSin)
         .duration(2000);
 
-      path_rw
+      path_rw_avg
         .attr("stroke-dashoffset", pathLength_rw)
         .attr("stroke-dasharray", pathLength_rw)
-        .transition(transitionPath_rw)
+        .transition(transitionPath_rw_avg)
         .attr("stroke-dashoffset", 0);
+    
+    } else if (numsims == 10) {
+    
+      for (var j = 0; j < 10; j++) {
+    
+        var tmp_test = repeat_bootstrap(real_returns, coast_years_contributing, current_investments,   annual_contributions, 1)[0];
+      
+        for (var i = 0; i < tmp_test.length; i++) {
+          this_runs_data[i] = {ser1: i, ser2: tmp_test[i]}
+        }
         
-    };
+        // Append data together
+        all_data = all_data.concat(this_runs_data);
+             
+        svg_rw
+          .selectAll(".average_data_line")
+          .remove();
+        
+        // Add path
+        var path_rw = svg_rw
+          .append("path")
+          .datum(this_runs_data)
+          .attr("class", "future_value_line")
+          .attr("fill", "none")
+          .attr("stroke", "#d5d5d5")
+          .attr("stroke-linejoin", "round")
+          .attr("stroke-linecap", "round")
+          .attr("stroke-width", 3)
+          .attr("d", line_rw);
+  
+        var pathLength_rw = path_rw.node().getTotalLength();
+        
+        var transitionPath_rw = d3
+          .transition()
+          .ease(d3.easeSin)
+          .duration(2000);
+  
+        path_rw
+          .attr("stroke-dashoffset", pathLength_rw)
+          .attr("stroke-dasharray", pathLength_rw)
+          .transition(transitionPath_rw)
+          .attr("stroke-dashoffset", 0);
+        
+      };
+      
+      // Take the average
+      var average_data = [];
+      for (var i=0; i < coast_years_contributing; i++) {
+        var tmp_data = [];
+        for (var j=0; j < all_data.length; j++) {
+          if (all_data[j].ser1 == i) {tmp_data.push(all_data[j].ser2)}
+        }
+        average_data[i] = {ser1: i, ser2: d3.mean(tmp_data)};
+      }
+      
+      // Add path
+      const path_rw_avg = svg_rw
+        .append("path")
+        .datum(average_data)
+        .attr("class", "average_data_line")
+        .attr("fill", "none")
+        .attr("stroke", "#3CB371")
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("stroke-width", 3)
+        .attr("d", line_rw);
+
+      const pathLength_rw_avg = path_rw_avg.node().getTotalLength();
+      
+      const transitionPath_rw_avg = d3
+        .transition()
+        .delay(2000)
+        .ease(d3.easeSin)
+        .duration(2000);
+
+      path_rw_avg
+        .attr("stroke-dashoffset", pathLength_rw)
+        .attr("stroke-dasharray", pathLength_rw)
+        .transition(transitionPath_rw_avg)
+        .attr("stroke-dashoffset", 0);
     
     } else if (numsims == 0) {
     
+      // Reset the simulations
+      all_data = [];
+      this_runs_data = [];
+      average_data = [];
+    
+      // Reset seed
+      Math.seedrandom('hello.')
+    
       svg_rw
         .selectAll(".future_value_line")
+        .remove();
+      
+      svg_rw
+        .selectAll(".average_data_line")
         .remove();
     }
   
