@@ -158,6 +158,8 @@ As such, this data provides a rich set of return values to sample from to not on
   
 <section>
 
+The solid green line is the average of all runs and eventually converges to match an 8% growth rate. The lighter grey lines are the random walks or bootstrap simulations of real returns applied to this investing strategy.  
+
 **Note about randomness: each draw will be different from the previous draw but proceed in the same sequence from the first draw or when the simulation is reset. For example, if you run 50x you will get the same results, regardless of whether you ran 1 at a time or 10.**
 
 <p>To explore further, visit the <a href="/calculators/rwfirecalculator/" target="_blank">random walk future value calculator</a>.</p>
