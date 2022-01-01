@@ -15,12 +15,6 @@ weight = 2
   url = "calculators/futurevalue/"
   weight = 1
 
-  [[main]]
-  parent = "FIRE Calculators"
-  name = "RW Future Value"
-  url = "calculators/rwfirecalculator/"
-  weight = 2
-
 [[main]]
 name = "Data Policy"
 url = "terms-and-conditions/"

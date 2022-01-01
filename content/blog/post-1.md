@@ -1,6 +1,6 @@
 ---
 title: "A Random Walk with FIRE"
-date: '2021-01-01'
+date: '2022-01-01'
 draft: no
 image: images/blog/random_walk_with_fire.png
 author_info:
@@ -162,7 +162,9 @@ The solid green line is the average of all runs and eventually converges to matc
 
 **Note about randomness: each draw will be different from the previous draw but proceed in the same sequence from the first draw or when the simulation is reset. For example, if you run 50x you will get the same results, regardless of whether you ran 1 at a time or 10.**
 
+<!-- 
 <p>To explore further, visit the <a href="/calculators/rwfirecalculator/" target="_blank">random walk future value calculator</a>.</p>
+-->
 
 ### So what?
 

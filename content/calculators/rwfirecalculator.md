@@ -57,11 +57,6 @@ author_info:
     </figure>
 </section>
   
-<section>
-
-### So what?
-As you might imagine, using a single value to model market returns can provide a less than precise idea about the range of possibilities when investing. To get an understanding of the distribution, you can instead run a bootstrap simulation. A bootstrap simulation takes actual returns (minus CPI for the corresponding year) and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes.
-  </section>
 </main>
 
 
