@@ -166,7 +166,7 @@ The solid green line is the average of all runs and eventually converges to matc
 
 ### So what?
 
-You might actually prefer the simpler method of using a flat 8% return and that's totally fine. In fact, if you run these bootstrap simulations enough time they should average out to that. In these scenarios, you hit your FI number only 50% of the time. As you might imagine, using a single value to model market returns can provide a less than precise idea about the range of possibilities when investing. Instead, you may want to up your odds and adjust your investing strategy so you're hitting your target closer to 90% of the time -- a bootstrap can help you adjust your strategy.
+You might actually prefer the simpler method of using a flat 8% return and that's totally fine. In fact, if you run these bootstrap simulations enough time they average out to that. In addition to the average convering, you will also get better estimates on upper and lower boundaries of the distribution for possible outcomes. For example, using the 8% average you hit your FI number about 50% of the time. Instead you may want to aim to hit your target with a higher probability and these simulations can let you know what that might look like.
 
   </section>
 </main>
