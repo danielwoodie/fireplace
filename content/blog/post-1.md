@@ -66,7 +66,7 @@ author_info:
       </p>
       <p>Instead of flipping a coin, you may be interested in something that could follow a similar framework: investment returns over multiple years. One year you may get 8% return, another year 10%, and another 7%, and so on. This is relevant because you may be investing over a series of years and want to have some idea about how your investments might look after 10, 20, 30 years or more. 
       </p>
-      <p>Note about investment advice. It's important to keep in mind a common quote in forecasting: All models are wrong, some are useful. That is to say, there is no guarantee in these simulations. Rather, they 
+      <p>Note about investment advice. It's important to keep in mind a common quote in forecasting: All models are wrong, some are useful.
       </p>
 
 >All models are wrong but some are useful.
@@ -137,9 +137,9 @@ author_info:
   
 ### The Random Walk with FIRE
 
-Using a bootstrap simulation we can get a distribution of potential outcomes -- helping us understand both the distribution of likely outcomes. Using actual returns, we can get a potentially more realistic idea of what can happen over a longer time period. By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.
+Using a bootstrap simulation we can get an idea of not just how things will pan out on average but also a distribution of potential outcomes. Using actual returns, we can get a potentially more realistic idea of what can happen over a longer time period. By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.
   
-As such, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes. To get an understanding of the distribution, you can instead run a bootstrap simulation. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes.
+That is, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes. Using the same strategy as before with spending $100,000/year, starting with $0 invested, and then investing $75,000/year after that we get the following scenario:
 
 
 </section>
