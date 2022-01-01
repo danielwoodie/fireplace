@@ -1058,7 +1058,7 @@ You might actually prefer the simpler method of using a flat 8% return and that'
       .attr("height", height_rw + margin_rw.top + margin_rw.bottom)
     .append("g")
       .attr("transform", `translate(${margin_rw.left},${margin_rw.top})`);
-      
+  
   // Initialise a X axis:
   const x_rw = d3.scaleLinear().range([0,width_rw]);
   const xAxis_rw = d3.axisBottom().scale(x_rw);
@@ -1175,10 +1175,6 @@ You might actually prefer the simpler method of using a flat 8% return and that'
         }
         average_data[i] = {ser1: i, ser2: d3.mean(tmp_data)};
       }
-           
-      svg_rw
-        .selectAll(".average_data_line")
-        .remove();
       
       // Add path
       const path_rw = svg_rw
@@ -1204,11 +1200,14 @@ You might actually prefer the simpler method of using a flat 8% return and that'
         .attr("stroke-dasharray", pathLength_rw)
         .transition(transitionPath_rw)
         .attr("stroke-dashoffset", 0);
+        
+      if (document.getElementsByClassName('average_data_line').length == 0) {
       
-      // Add path
-      const path_rw_avg = svg_rw
+        svg_rw
         .append("path")
         .datum(average_data)
+        .transition()
+        .delay(2000)
         .attr("class", "average_data_line")
         .attr("fill", "none")
         .attr("stroke", "#3CB371")
@@ -1216,21 +1215,33 @@ You might actually prefer the simpler method of using a flat 8% return and that'
         .attr("stroke-linecap", "round")
         .attr("stroke-width", 3)
         .attr("d", line_rw);
-
-      const pathLength_rw_avg = path_rw_avg.node().getTotalLength();
       
-      const transitionPath_rw_avg = d3
-        .transition()
-        .delay(2000)
-        .ease(d3.easeSin)
-        .duration(2000);
+      } else {
+      
+        // Move average line up
+        d3.selectAll(".average_data_line").raise();
+      
+        // Add path
+        const path_rw_avg = svg_rw
+          .selectAll(".average_data_line")
+          .datum(average_data);
+  
+        path_rw_avg
+          .join("path")
+          .attr("class", "average_data_line")
+          .transition()
+          .delay(2000)
+          .duration(2000)
+          .attr("fill", "none")
+          .attr("stroke", "#3CB371")
+          .attr("stroke-linejoin", "round")
+          .attr("stroke-linecap", "round")
+          .attr("stroke-width", 3)
+          .attr("d", line_rw);
+      
+      }
+      
 
-      path_rw_avg
-        .attr("stroke-dashoffset", pathLength_rw)
-        .attr("stroke-dasharray", pathLength_rw)
-        .transition(transitionPath_rw_avg)
-        .attr("stroke-dashoffset", 0);
-    
     } else if (numsims == 10) {
     
       for (var j = 0; j < 10; j++) {
@@ -1243,10 +1254,6 @@ You might actually prefer the simpler method of using a flat 8% return and that'
         
         // Append data together
         all_data = all_data.concat(this_runs_data);
-             
-        svg_rw
-          .selectAll(".average_data_line")
-          .remove();
         
         // Add path
         var path_rw = svg_rw
@@ -1285,10 +1292,13 @@ You might actually prefer the simpler method of using a flat 8% return and that'
         average_data[i] = {ser1: i, ser2: d3.mean(tmp_data)};
       }
       
-      // Add path
-      const path_rw_avg = svg_rw
+            if (document.getElementsByClassName('average_data_line').length == 0) {
+      
+        svg_rw
         .append("path")
         .datum(average_data)
+        .transition()
+        .delay(2000)
         .attr("class", "average_data_line")
         .attr("fill", "none")
         .attr("stroke", "#3CB371")
@@ -1296,20 +1306,31 @@ You might actually prefer the simpler method of using a flat 8% return and that'
         .attr("stroke-linecap", "round")
         .attr("stroke-width", 3)
         .attr("d", line_rw);
-
-      const pathLength_rw_avg = path_rw_avg.node().getTotalLength();
       
-      const transitionPath_rw_avg = d3
-        .transition()
-        .delay(2000)
-        .ease(d3.easeSin)
-        .duration(2000);
-
-      path_rw_avg
-        .attr("stroke-dashoffset", pathLength_rw)
-        .attr("stroke-dasharray", pathLength_rw)
-        .transition(transitionPath_rw_avg)
-        .attr("stroke-dashoffset", 0);
+      } else {
+      
+        // Move average line up
+        d3.selectAll(".average_data_line").raise();
+      
+        // Add path
+        const path_rw_avg = svg_rw
+          .selectAll(".average_data_line")
+          .datum(average_data);
+  
+        path_rw_avg
+          .join("path")
+          .attr("class", "average_data_line")
+          .transition()
+          .delay(2000)
+          .duration(2000)
+          .attr("fill", "none")
+          .attr("stroke", "#3CB371")
+          .attr("stroke-linejoin", "round")
+          .attr("stroke-linecap", "round")
+          .attr("stroke-width", 3)
+          .attr("d", line_rw);
+      
+      }
     
     } else if (numsims == 0) {
     
