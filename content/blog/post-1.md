@@ -870,7 +870,7 @@ You might actually prefer the simpler method of using a flat 8% return and that'
         .attr("x", xScale(12))
         .attr("y", yScale(500000))
         .attr("class", "fire_age")
-        .text("FIRE Age");
+        .text("Years to FIRE");
       
       svg.select(".future_value_line")
          .transition()
@@ -1060,6 +1060,23 @@ You might actually prefer the simpler method of using a flat 8% return and that'
       .attr("height", height_rw + margin_rw.top + margin_rw.bottom)
     .append("g")
       .attr("transform", `translate(${margin_rw.left},${margin_rw.top})`);
+  
+  // text label for the y axis
+  svg_rw.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin_rw.left)
+      .attr("x",0 - (height_rw / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Value in Dollars");
+  
+  // text label for the x axis
+  svg_rw.append("text")             
+      .attr("transform",
+            "translate(" + (width_rw/2) + " ," + 
+                           (height + margin_rw.top + 20) + ")")
+      .style("text-anchor", "middle")
+      .text("Years");
   
   // Initialise a X axis:
   const x_rw = d3.scaleLinear().range([0,width_rw]);
