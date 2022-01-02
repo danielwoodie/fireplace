@@ -9,58 +9,27 @@ author_info:
   
 ---
 
+<style>
+td {
+  width: 20%;
+}
 
-The S&P 500 has had a lot of ups and downs over the past 100 years. Here is a table of the returns including the corresponding percent delta from the Consumer Price Index (CPI) for that year. The net column is simply the S&P column minus the CPI column to provide the net return for the year. These data were used for the <a href="/blog/post-1/" target="_blank">Random Walk with FIRE</a> blog.
+table {
+  border: solid;
+  margin: auto;
+}
 
-<!--
+thead {
+  border-bottom: solid;
+}
 
-  // Set the S&P Returns
-  const sp = [
-      18.40, 31.49, -4.38, 21.83, 11.96, 1.36, 13.52, 32.15, 15.89,
-      2.10, 14.82, 25.94, -36.55, 5.48, 15.61, 4.83, 10.74, 28.36,
-      -21.97, -11.85, -9.03, 20.89, 28.34, 33.10, 22.68, 37.20, 1.33,
-      9.97, 7.49, 30.23, -3.06, 31.48, 16.54, 5.81, 18.49, 31.24,
-      6.15, 22.34, 20.42, -4.70, 31.74, 18.52, 6.51, -6.98, 23.83,
-      37.00, -25.90, -14.31, 18.76, 14.22, 3.56, -8.24, 10.81, 23.80,
-      -9.97, 12.40, 16.42, 22.61, -8.81, 26.64, 0.34, 12.06, 43.72,
-      -10.46, 7.44, 32.60, 52.56, -1.21, 18.15, 23.68, 30.81, 18.30,
-      5.70, 5.20, -8.43, 35.82, 19.03, 25.06, 19.17, -12.77, -10.67,
-      -1.10, 29.28, -35.34, 31.94, 46.74, -1.19, 49.98, -8.64, -43.84,
-      -25.12, -8.30, 43.81
-  ];
-  
-  // Set the CPI Inflation
-  const cpi = [
-      1.20, 1.80, 2.4, 2.1, 1.3, 0.1, 1.6, 1.5, 2.1, 3.2,
-      1.6, -.4, 3.8, 2.9, 3.2, 3.4, 2.7, 2.3, 1.6, 2.8,
-      3.4, 2.2, 1.6, 2.3, 2.9, 2.8, 2.6, 3, 3, 4.2, 
-      5.4, 4.8, 4.1, 3.7, 1.9, 3.5, 4.3, 3.2, 6.1, 10.3, 
-      13.5, 11.3, 7.6, 6.5, 5.7, 9.1, 11.1, 6.2, 3.3, 4.3,
-      5.8, 5.5, 4.3, 2.8, 3.0, 1.6, 1.3, 1.2, 1.2, 1.1,
-      1.5, 1.08, 2.7, 3.3, 1.5, -0.3, 0.3, 0.8, 2.3, 7.9, 
-      1.1, -1, 7.7, 14.4, 8.5, 2.3, 1.6, 6, 10.9, 5.1,
-      0.7, -1.3, -2, 3.7, 1, 2.6, 3.5, -5.2, -10.3, -8.9,
-      -2.7, 0, -1.2
-  ];
-  
+tr {
+  border-bottom: solid;
+  border-width: thin;
+}
+</style>
 
-  
-  const year = [
-      2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 
-      2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001,
-      2000, 1999, 1998, 1997, 1996, 1995, 1994, 1993, 1992, 1991,
-      1990, 1989, 1988, 1987, 1986, 1985, 1984, 1983, 1982, 1981,
-      1980, 1979, 1978, 1977, 1976, 1975, 1974, 1973, 1972, 1971,
-      1970, 1969, 1968, 1967, 1966, 1965, 1964, 1963, 1962, 1961,
-      1960, 1959, 1958, 1957, 1956, 1955, 1954, 1953, 1952, 1951,
-      1950, 1949, 1948, 1947, 1946, 1945, 1944, 1943, 1942, 1941,
-      1940, 1939, 1938, 1937, 1936, 1935, 1934, 1933, 1932, 1931,
-      1930, 1929, 1928
-  ];
-
-
---> 
-
+The S&P 500 has had a lot of ups and downs over the past 100 years. Here is a table of the returns including the year-over-year return from the S&P500 with dividends re-invested, the corresponding Consumer Price Index (CPI) for that year, and the net return for the year or delta between the two. These data were used for the <a href="/blog/post-1/" target="_blank">Random Walk with FIRE</a> blog.
 
 
 
