@@ -1,7 +1,7 @@
 ---
 title: "Inflation Adjusted S&P 500 Returns for the Last 100 Years"
 date: '2022-01-02'
-draft: TRUE
+draft: FALSE
 image: images/blog/sp500_cpi.png
 author_info:
   name: Daniel Woodie
