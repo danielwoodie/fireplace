@@ -170,6 +170,8 @@ The solid green line is the average of all runs and eventually converges to matc
 
 You might actually prefer the simpler method of using a flat 8% return and that's totally fine. In fact, if you run these bootstrap simulations enough time they average out to that. In addition to the average convering, you will also get better estimates on upper and lower boundaries of the distribution for possible outcomes. For example, using the 8% average you hit your FI number about 50% of the time. Instead you may want to aim to hit your target with a higher probability and these simulations can let you know what that might look like.
 
+Source data can be <a href="/blog/post-2/" target="_blank">found here</a>.
+
   </section>
 </main>
 
@@ -296,15 +298,16 @@ You might actually prefer the simpler method of using a flat 8% return and that'
   
   // Set the CPI Inflation
   const cpi = [
-      -1.20, 0.00, -2.70, -8.90, -10.30, -5.20, 3.50, 2.60, 1.00, 3.70,
-      -2.00, -1.30, 0.70, 5.10, 10.90, 6.00, 1.60, 2.30, 8.50, 14.40, 7.70,
-      -1.00, 1.10, 7.90, 2.30, 0.80, 0.30, -0.30, 1.50, 3.30, 2.70, 1.08,
-      1.50, 1.10, 1.20, 1.20, 1.30, 1.60, 3.00, 2.80, 4.30, 5.50, 5.80,
-      4.30, 3.30, 6.20, 11.10, 9.10, 5.70, 6.50, 7.60, 11.30, 13.50, 10.30,
-      6.10, 3.20, 4.30, 3.50, 1.90, 3.70, 4.10, 4.80, 5.40, 4.20, 3.00, 3.00,
-      2.60, 2.80, 2.90, 2.30, 1.60, 2.20, 3.40, 2.80, 1.60, 2.30, 2.70, 3.40,
-      3.20, 2.90, 3.80, 0.40, 1.60, 3.20, 2.10, 1.50, 1.60, 0.10, 1.30,
-      2.10, 2.40, 1.80, 1.20
+      1.20, 1.80, 2.4, 2.1, 1.3, 0.1, 1.6, 1.5, 2.1, 3.2,
+      1.6, -.4, 3.8, 2.9, 3.2, 3.4, 2.7, 2.3, 1.6, 2.8,
+      3.4, 2.2, 1.6, 2.3, 2.9, 2.8, 2.6, 3, 3, 4.2, 
+      5.4, 4.8, 4.1, 3.7, 1.9, 3.5, 4.3, 3.2, 6.1, 10.3, 
+      13.5, 11.3, 7.6, 6.5, 5.7, 9.1, 11.1, 6.2, 3.3, 4.3,
+      5.8, 5.5, 4.3, 2.8, 3.0, 1.6, 1.3, 1.2, 1.2, 1.1,
+      1.5, 1.08, 2.7, 3.3, 1.5, -0.3, 0.3, 0.8, 2.3, 7.9, 
+      1.1, -1, 7.7, 14.4, 8.5, 2.3, 1.6, 6, 10.9, 5.1,
+      0.7, -1.3, -2, 3.7, 1, 2.6, 3.5, -5.2, -10.3, -8.9,
+      -2.7, 0, -1.2
   ];
   
   const year = [

@@ -1,28 +1,164 @@
 ---
-title: "FIRE's Hierarchy of Needs"
-date: '2021-07-14'
+title: "Inflation Adjusted S&P 500 Returns for the Last 100 Years"
+date: '2022-01-02'
 draft: TRUE
-image: images/blog/01.jpg
+image: images/blog/sp500_cpi.png
 author_info:
-  image: images/denise.jpeg
-  name: Denise Baxindine
+  name: Daniel Woodie
+  image: images/daniel.jpg
+  
 ---
 
-What are Maslow's Hierarchy of Needs?
 
-What is FIRE?
+The S&P 500 has had a lot of ups and downs over the past 100 years. Here is a table of the returns including the corresponding percent delta from the Consumer Price Index (CPI) for that year. The net column is simply the S&P column minus the CPI column to provide the net return for the year. These data were used for the <a href="/blog/post-1/" target="_blank">Random Walk with FIRE</a> blog.
 
-What are FIRE's hierarchy of needs?
+<!--
 
-Why is this relevant?
+  // Set the S&P Returns
+  const sp = [
+      18.40, 31.49, -4.38, 21.83, 11.96, 1.36, 13.52, 32.15, 15.89,
+      2.10, 14.82, 25.94, -36.55, 5.48, 15.61, 4.83, 10.74, 28.36,
+      -21.97, -11.85, -9.03, 20.89, 28.34, 33.10, 22.68, 37.20, 1.33,
+      9.97, 7.49, 30.23, -3.06, 31.48, 16.54, 5.81, 18.49, 31.24,
+      6.15, 22.34, 20.42, -4.70, 31.74, 18.52, 6.51, -6.98, 23.83,
+      37.00, -25.90, -14.31, 18.76, 14.22, 3.56, -8.24, 10.81, 23.80,
+      -9.97, 12.40, 16.42, 22.61, -8.81, 26.64, 0.34, 12.06, 43.72,
+      -10.46, 7.44, 32.60, 52.56, -1.21, 18.15, 23.68, 30.81, 18.30,
+      5.70, 5.20, -8.43, 35.82, 19.03, 25.06, 19.17, -12.77, -10.67,
+      -1.10, 29.28, -35.34, 31.94, 46.74, -1.19, 49.98, -8.64, -43.84,
+      -25.12, -8.30, 43.81
+  ];
+  
+  // Set the CPI Inflation
+  const cpi = [
+      1.20, 1.80, 2.4, 2.1, 1.3, 0.1, 1.6, 1.5, 2.1, 3.2,
+      1.6, -.4, 3.8, 2.9, 3.2, 3.4, 2.7, 2.3, 1.6, 2.8,
+      3.4, 2.2, 1.6, 2.3, 2.9, 2.8, 2.6, 3, 3, 4.2, 
+      5.4, 4.8, 4.1, 3.7, 1.9, 3.5, 4.3, 3.2, 6.1, 10.3, 
+      13.5, 11.3, 7.6, 6.5, 5.7, 9.1, 11.1, 6.2, 3.3, 4.3,
+      5.8, 5.5, 4.3, 2.8, 3.0, 1.6, 1.3, 1.2, 1.2, 1.1,
+      1.5, 1.08, 2.7, 3.3, 1.5, -0.3, 0.3, 0.8, 2.3, 7.9, 
+      1.1, -1, 7.7, 14.4, 8.5, 2.3, 1.6, 6, 10.9, 5.1,
+      0.7, -1.3, -2, 3.7, 1, 2.6, 3.5, -5.2, -10.3, -8.9,
+      -2.7, 0, -1.2
+  ];
+  
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec et ipsum ullamcorper venenatis fringilla. Pretium, purus eu nec vulputate vel habitant egestas. Congue ornare at ipsum, viverra. Vitae magna faucibus eros, lectus sociis. Etiam nunc amet id dignissim. Feugiat id tempor vel sit in ornare turpis posuere. Eu quisque integer non rhoncus elementum vel. Quis nec viverra lectus augue nec praesent
+  
+  const year = [
+      2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 
+      2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001,
+      2000, 1999, 1998, 1997, 1996, 1995, 1994, 1993, 1992, 1991,
+      1990, 1989, 1988, 1987, 1986, 1985, 1984, 1983, 1982, 1981,
+      1980, 1979, 1978, 1977, 1976, 1975, 1974, 1973, 1972, 1971,
+      1970, 1969, 1968, 1967, 1966, 1965, 1964, 1963, 1962, 1961,
+      1960, 1959, 1958, 1957, 1956, 1955, 1954, 1953, 1952, 1951,
+      1950, 1949, 1948, 1947, 1946, 1945, 1944, 1943, 1942, 1941,
+      1940, 1939, 1938, 1937, 1936, 1935, 1934, 1933, 1932, 1931,
+      1930, 1929, 1928
+  ];
 
-Pharetra odio amet pellentesque. Egestas nisi adipiscing sed in lectus. Vitae ultrices malesuada aliquet Faucibus consectetur tempus adipiscing vitae. Nec blandit tincidunt nibh nisi, quam volutpat. In lacus laoreet diam risus. Mauris, risus faucibus sagittis sagittis tincidunt id justo. Diam massa pretium consequat mauris viverra. Sagittis eu libero
 
->Facing a challenge in life is kind of a turn-on for an easy rider. When life gives you lemons, use them in your designs
->
-> <cite>!Alexender Smith</cite>
+--> 
 
-Consectetur adipiscing elit. Nec et ipsum ullamcorper venenatis fringilla. Pretium, purus eu nec vulputate vel habitant egestas. Congue ornare at ipsum, viverra. Vitae magna faucibus eros, lectus sociis. Etiam nunc amet id dignissim. Feugiat id tempor vel sit in ornare turpis posuere. Eu quisque integer non rhoncus elementum vel. Quis nec viverra lectus augue nec praesent volutpat tortor. Ipsum eget sed tempus luctus nisl. Ut etiam molestie mattis at faucibus mi at pellentesque. Pellentesque morbi nunc, curabitur arcu euismod suscipit. Duis mi sapien, donec non dictum
 
+
+
+
+
+| Year        | S&P         | CPI           | Net         |
+| :---        | :---        | :---          | :---        |
+| Average     | 11.65       | 3.02          | 8.63        |
+| 2020        | 18.40       | 1.20         | 17.2           |
+| 2019        | 31.49       | 1.80        | 29.69           |
+| 2018        | -4.38       | 2.4         | -6.78           |
+| 2017        | 21.83       | 2.1         | 19.73           |
+| 2016        | 11.96       | 1.30        | 10.66           |
+| 2015        | 1.36        | 0.1         | 1.26           |
+| 2014        | 13.52       | 1.6        | 11.92           |
+| 2013        | 32.15       | 1.5        | 30.65           |
+| 2012        | 15.8        | 2.1        | 13.79           |
+| 2011        | 2.10        | 3.2        | -1.1           |
+| 2010        | 14.82       | 1.6         | 13.22           |
+| 2009        | 25.94       | -.4         | 26.34           |
+| 2008        | -36.5       | 3.8        | -40.3           |
+| 2007        | 5.48        | 2.9        | 2.58           |
+| 2006        | 15.61       | 3.2         | 12.41           |
+| 2005        | 4.83        | 3.4        | 1.43           |
+| 2004        | 10.74       | 2.7        | 8.04           |
+| 2003        | 28.3,       | 2.3        | 26.06           |
+| 2002        | -21.9       | 1.6        | -23.5           |
+| 2001        | -11.8       | 2.8         | -14.6           |
+| 2000        | -9.03       | 3.4        | -12.4           |
+| 1999        | 20.89       | 2.2         | 18.69           |
+| 1998        | 28.34       | 1.6        | 26.74           |
+| 1997        | 33.10       | 2.3        | 30.8           |
+| 1996        | 22.68       | 2.9        | 19.78           |
+| 1995        | 37.20       | 2.8        | 34.4           |
+| 1994        | 1.3         | 2.6        | -1.27           |
+| 1993        | 9.97        | 3         | 6.97           |
+| 1992        | 7.49        | 3        | 4.49           |
+| 1991        | 30.23       | 4.2        | 26.03           |
+| 1990        | -3.06       | 5.4        | -8.46           |
+| 1989        | 31.48       | 4.8        | 26.68           |
+| 1988        | 16.54       | 4.1        | 12.44           |
+| 1987        | 5.81        | 3.7        | 2.11           |
+| 1986        | 18.49       | 1.9        | 16.59           |
+| 1985        | 31.2        | 3.5        | 27.74           |
+| 1984        | 6.15        | 4.3        | 1.85           |
+| 1983        | 22.34       | 3.2        | 19.14           |
+| 1982        | 20.42       | 6.1        | 14.32           |
+| 1981        | -4.70       | 10.3        | -15           |
+| 1980        | 31.74       | 13.5        | 18.24           |
+| 1979        | 18.52       | 11.3        | 7.22           |
+| 1978        | 6.51        | 7.6        | -1.09           |
+| 1977        | -6.98       | 6.5        | -13.4           |
+| 1976        | 23.8        | 5.7        | 18.13           |
+| 1975        | 37.00       | 9.1        | 27.9           |
+| 1974        | -25.90      | 11.1         | -37           |
+| 1973        | -14.31      | 6.2        | -20.5           |
+| 1972        | 18.76       | 3.3        | 15.46           |
+| 1971        | 14.22       | 4.        | 9.92           |
+| 1970        | 3.56        | 5.8        | -2.24           |
+| 1969        | -8.24       | 5.5         | -13.7           |
+| 1968        | 10.81       | 4.3         | 6.51           |
+| 1967        | 23.8        | 2.8        | 21           |
+| 1966        | -9.97       | 3.0        | -12.9           |
+| 1965        | 12.40       | 1.6        | 10.8           |
+| 1964        | 16.42       | 1.3        | 15.12           |
+| 1963        | 22.61       | 1.2        | 21.41           |
+| 1962        | -8.81       | 1.2        | -10.0           |
+| 1961        | 26.64       | 1.1        | 25.54           |
+| 1960        | 0.34        | 1.5        | -1.16           |
+| 1959        | 12.06       | 1.08        | 10.98           |
+| 1958        | 43.7        | 2.7        | 41.02           |
+| 1957        | -10.46      | 3.3        | -13.7           |
+| 1956        | 7.44        | 1.5        | 5.94           |
+| 1955        | 32.60       | -0.3        | 32.9           |
+| 1954        | 52.56       | 0.3        | 52.26           |
+| 1953        | -1.21       | 0.8        | -2.01           |
+| 1952        | 18.15       | 2.3        | 15.85           |
+| 1951        | 23.68       | 7.9        | 15.78           |
+| 1950        | 30.81       | 1.1        | 29.71           |
+| 1949        | 18.3        | -1        | 19.3           |
+| 1948        | 5.70        | 7.7        | -2           |
+| 1947        | 5.20        | 14.4        | -9.2           |
+| 1946        | -8.43       | 8.5        | -16.9           |
+| 1945        | 35.82       | 2.3        | 33.52           |
+| 1944        | 19.03       | 1.6        | 17.43           |
+| 1943        | 25.06       | 6        | 19.06           |
+| 1942        | 19.17       | 10.9        | 8.27           |
+| 1941        | -12.77      | 5.1        | -17.8           |
+| 1940        | -10.6       | 0.7        | -11.3           |
+| 1939        | -1.10       | -1.3        | 0.2           |
+| 1938        | 29.28       | -2        | 31.28           |
+| 1937        | -35.34      | 3.7        | -39.0           |
+| 1936        | 31.94       | 1        | 30.94           |
+| 1935        | 46.74       | 2.6        | 44.14           |
+| 1934        | -1.19       | 3.5        | -4.69           |
+| 1933        | 49.98       | -5.2        | 55.18           |
+| 1932        | -8.64       | -10.3        | 1.66           |
+| 1931        | -43.8       | -8.9        | -34.9           |
+| 1930        | -25.12      | -2.7        | -22.4           |
+| 1929        | -8.30       | 0        | -8.3           |
+| 1928        | 3.81        | -1.2        | 45.01           |  
