@@ -6,33 +6,9 @@ image: images/blog/sp500_cpi.png
 author_info:
   name: Daniel Woodie
   image: images/daniel.jpg
-  
 ---
 
-<style>
-td {
-  width: 20%;
-}
-
-table {
-  border: solid;
-  margin: auto;
-}
-
-thead {
-  border-bottom: solid;
-}
-
-tr {
-  border-bottom: solid;
-  border-width: thin;
-}
-</style>
-
 The S&P 500 has had a lot of ups and downs over the past 100 years. Here is a table of the returns including the year-over-year return from the S&P500 with dividends re-invested, the corresponding Consumer Price Index (CPI) for that year, and the net return for the year or delta between the two. These data were used for the <a href="/blog/post-1/" target="_blank">Random Walk with FIRE</a> blog.
-
-
-
 
 
 | Year        | S&P         | CPI           | Net         |
@@ -131,3 +107,25 @@ The S&P 500 has had a lot of ups and downs over the past 100 years. Here is a ta
 | 1930        | -25.12      | -2.7        | -22.4           |
 | 1929        | -8.30       | 0        | -8.3           |
 | 1928        | 3.81        | -1.2        | 45.01           |  
+
+
+
+<style>
+td {
+  width: 20%;
+}
+
+table {
+  border: solid;
+  margin: auto;
+}
+
+thead {
+  border-bottom: solid;
+}
+
+tr {
+  border-bottom: solid;
+  border-width: thin;
+}
+</style>
