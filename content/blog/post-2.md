@@ -8,7 +8,7 @@ author_info:
   image: images/daniel.jpg
 ---
 
-The S&P 500 has had a lot of ups and downs over the past 100 years. Here is a table of the returns including the year-over-year return from the S&P500 with dividends re-invested, the corresponding Consumer Price Index (CPI) for that year, and the net return for the year or delta between the two. These data were used for the <a href="/blog/post-1/" target="_blank">Random Walk with FIRE</a> blog.
+The S and P 500 has had a lot of ups and downs over the past 100 years. Here is a table of the returns including the year-over-year return from the S&P500 with dividends re-invested, the corresponding Consumer Price Index (CPI) for that year, and the net return for the year or delta between the two. These data were used for the <a href="/blog/post-1/" target="_blank">Random Walk with FIRE</a> blog.
 
 
 | Year        | S&P         | CPI           | Net         |
