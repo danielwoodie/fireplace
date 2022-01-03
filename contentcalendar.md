@@ -16,9 +16,9 @@ What does FIRE stand for?
 ### Staple Posts - Medium, ~2,000 words and one visualization
 #### Completed
 calculator/futurevalue -- Future Value Calculator
+calculator/safewithdrawal -- Safe Withdrawal Calculator
 
 #### Started
-Safe Withdrawal Calculator
 
 #### Not Started
 What states have the cheapest taxes?

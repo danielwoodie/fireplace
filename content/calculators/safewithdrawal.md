@@ -203,7 +203,7 @@ draft: no
         .call(xAxis);
       
       // create the Y axis
-      y.domain([d3.min(future_value_data, d => d.x) - 200000, d3.max(future_value_data, d => d.y) + 200000 ]);
+      y.domain([d3.min(future_value_data, d => d.y) - 200000, d3.max(future_value_data, d => d.y) + 200000 ]);
       svg.selectAll(".myYaxis")
         .transition()
         .duration(1000)
@@ -335,8 +335,6 @@ draft: no
     .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
   
-  
-        
   // Initialise a X axis:
   const x = d3.scaleLinear().range([0,width]);
   const xAxis = d3.axisBottom().scale(x);
