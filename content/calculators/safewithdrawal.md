@@ -213,7 +213,7 @@ draft: no
       const yScale = d3
         .scaleLinear()
         .range([height, 0])
-        .domain([0, d3.max(future_value_data, d => d.y) + 200000 ]);
+        .domain([d3.min(future_value_data, d => d.y) - 200000, d3.max(future_value_data, d => d.y) + 200000 ]);
         
       const xScale = d3
         .scaleLinear()
