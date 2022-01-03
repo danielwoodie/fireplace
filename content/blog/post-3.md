@@ -48,7 +48,7 @@ This is a $9,000/month budget or $108k/year. Will you spend like this every mont
 Using these numbers, your FIRE number is $2.7M ($108,000 * 25).
 
 ## Your Turn
-Take this and make it your own. If you'd include your own categories or have very different amounts in these boxes, let me know in the comments below. If you're married, this could be a good activity to do a household. Having a good idea of what your annual expenses are help you not only understand what you need to retire but you can also start to see where you might want to spend a little less or maybe a little more.
+Take this and make it your own. If you'd include your own categories or have very different amounts in these boxes, let me know in the comments below. If you're married, this could be a good activity to do as a household. Having a good idea of what your annual expenses are help you not only understand what you need to retire but you can also start to see where you might want to spend a little less or maybe a little more.
 
 
 
