@@ -21,6 +21,12 @@ weight = 2
   url = "calculators/safewithdrawal/"
   weight = 2
 
+  [[main]]
+  parent = "FIRE Calculators"
+  name = "Bad Habits"
+  url = "calculators/badhabits/"
+  weight = 3
+
 [[main]]
 name = "Data Policy"
 url = "terms-and-conditions/"

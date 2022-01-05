@@ -1,5 +1,4 @@
 ## January 2022
-
 ### Response Posts - Short, ~1,000 words and no javascript
 #### Completed
 blog/post-2.md -- Inflation Adjusted S&P 500 Returns for the Last 100 Years
@@ -10,8 +9,6 @@ blog/post-3.md -- How to Calculate Your FIRE Number
 #### Not Started
 Can I retire on 1 million dollars?
 What does FIRE stand for?
-
-
 
 ### Staple Posts - Medium, ~2,000 words and one visualization
 #### Completed
@@ -29,6 +26,7 @@ What states have the cheapest taxes?
 blog/post-1.md -- Random Walk with FIRE
 
 #### Started
+calculator/futurevaluesimulator -- Future Value Simulator
 
 #### Not Started
 

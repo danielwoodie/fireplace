@@ -11,8 +11,7 @@ author_info:
 <script src="https://unpkg.com/intersection-observer"></script>
 <script src="https://unpkg.com/scrollama"></script>
 <script src="https://d3js.org/d3.v6.js"></script>
-<script src=//cdnjs.cloudflare.com/ajax/libs/seedrandom/2.3.10/seedrandom.min.js>
-</script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/seedrandom/2.3.10/seedrandom.min.js></script>
 
 <main>
   <section id="intro">
