@@ -14,6 +14,7 @@ What does FIRE stand for?
 #### Completed
 calculator/futurevalue -- Future Value Calculator
 calculator/safewithdrawal -- Safe Withdrawal Calculator
+calculator/badhabits -- Bad Habits Calculator
 
 #### Started
 
