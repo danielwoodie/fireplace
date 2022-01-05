@@ -173,6 +173,7 @@ draft: no
   
     d3.select(".future_value_line").remove();
     d3.select(".future_value").remove();
+    d3.select(".badhabittext").remove();
 
     // Get variables from inputs
     var annual_contributions = 365*Number(document.getElementById('bad_habit').value);
@@ -302,7 +303,8 @@ draft: no
             tooltip.select(".tooltip-likes").text(d.x);
         }
       
-        svg.append("text")             
+        svg.append("text")     
+          .attr("class", "badhabittext")
           .attr("transform",
                 "translate(" + (width/2) + " ," + 
                                (margin.top + 20) + ")")
