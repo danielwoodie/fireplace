@@ -307,7 +307,7 @@ draft: no
                 "translate(" + (width/2) + " ," + 
                                (margin.top + 20) + ")")
           .style("text-anchor", "middle")
-          .style("font-size", "large")
+          .style("margin", "auto")
           .text("Your bad habit really costs $" + d3.max(future_value_data, d => d.y) + ".");
         
     
