@@ -175,6 +175,10 @@ draft: no
 
 <script>
 
+  function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   function runfv() {
   
     d3.select(".future_value_line").remove();
@@ -304,7 +308,7 @@ draft: no
                 d = x0 - d0.x > d1.x - x0 ? d1 : d0;
             focus.attr("transform", "translate(" + x(d.x) + "," + y(d.y) + ")");
             tooltip.attr("style", "left:" + (x(d.x) + 64) + "px;top:" + y(d.y) + "px;");
-            tooltip.select(".tooltip-date").text("$" +d.y);
+            tooltip.select(".tooltip-date").text("$" +numberWithCommas(d.y));
             tooltip.select(".tooltip-likes").text(d.x);
         }
         
