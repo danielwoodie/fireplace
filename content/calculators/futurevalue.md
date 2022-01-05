@@ -509,8 +509,6 @@ draft: no
         }
         
     
-      console.log(d3.max(future_value_data, d => d.y) + " is greater than " + fire_number + ". You made it.");
-
     };
     
     
