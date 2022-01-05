@@ -168,6 +168,10 @@ draft: no
 
 
 <script>
+  
+  function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
 
   function runfv() {
   
@@ -198,7 +202,7 @@ draft: no
         .call(xAxis);
       
       // create the Y axis
-      y.domain([d3.min(future_value_data, d => d.y) - 200000, d3.max(future_value_data, d => d.y) + 200000 ]);
+      y.domain([d3.min(future_value_data, d => d.y), d3.max(future_value_data, d => d.y) + 200000 ]);
       svg.selectAll(".myYaxis")
         .transition()
         .duration(1000)
@@ -208,7 +212,7 @@ draft: no
       const yScale = d3
         .scaleLinear()
         .range([height, 0])
-        .domain([d3.min(future_value_data, d => d.y) - 200000, d3.max(future_value_data, d => d.y) + 200000 ]);
+        .domain([d3.min(future_value_data, d => d.y), d3.max(future_value_data, d => d.y) + 200000 ]);
         
       const xScale = d3
         .scaleLinear()
@@ -299,7 +303,7 @@ draft: no
                 d = x0 - d0.x > d1.x - x0 ? d1 : d0;
             focus.attr("transform", "translate(" + x(d.x) + "," + y(d.y) + ")");
             tooltip.attr("style", "left:" + (x(d.x) + 64) + "px;top:" + y(d.y) + "px;");
-            tooltip.select(".tooltip-date").text("$" +d.y);
+            tooltip.select(".tooltip-date").text("$" +numberWithCommas(d.y));
             tooltip.select(".tooltip-likes").text(d.x);
         }
       
@@ -310,7 +314,7 @@ draft: no
                                (margin.top + 20) + ")")
           .style("text-anchor", "middle")
           .style("margin", "auto")
-          .text("Your bad habit really costs $" + d3.max(future_value_data, d => d.y) + ".");
+          .text("Your bad habit really costs $" + numberWithCommas(d3.max(future_value_data, d => d.y)) + ".");
         
     
     
