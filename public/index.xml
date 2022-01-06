@@ -5,7 +5,43 @@
     <link>https://www.fireplace.cash/</link>
     <description>Recent content on FirePlace</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.fireplace.cash/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.fireplace.cash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How Much Do Your Bad Habits Really Cost?</title>
+      <link>https://www.fireplace.cash/blog/post-4/</link>
+      <pubDate>Thu, 06 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.fireplace.cash/blog/post-4/</guid>
+      <description>When I was in grad school, I loved going to a coffee shop, ordering an espresso drink, and camping out for a few hours of studying.</description>
+    </item>
+    
+    <item>
+      <title>How to Calculate Your FIRE Number</title>
+      <link>https://www.fireplace.cash/blog/post-3/</link>
+      <pubDate>Mon, 03 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.fireplace.cash/blog/post-3/</guid>
+      <description>Calculating your FIRE number is a critical first step in developing your strategy for retiring early.</description>
+    </item>
+    
+    <item>
+      <title>Inflation Adjusted S&amp;P 500 Returns for the Last 100 Years</title>
+      <link>https://www.fireplace.cash/blog/post-2/</link>
+      <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.fireplace.cash/blog/post-2/</guid>
+      <description>The S and P 500 has had a lot of ups and downs over the past 100 years.</description>
+    </item>
+    
+    <item>
+      <title>A Random Walk with FIRE</title>
+      <link>https://www.fireplace.cash/blog/post-1/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.fireplace.cash/blog/post-1/</guid>
+      <description>What is FIRE? FIRE stands for Financial Independence Retire Early and is a personal finance philosophy focused on investing aggressively when you&#39;re young and living off the gains well before typical retirement years.</description>
+    </item>
+    
     <item>
       <title>Terms &amp; Conditions</title>
       <link>https://www.fireplace.cash/terms-and-conditions/</link>
@@ -16,21 +52,12 @@
     </item>
     
     <item>
-      <title>A Random Walk with FIRE</title>
-      <link>https://www.fireplace.cash/blog/post-1/</link>
+      <title>Future Value Simulator</title>
+      <link>https://www.fireplace.cash/calculators/rwfirecalculator/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://www.fireplace.cash/blog/post-1/</guid>
-      <description>What is FIRE? FIRE stands for Financial Independence Retire Early and is a personal finance philosophy focused on living below your means, investing aggressively when you&#39;re young, reaping the benefits of compound interest, and living off the gains well before typical retirement years.</description>
-    </item>
-    
-    <item>
-      <title>A Random Walk with FIRE</title>
-      <link>https://www.fireplace.cash/calculators/post-1/</link>
-      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.fireplace.cash/calculators/post-1/</guid>
-      <description>What is FIRE? FIRE stands for Financial Independence Retire Early and is a personal finance philosophy focused on living below your means, investing aggressively when you&#39;re young, reaping the benefits of compound interest, and living off the gains well before typical retirement years.</description>
+      <guid>https://www.fireplace.cash/calculators/rwfirecalculator/</guid>
+      <description>!function(a,b,c,d,e,f,g,h,i){function j(a){var b,c=a.length,e=this,f=0,g=e.i=e.j=0,h=e.S=[];for(c||(a=[c++]);df;)h[f]=f++;for(f=0;df;f++)h[f]=h[g=s&amp;g+a[f%c]+(b=h[f])],h[g]=b;(e.g=function(a){for(var b,c=0,f=e.i,g=e.j,h=e.S;a--;)b=h[f=s&amp;f+1],c=c*d+h[s&amp;(h[f]=h[g=s&amp;g+b])+(h[g]=b)];return e.i=f,e.j=g,c})(d)}function k(a,b){var c,d=[],e=typeof a;if(b&amp;&amp;&#34;</description>
     </item>
     
     <item>
@@ -43,12 +70,39 @@
     </item>
     
     <item>
+      <title>Bad Habits Calculator</title>
+      <link>https://www.fireplace.cash/calculators/badhabits/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.fireplace.cash/calculators/badhabits/</guid>
+      <description>Companion blog here: How much do your bad habits really cost?</description>
+    </item>
+    
+    <item>
       <title>contact</title>
       <link>https://www.fireplace.cash/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.fireplace.cash/contact/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Future Value Calculator</title>
+      <link>https://www.fireplace.cash/calculators/futurevalue/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.fireplace.cash/calculators/futurevalue/</guid>
+      <description>Annual Expenses In today&#39;s dollars, how much do you plan to spend each year in retirement?</description>
+    </item>
+    
+    <item>
+      <title>Safe Withdrawal Calculator</title>
+      <link>https://www.fireplace.cash/calculators/safewithdrawal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.fireplace.cash/calculators/safewithdrawal/</guid>
+      <description>Current investments How much do you currently have invested in the stock market?</description>
     </item>
     
   </channel>

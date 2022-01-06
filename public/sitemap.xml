@@ -2,29 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.fireplace.cash/terms-and-conditions/</loc>
-    <lastmod>2021-11-19T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.fireplace.cash/</loc>
-    <lastmod>2021-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.fireplace.cash/blog/post-1/</loc>
-    <lastmod>2021-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.fireplace.cash/calculators/post-1/</loc>
-    <lastmod>2021-01-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.fireplace.cash/blog/</loc>
-    <lastmod>2021-01-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.fireplace.cash/blog/post-4/</loc>
+    <lastmod>2022-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.fireplace.cash/blog/post-3/</loc>
+    <lastmod>2022-01-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.fireplace.cash/blog/post-2/</loc>
+    <lastmod>2022-01-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.fireplace.cash/blog/post-1/</loc>
+    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.fireplace.cash/terms-and-conditions/</loc>
+    <lastmod>2021-11-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.fireplace.cash/calculators/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://www.fireplace.cash/calculators/rwfirecalculator/</loc>
+    <lastmod>2021-01-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.fireplace.cash/about/</loc>
+  </url><url>
+    <loc>https://www.fireplace.cash/calculators/badhabits/</loc>
   </url><url>
     <loc>https://www.fireplace.cash/categories/</loc>
   </url><url>
     <loc>https://www.fireplace.cash/contact/</loc>
+  </url><url>
+    <loc>https://www.fireplace.cash/calculators/futurevalue/</loc>
+  </url><url>
+    <loc>https://www.fireplace.cash/calculators/safewithdrawal/</loc>
   </url><url>
     <loc>https://www.fireplace.cash/tags/</loc>
   </url>

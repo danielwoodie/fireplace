@@ -5,7 +5,7 @@
 
 <head>
 	<meta charset="utf-8">
-<title>Terms &amp; Conditions</title>
+<title>Bad Habits Calculator</title>
 
 
 
@@ -40,19 +40,19 @@
 
 
 <!-- Open Graph image and Twitter Card metadata -->
-<meta name="twitter:title" content="Terms &amp; Conditions"/>
-<meta name="twitter:description" content="What We Do With Your Data Nothing. Seriously. We track visitors to the website for ad purposes but do not store any other user data."/>
-<meta property="og:title" content="Terms &amp; Conditions" />
-<meta property="og:description" content="What We Do With Your Data Nothing. Seriously. We track visitors to the website for ad purposes but do not store any other user data." />
+<meta name="twitter:title" content="Bad Habits Calculator"/>
+<meta name="twitter:description" content="Companion blog here: How much do your bad habits really cost?"/>
+<meta property="og:title" content="Bad Habits Calculator" />
+<meta property="og:description" content="Companion blog here: How much do your bad habits really cost?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.fireplace.cash/terms-and-conditions/" /><meta property="article:section" content="" />
-<meta property="article:published_time" content="2021-11-19T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-11-19T00:00:00+00:00" />
+<meta property="og:url" content="https://www.fireplace.cash/blog/badhabits/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2022-01-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-06T00:00:00+00:00" />
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Terms &amp; Conditions"/>
-<meta name="twitter:description" content="What We Do With Your Data Nothing. Seriously. We track visitors to the website for ad purposes but do not store any other user data."/>
+<meta name="twitter:title" content="Bad Habits Calculator"/>
+<meta name="twitter:description" content="Companion blog here: How much do your bad habits really cost?"/>
 
 
 
@@ -260,7 +260,7 @@ if (!doNotTrack) {
                   
                   
                   
-                  <li class="nav-item active">
+                  <li class="nav-item ">
                     <a class="nav-link" 
                       href="/terms-and-conditions/">Data Policy</a>
                   </li>
@@ -282,61 +282,546 @@ if (!doNotTrack) {
 	<main>
 		
 
-<section class="page-header">
-  <div class="container-xxl">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="block">
-          <div class="section-title text-center mb-0">
-            <h1 class="title underline-none" data-aos="fade-up">Terms &amp; Conditions</h1>
-            <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
-              <ol class="breadcrumb justify-content-center bg-transparent p-0 mb-0">
-                <li class="breadcrumb-item"><a class="link-primary" href="/">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Terms &amp; Conditions</li>
-              </ol>
-            </nav>
+
+
+
+
+<section class="section-sm pt-0">
+  <div class="container">
+    <div class="row justify-content-center" data-aos="fade-in">
+      <div class="col-lg-10 mb-5">
+        
+        
+        
+        
+        
+        <img loading="lazy" decoding="async" class="w-100 rounded-lg" src="/images/blog/calculate_hu0cb651776e37c04f0f6b13c099d4dbe0_32150_36e09bde939f93542db0c2addc4f840e.webp" alt="blog-post" onerror="this.onerror=null;this.src='\/images\/blog\/calculate_hu0cb651776e37c04f0f6b13c099d4dbe0_32150_1020x0_resize_box_3.png'">
+        
+        
+      </div>
+      <div class="col-lg-8">
+
+        <div class="mb-5">
+          <h2>Bad Habits Calculator</h2>
+          <div class="d-flex align-items-center card-author mt-4">
+            
+            <div class="user-info">
+              
+              <span>Jan 06, 2022 - 4 Min read</span>
+            </div>
           </div>
         </div>
 
-        <div class="has-circle">
-          <img class="wave-1 w-100" src="https://www.fireplace.cash/images/waves/05.svg" alt="*">
-          <img class="wave-2 w-100" src="https://www.fireplace.cash/images/waves/04.svg" alt="*">
-          <span class="circle-1 ratio-32" data-rellax-speed="-2"></span>
-          <span class="circle-2 ratio-73 fill" data-rellax-speed="-2"></span>
-          <span class="circle-3 ratio-20 fill" data-rellax-speed="1"></span>
-          <span class="circle-4 ratio-47" data-rellax-speed="-1"></span>
-          <span class="circle-5 ratio-62" data-rellax-speed="-0.5"></span>
-          <span class="circle-6 ratio-20 fill"></span>
-          <span class="circle-7 ratio-73" data-rellax-speed="-1"></span>
-          <span class="circle-8 ratio-37" data-rellax-speed="-.5"></span>
-          <span class="circle-9 ratio-20" data-rellax-speed="1"></span>
-          <span class="circle-10 ratio-65 fill"></span>
-          <span class="circle-11 ratio-20" data-rellax-speed="-2"></span>
+        <div class="content">
+          <script src="https://unpkg.com/intersection-observer"></script>
+<script src="https://unpkg.com/scrollama"></script>
+<script src="https://d3js.org/d3.v6.js"></script>
+<main>
+Companion blog here: <a href="/blog/post-4" target="_blank">How much do your bad habits really cost?</a>
+<form>
+  <div class="container">
+    <div class="row">
+      <div class="form-group col-sm-4">
+        <label for="bad_habit">Daily Cost of Bad Habit</label>
+        <input type="number" class="form-control" id="bad_habit" aria-describedby="bad_habit_help" value="5" min="0" max="1000000000">
+        <small id="bad_habit_help" class="form-text text-muted">For example, how much do you spend at Starbucks each day?</small>
+      </div>
+      <div class="form-group col-sm-4">
+        <label for="growth_rate">Growth Rate</label>
+        <input type="number" class="form-control" id="growth_rate" aria-describedby="current_investments_help" value="8" min="0" max="100">
+        <small id="current_investments_help" class="form-text text-muted">On average, the stock market has returned 8% (adjusted for inflation).</small>
+      </div>
+      <div class="form-group col-sm-4">
+        <label for="years_contributing">Years to Grow</label>
+        <input type="number" class="form-control" id="years_contributing" aria-describedby="years_contributing" value="40" min="2" max="100">
+        <small id="years_contributing_help" class="form-text text-muted">For how many years would you like to run this scenario?</small>
+      </div>
+    </div>
+  </div>
+</form>
+<section id="scrolly3">
+    <button class="btn btn-primary vis-btn" onclick="runfv()">Calculate</button>
+    <figure>
+      <div id="future_value"></div>
+    </figure>
+</section>
+</main>
+<style>
+
+  #scrolly1, #scrolly2 {
+    position: relative;
+    background-color: #ffffff;
+    padding: 1rem;
+  }
+
+  article {
+    position: relative;
+    padding: 0;
+    max-width: 20rem;
+    margin: 0 auto;
+  }
+  figure {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    background-color: #fff;
+    -webkit-transform:translateZ(0px);
+    -moz-transform:translateZ(0px);
+    -o-transform:translateZ(0px);
+    transform:translateZ(0px);
+    z-index:0;
+  }
+  
+  figure p {
+    text-align: center;
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transform:translateZ(0px);
+    -moz-transform:translateZ(0px);
+    -o-transform:translateZ(0px);
+    transform:translateZ(0px);
+    z-index:0;
+    font-size: 8rem;
+    font-weight: 900;
+    color: #fff;
+  }
+  .step {
+    position: relative;
+    margin: 0 auto 2rem auto;
+    color: #000000;
+    // background-color: rgba(0, 0, 0, .1);
+    background-color: #fff;
+    border: 1px solid;
+    box-shadow: 2px 5px 2px 2px #888888;
+    text-align: center;
+    -webkit-transform:translateZ(0px);
+    -moz-transform:translateZ(1000px);
+    -o-transform:translateZ(1000px);
+    transform:translateZ(1000px);
+    z-index:1000;
+  }
+  .step:last-child {
+    margin-bottom: 80vh;
+  }
+  .step.is-active p {
+    background-color: #3CB371;
+    color: #fff;
+  }
+  .step p {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    background-color: #d5d5d5;
+    color: #fff;
+  }
+  .step div {
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
+  
+  .btn-holder {
+    text-align: center;
+  }
+  
+  .overlay {
+        fill: none;
+        pointer-events: all;
+    }
+
+    .focus circle {
+        fill: steelblue;
+    }
+
+    .tooltip {
+        width: 150px;
+        padding: 4px 10px;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        position: absolute;
+        background-color: white;
+        font-size: 14px;
+        pointer-events: none;
+        -webkit-transition: all 0.25s;
+        -moz-transition: all 0.25s;
+        -ms-transition: all 0.25s;
+        -o-transition: all 0.25s;
+        transition: all 0.25s;
+        opacity: 1 !important;
+    }
+
+    .tooltip div {
+        margin: 3px 0;
+    }
+
+    .tooltip-date, .tooltip-likes {
+        font-weight: bold;
+    }
+
+</style>
+<script>
+  
+  function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  function runfv() {
+  
+    d3.select(".future_value_line").remove();
+    d3.select(".future_value").remove();
+    d3.select(".badhabittext").remove();
+
+    // Get variables from inputs
+    var annual_contributions = 365*Number(document.getElementById('bad_habit').value);
+      current_investments = 0;
+      growth_rate = Number(document.getElementById('growth_rate').value);
+      years_contributing = Number(document.getElementById('years_contributing').value);
+
+
+    // Calculate FV Numbers
+    var future_value_data = [{x: 0, y: current_investments}];
+    
+    for(let i=0; i < years_contributing; i++) {
+    
+      future_value_data[i+1] = {x: i+1, y: Number(((future_value_data[i].y + annual_contributions) * (1 + growth_rate/100)).toFixed(2))};
+    
+    }
+    
+      // Set axes
+      // Create the X axis:
+      x.domain([0, years_contributing]);
+      svg.selectAll(".myXaxis")
+        .call(xAxis);
+      
+      // create the Y axis
+      y.domain([d3.min(future_value_data, d => d.y), d3.max(future_value_data, d => d.y) + 200000 ]);
+      svg.selectAll(".myYaxis")
+        .transition()
+        .duration(1000)
+        .call(yAxis);
+      
+      // Create scales
+      const yScale = d3
+        .scaleLinear()
+        .range([height, 0])
+        .domain([d3.min(future_value_data, d => d.y), d3.max(future_value_data, d => d.y) + 200000 ]);
+        
+      const xScale = d3
+        .scaleLinear()
+        .range([0, width])
+        .domain([0, years_contributing]);
+        
+      const fire_number_line = d3
+           .line()
+           .x(d => xScale(d.x))
+           .y(d => yScale(d.y));
+
+      
+      // Add path
+      const fv_path = svg
+        .append("path")
+        .datum(future_value_data)
+        .attr("class", "future_value_line")
+        .attr("fill", "none")
+        .attr("stroke", "#3CB371")
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("stroke-width", 3)
+        .attr("d", fire_number_line);
+
+      const fv_pathLength = fv_path.node().getTotalLength();
+
+      svg.append("text")
+        .attr("x", xScale(future_value_data.length-7))
+        .attr("y", yScale(future_value_data[future_value_data.length-2].y))
+        .attr("class", "future_value")
+        .text("Future Value");
+      
+      const fv_transitionPath = d3
+        .transition()
+        .ease(d3.easeSin)
+        .duration(2000);
+
+      fv_path
+        .attr("stroke-dashoffset", fv_pathLength)
+        .attr("stroke-dasharray", fv_pathLength)
+        .transition(fv_transitionPath)
+        .attr("stroke-dashoffset", 0);
+        
+        
+        var tooltip = d3
+            .select("#future_value")
+            .append("div")
+            .attr("class", "tooltip")
+            .style("display", "none");
+
+        var focus = svg.append("g")
+            .attr("class", "focus")
+            .style("display", "none");
+
+        focus.append("circle")
+            .attr("r", 5);
+
+        var tooltipDate = tooltip.append("div");
+        tooltipDate.append("span")
+            .attr("class", "tooltip-title")
+            .text("Value: ");
+
+        var tooltipDateValue = tooltipDate.append("span")
+            .attr("class", "tooltip-date");
+            
+        var tooltipLikes = tooltip.append("div");
+        tooltipLikes.append("span")
+            .attr("class", "tooltip-title")
+            .text("Year: ");
+
+        var tooltipLikesValue = tooltipLikes.append("span")
+            .attr("class", "tooltip-likes");
+
+        svg.append("rect")
+            .attr("class", "overlay")
+            .attr("width", width)
+            .attr("height", height)
+            .on("mouseover", function() { focus.style("display", null); tooltip.style("display", null);  })
+            .on("mouseout", function() { focus.style("display", "none"); tooltip.style("display", "none"); })
+            .on("mousemove", mousemove);
+
+        
+        function mousemove() {
+            var x0 = x.invert(d3.pointer(event,this)[0]),
+                i = bisectX(future_value_data, x0, 1),
+                d0 = future_value_data[i - 1],
+                d1 = future_value_data[i],
+                d = x0 - d0.x > d1.x - x0 ? d1 : d0;
+            focus.attr("transform", "translate(" + x(d.x) + "," + y(d.y) + ")");
+            tooltip.attr("style", "left:" + (x(d.x) + 64) + "px;top:" + y(d.y) + "px;");
+            tooltip.select(".tooltip-date").text("$" +numberWithCommas(d.y));
+            tooltip.select(".tooltip-likes").text(d.x);
+        }
+      
+        svg.append("text")     
+          .attr("class", "badhabittext")
+          .attr("transform",
+                "translate(" + (width/2) + " ," + 
+                               (margin.top + 20) + ")")
+          .style("text-anchor", "middle")
+          .style("margin", "auto")
+          .text("Your bad habit really costs $" + numberWithCommas(d3.max(future_value_data, d => d.y)) + ".");
+        
+    
+    
+    // Create a paragraph summary
+    
+    // Generate a table of the outputs
+
+  }
+  
+  // parse the date / time
+  var bisectX = d3.bisector(function(d) { return d.x; }).left;
+  
+  // Initialize graph
+  // set the dimensions and margins of the graph
+  const margin = {top: 10, right: 30, bottom: 30, left: 75},
+    parentDivmd = document.getElementById("future_value");
+    width = parentDivmd.clientWidth - margin.left - margin.right;
+    height = 400;
+  
+  // append the svg object to the body of the page
+  const svg = d3.select("#future_value")
+    .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+  
+  // Initialise a X axis:
+  const x = d3.scaleLinear().range([0,width]);
+  const xAxis = d3.axisBottom().scale(x);
+  svg.append("g")
+    .attr("transform", `translate(0, ${height})`)
+    .attr("class","myXaxis");
+    
+  // Initialize an Y axis
+  const y = d3.scaleLinear().range([height, 0]);
+  const yAxis = d3.axisLeft().scale(y);
+  svg.append("g")
+    .attr("class","myYaxis");
+  
+  // text label for the y axis
+  svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Value in Dollars");
+  
+  // text label for the x axis
+  svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 20) + ")")
+      .style("text-anchor", "middle")
+      .text("Years");
+  
+  // Have things run on load
+  runfv();
+  
+</script>
+
+        </div>
+
+      </div>
+
+
+      
+      <div class="col-lg-8" data-aos="fade-in">
+        
+        <div class="mt-5">
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "themefisher-template" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
         </div>
       </div>
+      
     </div>
   </div>
 </section>
 
-<section class="section">
+
+
+<section class="section pt-5">
   <div class="container">
     <div class="row justify-content-center" data-aos="fade-in">
-      <div class="col-lg-8">
-
-        <p class="mb-3 font-weight-600 text-primary">Last Edited : Nov 19, 2021</p>
-        <p class="lead text-uppercase text-black-200 mb-5"></p>
-
-        <div class="content">
-          <h3 id="what-we-do-with-your-data">What We Do With Your Data</h3>
-<p>Nothing. Seriously. We track visitors to the website for ad purposes but do not store any other user data.</p>
-<h3 id="note-about-financial-advice">Note about Financial Advice</h3>
-<p>We do not provide recommendations on buying any securities. Rather, our aim with any financial content is to educate you on different ways to budget and invest in general.</p>
-
+      <div class="col-12">
+        <div class="section-title text-center">
+          <h2 class="title">Recent Articles</h2>
+        </div>
+      </div>
+      
+      
+      
+      <div class="col-lg-5">
+        <article class="card blog-card">
+  <a href="/blog/post-4/" title="How Much Do Your Bad Habits Really Cost?">
+    
+    
+    
+    
+    
+    <img loading="lazy" decoding="async" class="card-img-top h-auto" width="570" height="460"
+      src="/images/blog/coffee_hu9db668d40e903ae09148d2d3849a6f2f_56048_ffc33ab66f54f5e54eb5f4e54fda3ad1.webp" alt="blog-post" onerror="this.onerror=null;this.src='\/images\/blog\/coffee_hu9db668d40e903ae09148d2d3849a6f2f_56048_570x0_resize_box_3.png'">
+    
+    
+  </a>
+  <div class="card-body">
+    <h3 class="card-title"><a href="/blog/post-4/" title="How Much Do Your Bad Habits Really Cost?">How Much Do Your Bad Habits Really Cost?</a></h3>
+    <p>When I was in grad school, I loved going to a coffee shop, ordering an espresso drink, and camping out for a few hours …</p>
+  </div>
+  <div class="card-footer bg-transparent border-top-0">
+    <div class="card-author">
+      <div class="d-flex align-items-center">
+        
+        <div class="user-image mr-3">
+          
+          
+          
+          
+          <img loading="lazy" decoding="async" class="rounded-circle" src="/images/daniel_hua1fb8717a6217bb8e26b7b8100085fdd_608119_f675a1392de56fd7f10ba7a43a76672c.webp" alt="author image" onerror="this.onerror=null;this.src='\/images\/daniel_hua1fb8717a6217bb8e26b7b8100085fdd_608119_70x70_fill_q90_box_smart1.jpg'">
+          
+        </div>
+        
+        <div class="user-info">
+          
+          <p class="font-weight-500 mb-0 h5">Daniel Woodie</p>
+          
+          <span>Jan 06, 2022 - 5 Min read</span>
         </div>
       </div>
     </div>
   </div>
+</article>
+
+      </div>
+      
+      <div class="col-lg-5">
+        <article class="card blog-card">
+  <a href="/blog/post-3/" title="How to Calculate Your FIRE Number">
+    
+    
+    
+    
+    
+    <img loading="lazy" decoding="async" class="card-img-top h-auto" width="570" height="325"
+      src="/images/blog/calculate_hu0cb651776e37c04f0f6b13c099d4dbe0_32150_993e3cb9da91027e4a3cbac07e277a8c.webp" alt="blog-post" onerror="this.onerror=null;this.src='\/images\/blog\/calculate_hu0cb651776e37c04f0f6b13c099d4dbe0_32150_570x0_resize_box_3.png'">
+    
+    
+  </a>
+  <div class="card-body">
+    <h3 class="card-title"><a href="/blog/post-3/" title="How to Calculate Your FIRE Number">How to Calculate Your FIRE Number</a></h3>
+    <p> Calculating your FIRE number is a critical first step in developing your strategy for retiring early. This number is …</p>
+  </div>
+  <div class="card-footer bg-transparent border-top-0">
+    <div class="card-author">
+      <div class="d-flex align-items-center">
+        
+        <div class="user-image mr-3">
+          
+          
+          
+          
+          <img loading="lazy" decoding="async" class="rounded-circle" src="/images/daniel_hua1fb8717a6217bb8e26b7b8100085fdd_608119_f675a1392de56fd7f10ba7a43a76672c.webp" alt="author image" onerror="this.onerror=null;this.src='\/images\/daniel_hua1fb8717a6217bb8e26b7b8100085fdd_608119_70x70_fill_q90_box_smart1.jpg'">
+          
+        </div>
+        
+        <div class="user-info">
+          
+          <p class="font-weight-500 mb-0 h5">Daniel Woodie</p>
+          
+          <span>Jan 03, 2022 - 3 Min read</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+      </div>
+      
+    </div>
+  </div>
 </section>
+
+
+
+
+
 
 
 	</main>
