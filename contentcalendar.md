@@ -15,11 +15,13 @@ What does FIRE stand for?
 calculator/futurevalue -- Future Value Calculator
 calculator/safewithdrawal -- Safe Withdrawal Calculator
 calculator/badhabits -- Bad Habits Calculator
+blog/post-4.md -- How Much Do Your Bad Habits Really Cost?
 
 #### Started
 
 #### Not Started
 What states have the cheapest taxes?
+Explaining the safe withdrawal rate calculator
 
 
 ### Pillar Posts - Long, 3,000 words +
