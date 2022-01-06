@@ -32,7 +32,7 @@ I need to make it clear that I am actually totally okay with people having 'bad 
 
 This is where things get scary. So I made <a href="/calculators/badhabits/" target="_blank">a calculator</a> that shows me how much this habit would really cost me if I kept it up over 40 years. One point three million dollars. That's right. If I took the same money I was spending on coffee and instead invested in a low-cost index fund, I'd have $1.3M in 40 years. I am glad I didn't actually do this for 40 years but it's worth realizing how much your bad habits actually cost. It's not just the price today, it's the lost compounding sometimes over long periods of time like 40 years.
 
-![My bad habits](images/blog/badhabits.png)
+![My bad habits](/static/badhabits.png)
 
 ## So where am I now?
 
