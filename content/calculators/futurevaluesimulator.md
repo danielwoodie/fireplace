@@ -61,6 +61,10 @@ author_info:
     </figure>
 </section>
 
+## What is your FIRE number?
+
+This is simply 25x your annual expenses. If you spend $100,000/year, then your FIRE number is $2.5M (or 25 * $1,000,000). This is the number you need invested in low-cost index funds to be considered financially independent and retire early.
+
 ## What is a single run?
 
 This is a pretty simple simulation that really doesn't assume too much about future returns except that they will likely come from the returns of the last 100 years. Below is what happens for a single run.
