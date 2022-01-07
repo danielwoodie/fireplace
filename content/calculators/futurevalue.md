@@ -361,8 +361,6 @@ draft: no
         }
     
 
-      console.log(d3.max(future_value_data) + " is less than " + fire_number + ". You never reached FIRE.");
-    
     } else {
     
       // Set axes
@@ -510,8 +508,6 @@ draft: no
         
     
     };
-    
-    
     
     
     // Create a paragraph summary
