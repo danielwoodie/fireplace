@@ -496,7 +496,6 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
       };
       
       
-      fire_age.push(d3.min(this_runs_data.filter(function(d) {return d.ser2 > fire_number}), d => d.ser1));
       final_amount = final_amount.concat(this_runs_data[this_runs_data.length-1].ser2);
       if(d3.max(this_runs_data, d => d.ser2) >= fire_number) {
       
@@ -671,7 +670,6 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
           this_runs_data[i] = {ser1: i, ser2: tmp_test[i]}
         }
         
-        fire_age.push(d3.min(this_runs_data.filter(function(d) {return d.ser2 > fire_number}), d => d.ser1));
         final_amount = final_amount.concat(this_runs_data[this_runs_data.length-1].ser2);
         if(d3.max(this_runs_data, d => d.ser2) >= fire_number) {
         
@@ -842,7 +840,7 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
     if (fire_or_not.length > 0) {
       
       var perc_reached_fire = Math.round(d3.mean(fire_or_not)*100);
-        avg_fire_age = Math.round(d3.mean(fire_age));
+        avg_fire_age = Math.round(d3.min(average_data.filter(function(d) {return d.ser2 > fire_number}), d => d.ser1));
         avg_final_amount = Math.round(d3.mean(final_amount));
     
     } else {
