@@ -12,8 +12,6 @@ author_info:
 <script src="https://d3js.org/d3.v6.js"></script>
 <script src=//cdnjs.cloudflare.com/ajax/libs/seedrandom/2.3.10/seedrandom.min.js></script>
 
-
-
 <main>
 <form>
   <div class="container">
@@ -60,6 +58,25 @@ author_info:
       <div id="random_walk"></div>
     </figure>
 </section>
+<section>
+  <figure>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm counter-header">% of times you reached FIRE
+            <div id="percent_reached_fire"></div>
+          </div>
+          <div class="col-sm counter-header">Avg. # of years reach FIRE
+            <div id="avg_years_to_fire"></div>
+          </div>
+          <div class="col-sm counter-header">Avg. final amount of money
+            <div id="avg_amount"></div>
+          </div>
+        </div>
+      </div>
+  </figure>
+</section>
+
+
 
 ## What is your FIRE number?
 
@@ -207,6 +224,14 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
     .tooltip-date, .tooltip-likes {
         font-weight: bold;
     }
+    
+    .counter-header {
+      text-align:center;
+    }
+    
+    #percent_reached_fire, #avg_years_to_fire, #avg_amount {
+      font-size: 40px;
+    }
 
 </style>
 
@@ -353,6 +378,9 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
     current_investments = [];
     years_contributing = [];
     fire_number = [];
+    fire_or_not = [];
+    fire_age = [];
+    final_amount = [];
     
   
   function runsim(numsims) {
@@ -364,6 +392,10 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
       all_data = [];
       this_runs_data = [];
       average_data = [];
+      fire_number = [];
+      fire_or_not = [];
+      fire_age = [];
+      final_amount = [];
     
       // Reset seed
       Math.seedrandom('hello.');
@@ -460,8 +492,21 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
       var tmp_test = repeat_bootstrap(real_returns, years_contributing, current_investments, annual_contributions, 1)[0];
       
       for (var i = 0; i < tmp_test.length; i++) {
-        this_runs_data[i] = {ser1: i, ser2: tmp_test[i]}
+        this_runs_data[i] = {ser1: i, ser2: tmp_test[i]};
       };
+      
+      
+      fire_age.push(d3.min(this_runs_data.filter(function(d) {return d.ser2 > fire_number}), d => d.ser1));
+      final_amount = final_amount.concat(this_runs_data[this_runs_data.length-1].ser2);
+      if(d3.max(this_runs_data, d => d.ser2) >= fire_number) {
+      
+        fire_or_not.push(1);
+
+      } else {
+      
+        fire_or_not.push(0);
+      }
+      
       
       // Append data together
       all_data = all_data.concat(this_runs_data);
@@ -626,6 +671,17 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
           this_runs_data[i] = {ser1: i, ser2: tmp_test[i]}
         }
         
+        fire_age.push(d3.min(this_runs_data.filter(function(d) {return d.ser2 > fire_number}), d => d.ser1));
+        final_amount = final_amount.concat(this_runs_data[this_runs_data.length-1].ser2);
+        if(d3.max(this_runs_data, d => d.ser2) >= fire_number) {
+        
+          fire_or_not.push(1);
+  
+        } else {
+        
+          fire_or_not.push(0);
+        }
+        
         // Append data together
         all_data = all_data.concat(this_runs_data);
         
@@ -764,6 +820,10 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
       all_data = [];
       this_runs_data = [];
       average_data = [];
+      fire_number = [];
+      fire_or_not = [];
+      fire_age = [];
+      final_amount = [];
     
       // Reset seed
       Math.seedrandom('hello.');
@@ -777,6 +837,24 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
         .remove();
       
     };
+    
+    
+    if (fire_or_not.length > 0) {
+      
+      var perc_reached_fire = Math.round(d3.mean(fire_or_not)*100);
+        avg_fire_age = Math.round(d3.mean(fire_age));
+        avg_final_amount = Math.round(d3.mean(final_amount));
+    
+    } else {
+      var perc_reached_fire = 0;
+        avg_fire_age = 0;
+        avg_final_amount = 0;
+    
+    }
+    
+    update_counts("percent_reached_fire", 0, perc_reached_fire);
+    update_counts("avg_years_to_fire", 0, avg_fire_age);
+    update_counts("avg_amount", avg_final_amount - 100, avg_final_amount);
   
   };
   
@@ -787,6 +865,33 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   
+  function update_counts(id, startamount, uptoamount) {
+    
+    if (uptoamount > 0) {
+      var counts=setInterval(updated);
+      var upto=startamount;
+      function updated(){
+          var count= document.getElementById(id);
+          count.innerHTML=numberWithCommas(++upto);
+          if(upto===uptoamount)
+          {
+              clearInterval(counts);
+          }
+      }
+    } else {
+      var count= document.getElementById(id);
+      count.innerHTML=numberWithCommas(uptoamount);
+      
+    }
+    
+  }
+  
+  
+  
+  
+  
+  
+
   runsim();
 
 
