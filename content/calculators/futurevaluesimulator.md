@@ -65,7 +65,7 @@ author_info:
           <div class="col-sm counter-header">% of times you reached FIRE
             <div id="percent_reached_fire"></div>
           </div>
-          <div class="col-sm counter-header">Avg. # of years reach FIRE
+          <div class="col-sm counter-header">Avg. # of years to reach FIRE
             <div id="avg_years_to_fire"></div>
           </div>
           <div class="col-sm counter-header">Avg. final amount of money
