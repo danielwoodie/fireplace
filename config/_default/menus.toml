@@ -33,6 +33,12 @@ weight = 2
   url = "calculators/futurevaluesimulator/"
   weight = 3
 
+  [[main]]
+  parent = "FIRE Calculators"
+  name = "Safe Withdrawal Simulator"
+  url = "calculators/safewithdrawalsimulator/"
+  weight = 3
+
 [[main]]
 name = "Data Policy"
 url = "terms-and-conditions/"

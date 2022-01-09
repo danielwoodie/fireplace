@@ -27,17 +27,10 @@ Explaining the safe withdrawal rate calculator
 ### Pillar Posts - Long, 3,000 words +
 #### Completed
 blog/post-1.md -- Random Walk with FIRE
+calculator/futurevaluesimulator -- Future Value Simulator
 
 #### Started
-calculator/futurevaluesimulator -- Future Value Simulator
---Add a legend
---Change color of FIRE line and move it to the front
---Fix the comma issue
---Redo the axes on reset
---Remove boxes on refresh
 
---Check the random seed part
---Add 90th percentile and 10th percentile
 
 
 

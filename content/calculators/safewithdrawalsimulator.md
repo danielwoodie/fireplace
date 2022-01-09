@@ -1,11 +1,12 @@
 ---
-title: "Future Value Simulator"
+title: "Safe Withdrawal Simulator"
 date: '2021-01-01'
 draft: no
 author_info:
   name: Daniel Woodie
   image: images/daniel.jpg
 ---
+
 
 <script src="https://unpkg.com/intersection-observer"></script>
 <script src="https://unpkg.com/scrollama"></script>
@@ -16,37 +17,24 @@ author_info:
 <form>
   <div class="container">
     <div class="row">
-      <div class="form-group col-sm-6">
-        <label for="annual_expenses">Annual Expenses</label>
-        <input type="number" class="form-control" id="annual_expenses" aria-describedby="annual_expenses_help" value="100000" min="0" max="1000000000">
-        <small id="annual_expenses_help" class="form-text text-muted">How much do you plan to spend in retirement?</small>
-      </div>
-      <div class="form-group col-sm-6">
-        <label for="annual_contributions">Annual Contributions</label>
-        <input type="number" class="form-control" id="annual_contributions" aria-describedby="annual_contributions_help" value="100000" min="0" max="1000000000">
-        <small id="annual_contributions_help" class="form-text text-muted">How much do you invest in the stock market annually?</small>
-      </div>
-    </div>
-    <div class="row">
       <div class="form-group col-sm-4">
         <label for="current_investments">Current investments</label>
-        <input type="number" class="form-control" id="current_investments" aria-describedby="current_investments_help" value="100000" min="0" max="1000000000">
+        <input type="number" class="form-control" id="current_investments" aria-describedby="current_investments_help" value="2500000" min="0" max="1000000000">
         <small id="current_investments_help" class="form-text text-muted">How much do you currently have invested in the stock market?</small>
       </div>
       <div class="form-group col-sm-4">
-        <label for="current_age">Current Age</label>
-        <input type="number" class="form-control" id="current_age" aria-describedby="current_age_help" value="30" min="0" max="100">
-        <small id="current_age_help" class="form-text text-muted">How old are you?</small>
+        <label for="annual_expenses">Annual Expenses</label>
+        <input type="number" class="form-control" id="annual_expenses" aria-describedby="annual_expenses_help" value="100000" min="0" max="1000000000">
+        <small id="annual_expenses_help" class="form-text text-muted">In today's dollars, how much do you plan to spend each year in retirement?</small>
       </div>
       <div class="form-group col-sm-4">
-        <label for="goal_fire_age">Goal FIRE Age</label>
-        <input type="number" class="form-control" id="goal_fire_age" aria-describedby="goal_fire_age_help" value="50" min="0" max="100">
-        <small id="goal_fire_age_help" class="form-text text-muted">What age would you like to be FI or RE?</small>
+        <label for="years_contributing">Years in Retirement</label>
+        <input type="number" class="form-control" id="years_contributing" aria-describedby="years_contributing" value="40" min="2" max="100">
+        <small id="years_contributing_help" class="form-text text-muted">For how many years would you like to run this scenario?</small>
       </div>
     </div>
   </div>
 </form>
-
 
 <section id="scrolly3">
     <div class="btn-holder">
@@ -62,11 +50,8 @@ author_info:
   <figure>
     <div class="container">
         <div class="row">
-          <div class="col-sm counter-header">% of times you reached FIRE
+          <div class="col-sm counter-header">% of times you went broke
             <div id="percent_reached_fire"></div>
-          </div>
-          <div class="col-sm counter-header">Avg. # of years to reach FIRE
-            <div id="avg_years_to_fire"></div>
           </div>
           <div class="col-sm counter-header">Avg. final amount of money
             <div id="avg_amount"></div>
@@ -78,17 +63,17 @@ author_info:
 
 
 
-## What is your FIRE number?
+## Did you go broke?
 
-This is simply 25x your annual expenses. If you spend $100,000/year, then your FIRE number is $2.5M (or 25 * $1,000,000). This is the number you need invested in low-cost index funds to be considered financially independent and retire early.
+Going broke is as simple as that. If a run ever got to $0 then you went broke for that run.
 
 ## What is a single run?
 
 This is a pretty simple simulation that really doesn't assume too much about future returns except that they will likely come from the returns of the last 100 years. Below is what happens for a single run.
 
-1. Add your annual contribution.
+1. Subtract your annual expenses.
 2. Multiply by 1 + randomly sampled growth rate.
-3. Repeat steps 1 and 2 for each year (Goal FIRE Age - Current Age). 
+3. Repeat steps 1 and 2 for each year in retirement. 
 
 The growth rates come from taken from the last 100 years of S&P returns minus the corresponding year's CPI (inflation). You can see the full table <a href="/blog/post-2/" target="_blank">here</a>. 
 
@@ -156,7 +141,6 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
     position: relative;
     margin: 0 auto 2rem auto;
     color: #000000;
-    // background-color: rgba(0, 0, 0, .1);
     background-color: #fff;
     border: 1px solid;
     box-shadow: 2px 5px 2px 2px #888888;
@@ -353,7 +337,7 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
       .style("text-anchor", "middle")
       .text("Years");
   
-  var legend_keys = ["Single Run", "Average", "FIRE Number"];
+  var legend_keys = ["Single Run", "Average", "Go Broke"];
     graph_colors = ["#d5d5d5", "#3CB371", "#000000"];
 
   var lineLegend = svg_rw.selectAll(".lineLegend").data(legend_keys)
@@ -386,7 +370,7 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
   function runsim(numsims) {
     
     // If any of the inputs have changed, reset the graph and the simulation
-    if (annual_expenses != Number(document.getElementById('annual_expenses').value) || annual_contributions != Number(document.getElementById('annual_contributions').value) || current_investments != Number(document.getElementById('current_investments').value) || years_contributing != Number(document.getElementById('goal_fire_age').value) - Number(document.getElementById('current_age').value)) {
+    if (annual_expenses != Number(document.getElementById('annual_expenses').value) || annual_contributions != -annual_expenses || current_investments != Number(document.getElementById('current_investments').value) || years_contributing != Number(document.getElementById('years_contributing').value)) {
     
       // Reset the simulations
       all_data = [];
@@ -416,11 +400,12 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
     
     // Capture inputs
     annual_expenses = Number(document.getElementById('annual_expenses').value);
-    annual_contributions = Number(document.getElementById('annual_contributions').value);
+    annual_contributions = -annual_expenses;
     current_investments = Number(document.getElementById('current_investments').value);
-    years_contributing = Number(document.getElementById('goal_fire_age').value) - Number(document.getElementById('current_age').value);
-    fire_number = 25*annual_expenses;
+    years_contributing = Number(document.getElementById('years_contributing').value);
+    fire_number = 0;
     growth_rate = .0863;
+    
     
     var fire_number_data = [
         {ser1: 0, ser2: fire_number},
@@ -432,9 +417,10 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
     
     for(let i=0; i < years_contributing; i++) {
     
-      future_value_data[i+1] = {ser1: i+1, ser2: Number(((future_value_data[i].y + annual_contributions) * (1 + growth_rate)).toFixed(2))};
+      future_value_data[i+1] = {ser1: i+1, ser2: Number(((future_value_data[i].ser2 + annual_contributions) * (1 + growth_rate)).toFixed(2))};
     
     }
+    
     
     // Draw the outline of the graph
     // Initialise a X axis:
@@ -457,7 +443,7 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
       .attr("class","myYaxis_rw");
 
     // create the Y axis
-    y_rw.domain([0, d3.max(fire_number_data.concat(future_value_data), function(d) { return d.ser2  })*3.5]);
+    y_rw.domain([-d3.max(fire_number_data.concat(future_value_data), function(d) { return d.ser2  }), d3.max(fire_number_data.concat(future_value_data), function(d) { return d.ser2  })*3.5]);
     svg_rw.selectAll(".myYaxis_rw")
       .transition()
       .duration(1000)
@@ -467,7 +453,7 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
     const yScale_rw = d3
       .scaleLinear()
       .range([height_rw, 0])
-      .domain([0, d3.max(fire_number_data.concat(future_value_data), function(d) { return d.ser2  })*3.5]);
+      .domain([-d3.max(fire_number_data.concat(future_value_data), function(d) { return d.ser2  }), d3.max(fire_number_data.concat(future_value_data), function(d) { return d.ser2  })*3.5]);
     
     const line_rw = d3
                .line()
@@ -497,7 +483,7 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
       
       
       final_amount = final_amount.concat(this_runs_data[this_runs_data.length-1].ser2);
-      if(d3.max(this_runs_data, d => d.ser2) >= fire_number) {
+      if(d3.min(this_runs_data, d => d.ser2) >= fire_number) {
       
         fire_or_not.push(1);
 
@@ -505,6 +491,8 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
       
         fire_or_not.push(0);
       }
+      
+      console.log(fire_or_not);
       
       
       // Append data together
@@ -671,7 +659,7 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
         }
         
         final_amount = final_amount.concat(this_runs_data[this_runs_data.length-1].ser2);
-        if(d3.max(this_runs_data, d => d.ser2) >= fire_number) {
+        if(d3.min(this_runs_data, d => d.ser2) >= fire_number) {
         
           fire_or_not.push(1);
   
@@ -840,18 +828,15 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
     if (fire_or_not.length > 0) {
       
       var perc_reached_fire = Math.round(d3.mean(fire_or_not)*100);
-        avg_fire_age = Math.round(d3.min(average_data.filter(function(d) {return d.ser2 > fire_number}), d => d.ser1));
         avg_final_amount = Math.round(d3.mean(final_amount));
     
     } else {
-      var perc_reached_fire = 0;
-        avg_fire_age = 0;
+      var perc_reached_fire = 100;
         avg_final_amount = 0;
     
     }
     
     update_counts("percent_reached_fire", 0, perc_reached_fire);
-    update_counts("avg_years_to_fire", 0, avg_fire_age);
     update_counts("avg_amount", avg_final_amount - 100, avg_final_amount);
   
   };
