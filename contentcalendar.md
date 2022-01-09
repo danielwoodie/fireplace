@@ -17,6 +17,7 @@ calculator/safewithdrawal -- Safe Withdrawal Calculator
 calculator/badhabits -- Bad Habits Calculator
 blog/post-4.md -- How Much Do Your Bad Habits Really Cost?
 
+
 #### Started
 
 #### Not Started
@@ -28,6 +29,7 @@ Explaining the safe withdrawal rate calculator
 #### Completed
 blog/post-1.md -- Random Walk with FIRE
 calculator/futurevaluesimulator -- Future Value Simulator
+calculator/safewithdrawalsimulator -- Safe Withdrawal Simulator
 
 #### Started
 

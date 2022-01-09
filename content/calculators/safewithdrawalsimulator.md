@@ -827,11 +827,11 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
     
     if (fire_or_not.length > 0) {
       
-      var perc_reached_fire = Math.round(d3.mean(fire_or_not)*100);
+      var perc_reached_fire = 100-Math.round(d3.mean(fire_or_not)*100);
         avg_final_amount = Math.round(d3.mean(final_amount));
     
     } else {
-      var perc_reached_fire = 100;
+      var perc_reached_fire = 0;
         avg_final_amount = 0;
     
     }
@@ -862,8 +862,18 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
           }
       }
     } else {
-      var count= document.getElementById(id);
-      count.innerHTML=numberWithCommas(uptoamount);
+      // var count= document.getElementById(id);
+      // count.innerHTML=numberWithCommas(uptoamount);
+      var counts=setInterval(updated);
+      var upto=100;
+      function updated(){
+          var count= document.getElementById(id);
+          count.innerHTML=numberWithCommas(--upto);
+          if(upto===uptoamount)
+          {
+              clearInterval(counts);
+          }
+      }
       
     }
     
