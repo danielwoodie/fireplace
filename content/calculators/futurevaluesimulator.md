@@ -90,7 +90,7 @@ This is a pretty simple simulation that really doesn't assume too much about fut
 2. Multiply by 1 + randomly sampled growth rate.
 3. Repeat steps 1 and 2 for each year (Goal FIRE Age - Current Age). 
 
-The growth rates come from taken from the last 100 years of S&P returns minus the corresponding year's CPI (inflation). You can see the full table <a href="/blog/post-2/" target="_blank">here</a>. 
+The growth rates come from the last 100 years of S&P returns minus the corresponding year's CPI (inflation). You can see the full table <a href="/blog/post-2/" target="_blank">here</a>. 
 
 <section>
 
