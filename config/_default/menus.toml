@@ -39,6 +39,12 @@ weight = 2
   url = "calculators/safewithdrawalsimulator/"
   weight = 3
 
+  [[main]]
+  parent = "FIRE Calculators"
+  name = "Payoff Mortgage Early Calculator"
+  url = "calculators/payoffmortgageearly/"
+  weight = 3
+
 [[main]]
 name = "Data Policy"
 url = "terms-and-conditions/"

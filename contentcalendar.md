@@ -21,6 +21,8 @@ blog/post-4.md -- How Much Do Your Bad Habits Really Cost?
 #### Started
 
 #### Not Started
+Trinity Study Simulator
+Value of a Cash Cushion
 What states have the cheapest taxes?
 Explaining the safe withdrawal rate calculator
 
