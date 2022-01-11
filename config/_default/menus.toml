@@ -41,7 +41,7 @@ weight = 2
 
   [[main]]
   parent = "FIRE Calculators"
-  name = "Payoff Mortgage Early Calculator"
+  name = "Payoff Mortgage Early"
   url = "calculators/payoffmortgageearly/"
   weight = 3
 
