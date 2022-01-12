@@ -329,8 +329,8 @@ When looking at extra payments, these are just applied as above -- instead of us
     // Instantiate inputs
     // ids: original_loan_amount, interest_rate, loan_duration, extra_payments
     var original_loan_amount = Number(document.getElementById('original_loan_amount').value);
-      interest_rate = Math.round( (Number(document.getElementById('interest_rate').value) / 100) * 100) / 100;
-      inflation_rate = Math.round( (Number(document.getElementById('inflation_rate').value) / 100) * 100) / 100;
+      interest_rate = Math.round( (Number(document.getElementById('interest_rate').value) / 100) * 10000) / 10000;
+      inflation_rate = Math.round( (Number(document.getElementById('inflation_rate').value) / 100) * 10000) / 10000;
       monthly_interest_rate = interest_rate / 12;
       monthly_inflation_rate = inflation_rate / 12;
       loan_duration = Number(document.getElementById('loan_duration').value);
@@ -367,8 +367,7 @@ When looking at extra payments, these are just applied as above -- instead of us
       } else {
       
         infl_adj_payment = Math.round( (infl_loan_amount_paydown[i-1].ser4 * (1 - monthly_inflation_rate)) * 100) / 100;
-        console.log(infl_adj_payment);
-        
+
         loan_amount_paydown[i] = {ser1: Math.round(i/12 * 100) / 100, 
                                 ser2: Math.round( ((loan_amount_paydown[i-1].ser2 * (1 + monthly_interest_rate) ) - monthly_payment) * 100) / 100, 
                                 ser3: Math.round( (loan_amount_paydown[i-1].ser3 + monthly_payment) * 100) / 100};
@@ -419,9 +418,7 @@ When looking at extra payments, these are just applied as above -- instead of us
       infl_amount_saved = Math.round( (infl_loan_amount_paydown[infl_loan_amount_paydown.length - 1].ser3 - infl_extra_loan_amount_paydown[infl_extra_loan_amount_paydown.length - 1].ser3) * 100)/100;
       new_years = Math.round( (d3.max(extra_loan_amount_paydown, d => d.ser1)) * 10) / 10;
       
-      console.log(infl_loan_amount_paydown[infl_loan_amount_paydown.length - 1].ser3);
-      console.log(infl_extra_loan_amount_paydown[infl_extra_loan_amount_paydown.length - 1].ser3);
-      
+
       
     update_counts("original_mortgage_payment", monthly_payment - 100, monthly_payment, false);
     update_counts("total_mortgage_payment", total_mortgage_payment - 100, total_mortgage_payment, false);
@@ -436,8 +433,7 @@ When looking at extra payments, these are just applied as above -- instead of us
     
     }
     
-    console.log(infl_amount_saved);
-    
+
     // Draw the outline of the graph
     // Initialise a X axis:
     svg_rw.append("g")
