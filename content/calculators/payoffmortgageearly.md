@@ -17,7 +17,7 @@ author_info:
 <form>
   <div class="container">
     <div class="row">
-      <div class="form-group col-sm-4">
+      <div class="form-group col-sm-3">
         <label for="original_loan_amount">Original Loan Amount</label>
         <input type="number" class="form-control" id="original_loan_amount" aria-describedby="original_loan_amount_help" value="300000" min="0" max="1000000000">
         <small id="original_loan_amount_help" class="form-text text-muted">After your down payment, how much did you owe on the house?</small>
@@ -31,10 +31,15 @@ author_info:
         <input type="number" class="form-control" id="loan_duration" aria-describedby="loan_duration" value="30" min="2" max="100">
         <small id="loan_duration_help" class="form-text text-muted">Typically a mortgage is for 15 or 30 years.</small>
       </div>
-      <div class="form-group col-sm-4">
+      <div class="form-group col-sm-3">
         <label for="extra_payments">Extra Monthly Payments</label>
         <input type="number" class="form-control" id="extra_payments" aria-describedby="extra_payments" value="2000" min="0" max="1000000000">
         <small id="extra_payments_help" class="form-text text-muted">How much extra do you want to put towards the mortgage?</small>
+      </div>
+      <div class="form-group col-sm-2">
+        <label for="inflation_rate">Inflation</label>
+        <input type="number" class="form-control" id="inflation_rate" aria-describedby="inflation_rate_help" value="3" min="0" max="100" step=".01">
+        <small id="inflation_rate_help" class="form-text text-muted">Average CPI for the last 100 years has been 3%.</small>
       </div>
     </div>
   </div>
@@ -49,6 +54,7 @@ author_info:
     </figure>
 </section>
 <section>
+<h2>Without Considering Inflation</h2>
   <figure>
     <div class="container">
         <div class="row">
@@ -58,15 +64,26 @@ author_info:
           <div class="col-sm counter-header">Original Mortgage Payment + Extra
             <div id="total_mortgage_payment"></div>
           </div>
-          <div class="col-sm counter-header">New Years til' Mortgage Free
+          <div class="col-sm counter-header">Years til' Mortgage Free
             <div id="no_years_to_payoff"></div>
           </div>
-          <div class="col-sm counter-header">Amt. of Interest Saved
+          <div class="col-sm counter-header">Interest Saved
             <div id="amt_of_interest_saved"></div>
           </div>
         </div>
       </div>
   </figure>
+<h2>Considering Inflation</h2>
+  <figure>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm counter-header">Inflation Adj. Interest Saved
+            <div id="infl_adj_amt_of_interest_saved"></div>
+          </div>
+        </div>
+      </div>
+  </figure>
+
 </section>
 
 
@@ -82,7 +99,9 @@ Using this information you can then calculate the minimum payment using the foll
 - n = number of payments in a year (e.g. 12)
 - n(t) = total number of payments (e.g. 12*30)
 
-After you have the payment amount, you can then loop through each month, subtracting the payment, and multiplying the remaining value by the interest rate divided by 12 (for each month).
+After you have the payment amount, you can then loop through each month, subtracting the payment, and multiplying the remaining value by the interest rate divided by 12 (for each month). 
+
+When adjusting for inflation, the key to understanding what's happening is succession. Basically, each amount builds off the previous amount -- this goes for the remaining principal and the inflation adjusted contribution. For a single month, I am subtracting the corresponding inflation rate (e.g. 3%/12) from the interest rate (e.g. 3.5%/12) for that year and multiplying the remaining value by this (i.e. .5%/12). I am doing the same thing for contributions and reducing these each year and subtracting against the inflation adjusted remaining principal.
 
 When looking at extra payments, these are just applied as above -- instead of using the minimum payment, we're now using the minimum payment plus the extra payment ($2,000 as a default value).
 
@@ -221,7 +240,7 @@ When looking at extra payments, these are just applied as above -- instead of us
       text-align:center;
     }
     
-    #original_mortgage_payment, #total_mortgage_payment, #no_years_to_payoff, #amt_of_interest_saved {
+    #original_mortgage_payment, #total_mortgage_payment, #no_years_to_payoff, #amt_of_interest_saved, #infl_adj_amt_of_interest_saved {
       font-size: 40px;
     }
 
@@ -271,8 +290,8 @@ When looking at extra payments, these are just applied as above -- instead of us
       .style("text-anchor", "middle")
       .text("Years");
   
-  var legend_keys = ["Standard Paydown", "With Extra Payments"];
-    graph_colors = ["#d5d5d5", "#3CB371"];
+  var legend_keys = ["Standard Paydown", "Inflation Adj. Standard", "With Extra Payments", "Inflation Adj. With Extra"];
+    graph_colors = ["#003f5c", "#3CB371", "#a5a5a5", "#d5d5d5"];
 
   var lineLegend = svg_rw.selectAll(".lineLegend").data(legend_keys)
       .enter().append("g")
@@ -300,12 +319,20 @@ When looking at extra payments, these are just applied as above -- instead of us
     svg_rw
       .selectAll(".extra_loan_amount_paydown_line")
       .remove();
+    svg_rw
+      .selectAll(".infl_loan_amount_paydown_line")
+      .remove();
+    svg_rw
+      .selectAll(".infl_extra_loan_amount_paydown_line")
+      .remove();
       
     // Instantiate inputs
     // ids: original_loan_amount, interest_rate, loan_duration, extra_payments
     var original_loan_amount = Number(document.getElementById('original_loan_amount').value);
       interest_rate = Math.round( (Number(document.getElementById('interest_rate').value) / 100) * 100) / 100;
+      inflation_rate = Math.round( (Number(document.getElementById('inflation_rate').value) / 100) * 100) / 100;
       monthly_interest_rate = interest_rate / 12;
+      monthly_inflation_rate = inflation_rate / 12;
       loan_duration = Number(document.getElementById('loan_duration').value);
       no_of_payments = loan_duration * 12;
       monthly_payment = Math.round(((original_loan_amount*monthly_interest_rate) * ((1+monthly_interest_rate) ** no_of_payments) ) / ( ((1+monthly_interest_rate) ** (no_of_payments))-1)*100) / 100;
@@ -315,39 +342,101 @@ When looking at extra payments, these are just applied as above -- instead of us
       extra_payoff = [];
       new_no_years_to_payoff = [];
       amt_of_interest_saved = [];
-      
+
     loan_amount_paydown = [{ser1: 0, ser2: original_loan_amount, ser3: 0}];
     extra_loan_amount_paydown = [{ser1: 0, ser2: original_loan_amount, ser3: 0}];
+    infl_loan_amount_paydown = [{ser1: 0, ser2: original_loan_amount, ser3: 0, ser4: monthly_payment}];
+    infl_extra_loan_amount_paydown = [{ser1: 0, ser2: original_loan_amount, ser3: 0, ser4: total_mortgage_payment}];
+    
     for (let i = 1; i <= no_of_payments; i++) {
       
-      loan_amount_paydown[i] = {ser1: Math.round(i/12 * 100) / 100, ser2: Math.round( ((loan_amount_paydown[i-1].ser2 * (1 + monthly_interest_rate) ) - monthly_payment) * 100) / 100, ser3: Math.round( (loan_amount_paydown[i-1].ser3 + monthly_payment) * 100) / 100};
+      // if it's the last iteration do something different
+      if (i == (no_of_payments)) {
+
+        infl_adj_payment = Math.round( (infl_loan_amount_paydown[i-1].ser2) * 100) / 100;
+        
+        loan_amount_paydown[i] = {ser1: Math.round(i/12 * 100) / 100, 
+                                ser2: Math.round( ((loan_amount_paydown[i-1].ser2 * (1 + monthly_interest_rate) ) - monthly_payment) * 100) / 100, 
+                                ser3: Math.round( (loan_amount_paydown[i-1].ser3 + monthly_payment) * 100) / 100};
+                                
+        infl_loan_amount_paydown[i] = {ser1: Math.round(i/12 * 100) / 100, 
+                                     ser2: Math.round(((infl_loan_amount_paydown[i-1].ser2 * (1 + monthly_interest_rate - monthly_inflation_rate)) - (infl_adj_payment)) * 100) / 100, 
+                                     ser3: Math.round( (infl_loan_amount_paydown[i-1].ser3 + (infl_adj_payment)) * 100) / 100,
+                                     ser4: infl_adj_payment};
+
+      } else {
+      
+        infl_adj_payment = Math.round( (infl_loan_amount_paydown[i-1].ser4 * (1 - monthly_inflation_rate)) * 100) / 100;
+        console.log(infl_adj_payment);
+        
+        loan_amount_paydown[i] = {ser1: Math.round(i/12 * 100) / 100, 
+                                ser2: Math.round( ((loan_amount_paydown[i-1].ser2 * (1 + monthly_interest_rate) ) - monthly_payment) * 100) / 100, 
+                                ser3: Math.round( (loan_amount_paydown[i-1].ser3 + monthly_payment) * 100) / 100};
+                                
+        infl_loan_amount_paydown[i] = {ser1: Math.round(i/12 * 100) / 100, 
+                                     ser2: Math.round(((infl_loan_amount_paydown[i-1].ser2 * (1 + monthly_interest_rate - monthly_inflation_rate)) - (infl_adj_payment)) * 100) / 100, 
+                                     ser3: Math.round( (infl_loan_amount_paydown[i-1].ser3 + (infl_adj_payment)) * 100) / 100,
+                                     ser4: infl_adj_payment};
+      
+      }
+      
+      
+                                
       if (extra_loan_amount_paydown[extra_loan_amount_paydown.length - 1].ser2 > 0) {
       
         extra_new_amount = Math.round( ((extra_loan_amount_paydown[i-1].ser2 * (1 + monthly_interest_rate) ) - (total_mortgage_payment)) * 100) / 100;
+        infl_total_payment = Math.round( (infl_extra_loan_amount_paydown[i-1].ser4 * (1 - monthly_inflation_rate)) * 100) / 100;
+        infl_extra_new_amount = Math.round( ((infl_extra_loan_amount_paydown[i-1].ser2 * (1 + monthly_interest_rate - monthly_inflation_rate)) - (infl_total_payment)) * 100) / 100;
         
         if (extra_new_amount > 0) {
         
-          extra_loan_amount_paydown[i] = {ser1: Math.round(i/12 * 100) / 100, ser2: extra_new_amount, ser3: Math.round((extra_loan_amount_paydown[i-1].ser3 + total_mortgage_payment)*100) / 100}
+          extra_loan_amount_paydown[i] = {ser1: Math.round(i/12 * 100) / 100, 
+                                          ser2: extra_new_amount, 
+                                          ser3: Math.round((extra_loan_amount_paydown[i-1].ser3 + total_mortgage_payment)*100) / 100};
+                                          
+          infl_extra_loan_amount_paydown[i] = {ser1: Math.round(i/12 * 100) / 100, 
+                                               ser2: infl_extra_new_amount, 
+                                               ser3: Math.round((infl_extra_loan_amount_paydown[i-1].ser3 + infl_total_payment)*100) / 100,
+                                               ser4: infl_total_payment};
         
         } else {
         
-          extra_loan_amount_paydown[i] = {ser1: Math.round(i/12 * 100) / 100, ser2: 0, ser3: Math.round( (extra_loan_amount_paydown[i-1].ser3 + extra_new_amount) * 100) / 100}
+          extra_loan_amount_paydown[i] = {ser1: Math.round(i/12 * 100) / 100, 
+                                          ser2: 0, 
+                                          ser3: Math.round( (extra_loan_amount_paydown[i-1].ser3 + extra_loan_amount_paydown[i-1].ser2) * 100) / 100};
+          
+          infl_extra_loan_amount_paydown[i] = {ser1: Math.round(i/12 * 100) / 100, 
+                                               ser2: 0, 
+                                               ser3: Math.round((infl_extra_loan_amount_paydown[i-1].ser3 + infl_extra_loan_amount_paydown[i-1].ser2)*100) / 100,
+                                               ser4: infl_total_payment}
         
         }
       }
     
     };
     
-
-    
     var amount_saved = Math.round( (d3.max(loan_amount_paydown, d => d.ser3) - d3.max(extra_loan_amount_paydown, d => d.ser3)) * 100)/100;
+      infl_amount_saved = Math.round( (infl_loan_amount_paydown[infl_loan_amount_paydown.length - 1].ser3 - infl_extra_loan_amount_paydown[infl_extra_loan_amount_paydown.length - 1].ser3) * 100)/100;
       new_years = Math.round( (d3.max(extra_loan_amount_paydown, d => d.ser1)) * 10) / 10;
+      
+      console.log(infl_loan_amount_paydown[infl_loan_amount_paydown.length - 1].ser3);
+      console.log(infl_extra_loan_amount_paydown[infl_extra_loan_amount_paydown.length - 1].ser3);
       
       
     update_counts("original_mortgage_payment", monthly_payment - 100, monthly_payment, false);
     update_counts("total_mortgage_payment", total_mortgage_payment - 100, total_mortgage_payment, false);
     update_counts("no_years_to_payoff", 0, new_years, true);
     update_counts("amt_of_interest_saved", amount_saved - 100, amount_saved, false);
+    if (infl_amount_saved > 1) {
+    
+      update_counts("infl_adj_amt_of_interest_saved", infl_amount_saved - 1, infl_amount_saved, false);
+    
+    } else {
+      update_counts("infl_adj_amt_of_interest_saved", infl_amount_saved + 1, infl_amount_saved, false);
+    
+    }
+    
+    console.log(infl_amount_saved);
     
     // Draw the outline of the graph
     // Initialise a X axis:
@@ -386,17 +475,14 @@ When looking at extra payments, these are just applied as above -- instead of us
                .line()
                .x(d => xScale_rw(d.ser1))
                .y(d => yScale_rw(d.ser2));
-    
-    // loan_amount_paydown
-    // extra_loan_amount_paydown
-      
+
     // Add path
     const fire_number_rw = svg_rw
       .append("path")
       .datum(loan_amount_paydown)
       .attr("class", "loan_amount_paydown_line")
       .attr("fill", "none")
-      .attr("stroke", "#d5d5d5")
+      .attr("stroke", "#003f5c")
       .attr("stroke-linejoin", "round")
       .attr("stroke-linecap", "round")
       .attr("stroke-width", 3)
@@ -414,6 +500,34 @@ When looking at extra payments, these are just applied as above -- instead of us
       .attr("stroke-dasharray", fire_numberLength_rw)
       .transition(fire_numberPath_rw)
       .attr("stroke-dashoffset", 0);
+      
+      
+    const infl_fire_number_rw = svg_rw
+      .append("path")
+      .datum(infl_loan_amount_paydown)
+      .attr("class", "infl_loan_amount_paydown_line")
+      .attr("fill", "none")
+      .attr("stroke", "#3CB371")
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
+      .attr("stroke-width", 3)
+      .attr("d", line_rw);
+      
+    const infl_fire_numberLength_rw = infl_fire_number_rw.node().getTotalLength();
+    
+    const infl_fire_numberPath_rw = d3
+      .transition()
+      .delay(2000)
+      .ease(d3.easeSin)
+      .duration(2000);
+      
+    infl_fire_number_rw
+      .attr("stroke-dashoffset", infl_fire_numberLength_rw)
+      .attr("stroke-dasharray", infl_fire_numberLength_rw)
+      .transition(infl_fire_numberPath_rw)
+      .attr("stroke-dashoffset", 0);
+      
+      
     
     // Add path
     const extra_fire_number_rw = svg_rw
@@ -421,7 +535,7 @@ When looking at extra payments, these are just applied as above -- instead of us
       .datum(extra_loan_amount_paydown)
       .attr("class", "extra_loan_amount_paydown_line")
       .attr("fill", "none")
-      .attr("stroke", "#3CB371")
+      .attr("stroke", "#a5a5a5")
       .attr("stroke-linejoin", "round")
       .attr("stroke-linecap", "round")
       .attr("stroke-width", 3)
@@ -431,7 +545,7 @@ When looking at extra payments, these are just applied as above -- instead of us
     
     const extra_fire_numberPath_rw = d3
       .transition()
-      .delay(2000)
+      .delay(4000)
       .ease(d3.easeSin)
       .duration(2000);
       
@@ -439,6 +553,31 @@ When looking at extra payments, these are just applied as above -- instead of us
       .attr("stroke-dashoffset", extra_fire_numberLength_rw)
       .attr("stroke-dasharray", extra_fire_numberLength_rw)
       .transition(extra_fire_numberPath_rw)
+      .attr("stroke-dashoffset", 0);
+      
+    const infl_extra_fire_number_rw = svg_rw
+      .append("path")
+      .datum(infl_extra_loan_amount_paydown)
+      .attr("class", "infl_extra_loan_amount_paydown_line")
+      .attr("fill", "none")
+      .attr("stroke", "#d5d5d5")
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
+      .attr("stroke-width", 3)
+      .attr("d", line_rw);
+      
+    const infl_extra_fire_numberLength_rw = infl_extra_fire_number_rw.node().getTotalLength();
+    
+    const infl_extra_fire_numberPath_rw = d3
+      .transition()
+      .delay(6000)
+      .ease(d3.easeSin)
+      .duration(2000);
+      
+    infl_extra_fire_number_rw
+      .attr("stroke-dashoffset", infl_extra_fire_numberLength_rw)
+      .attr("stroke-dasharray", infl_extra_fire_numberLength_rw)
+      .transition(infl_extra_fire_numberPath_rw)
       .attr("stroke-dashoffset", 0);
   
   };
@@ -495,7 +634,7 @@ When looking at extra payments, these are just applied as above -- instead of us
         // var count= document.getElementById(id);
         // count.innerHTML=numberWithCommas(uptoamount);
         var counts=setInterval(updated);
-        var upto=100;
+        var upto=startamount;
         function updated(){
             var count= document.getElementById(id);
             count.innerHTML=numberWithCommas(--upto);
