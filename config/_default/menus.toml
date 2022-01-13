@@ -45,6 +45,12 @@ weight = 2
   url = "calculators/payoffmortgageearly/"
   weight = 3
 
+  [[main]]
+  parent = "FIRE Calculators"
+  name = "Payoff or Invest"
+  url = "calculators/payoffmortgageearlyorinvest/"
+  weight = 3
+
 [[main]]
 name = "Data Policy"
 url = "terms-and-conditions/"

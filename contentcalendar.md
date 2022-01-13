@@ -10,12 +10,20 @@ blog/post-3.md -- How to Calculate Your FIRE Number
 Can I retire on 1 million dollars?
 What does FIRE stand for?
 
+# Make a new one
+
+# Make one better
+badhabitscalculator
+futurevaluesimulator
+
 ### Staple Posts - Medium, ~2,000 words and one visualization
 #### Completed
 calculator/futurevalue -- Future Value Calculator
 calculator/safewithdrawal -- Safe Withdrawal Calculator
 calculator/badhabits -- Bad Habits Calculator
 blog/post-4.md -- How Much Do Your Bad Habits Really Cost?
+calculator/payoffmortgageearly -- Payoff Mortgage Early Calculator
+
 
 
 #### Started
