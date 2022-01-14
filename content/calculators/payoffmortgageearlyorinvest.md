@@ -346,11 +346,7 @@ Everyone always wonders how inflation might affect these calculations. If you wa
                                                        ser2: Math.round( ((with_extra_payments_to_index_funds_paydown[i-1].ser2 * (1 + monthly_interest_rate) ) - monthly_payment) * 100) / 100, 
                                                        ser3: Math.round( ((with_extra_payments_to_index_funds_paydown[i-1].ser3 * (1 + monthly_growth_rate) ) + extra_payment) * 100) / 100,
                                                        ser4: Math.round( (with_extra_payments_to_index_funds_paydown[i-1].ser3 - with_extra_payments_to_index_funds_paydown[i-1].ser2) * 100) / 100};
-      
-      
-                                
 
-      
       extra_new_amount = Math.round( ((with_extra_payments_to_mortgage_paydown[i-1].ser2 * (1 + monthly_interest_rate) ) - (total_mortgage_payment)) * 100) / 100;
       if (extra_new_amount > 0) {
       
@@ -363,7 +359,7 @@ Everyone always wonders how inflation might affect these calculations. If you wa
       
         with_extra_payments_to_mortgage_paydown[i] = {ser1: Math.round(i/12 * 100) / 100, 
                                                       ser2: 0, 
-                                                      ser3: Math.round( ((with_extra_payments_to_mortgage_paydown[i-1].ser3 * (1 + monthly_growth_rate) ) + extra_payment) * 100) / 100,
+                                                      ser3: Math.round( ((with_extra_payments_to_mortgage_paydown[i-1].ser3 * (1 + monthly_growth_rate) ) + total_mortgage_payment) * 100) / 100,
                                                       ser4: Math.round( (with_extra_payments_to_mortgage_paydown[i-1].ser3 - with_extra_payments_to_mortgage_paydown[i-1].ser2) * 100) / 100};
         
       
