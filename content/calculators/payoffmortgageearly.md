@@ -64,7 +64,7 @@ author_info:
           <div class="col-sm counter-header">Original Mortgage Payment + Extra
             <div id="total_mortgage_payment"></div>
           </div>
-          <div class="col-sm counter-header">Years til' Mortgage Free
+          <div class="col-sm counter-header">Years 'til Mortgage Free
             <div id="no_years_to_payoff"></div>
           </div>
           <div class="col-sm counter-header">Interest Saved

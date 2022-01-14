@@ -57,7 +57,7 @@ author_info:
   <figure>
     <div class="container">
         <div class="row">
-          <div class="col-sm counter-header">Years til' Mortgage Free With Extra Payments
+          <div class="col-sm counter-header">Years 'til Mortgage Free With Extra Payments
             <div id="no_years_to_payoff"></div>
           </div>
           <div class="col-sm counter-header">Final Value with Extra Mortgage Payments
