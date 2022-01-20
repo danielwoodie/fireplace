@@ -1,13 +1,8 @@
 # main menu
 [[main]]
-name = "Blog"
-url = "blog/"
-weight = 1
-
-[[main]]
 name = "FIRE Calculators"
 hasChildren = true
-weight = 2
+weight = 1
 
   [[main]]
   parent = "FIRE Calculators"
@@ -50,6 +45,12 @@ weight = 2
   name = "Payoff or Invest"
   url = "calculators/payoffmortgageearlyorinvest/"
   weight = 3
+
+
+[[main]]
+name = "Blog"
+url = "blog/"
+weight = 2
 
 [[main]]
 name = "Data Policy"

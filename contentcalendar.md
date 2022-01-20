@@ -4,6 +4,18 @@
 blog/post-2.md -- Inflation Adjusted S&P 500 Returns for the Last 100 Years
 blog/post-3.md -- How to Calculate Your FIRE Number
 
+## On future value calculator
+## 1. Get numbers to round correctly2
+## 2. Get numbers to count up correctly.
+## 3. Add a dollar sign where relevant.
+
+
+#### Take a break for a few days
+#### Come back and work on
+## 1. Fixing how the lines are drawn on the payoffmortgageearly calculator
+## 2. Including the fvsimulator to run in succession like the Trinity Study
+## 3. Start working on a Pay off mortgage or invest calculator (Output will be net worth).
+
 #### Started
 
 #### Not Started
@@ -83,3 +95,11 @@ Average American Budget
 ### Pillar Posts
 Bad Habit Calculator
 Which generation had it the hardest?
+
+Payoff mortgage or invest
+Live well now or later
+Creating a Budget with a Kid
+How much does a kid really cost?
+How much should I save for college?
+Minimizing costs of having kid (buy nothing group)
+Having a kid calculator (How many years does it set you back?)
