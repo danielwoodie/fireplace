@@ -223,7 +223,7 @@ This calculator is purely for educational purposes. This tool is put together to
   
   .btn-secondary {
     background-color: #3CB371;
-    font-size : clamp(.2rem, 1vw, .75rem);
+    font-size : clamp(.5rem, 1vw, .75rem);
     border-radius: 100px;
   }
   
