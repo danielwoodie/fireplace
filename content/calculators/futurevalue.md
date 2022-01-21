@@ -385,36 +385,6 @@ This calculator is purely for educational purposes. This tool is put together to
       .transition(fv_transitionPath)
       .attr("stroke-dashoffset", 0);
         
-        
-/*        
-    // Add path
-    const fv_path = svg
-      .append("path")
-      .datum(future_value_data)
-      .attr("class", "future_value_line")
-      .attr("fill", "none")
-      .attr("stroke", "#3CB371")
-      .attr("stroke-linejoin", "round")
-      .attr("stroke-linecap", "round")
-      .attr("stroke-width", 3)
-      .attr("d", fire_number_line);
-      
-    const fv_pathLength = fv_path.node().getTotalLength();
-    
-    const fv_transitionPath = d3
-      .transition()
-      .ease(d3.easeSin)
-      .duration(2000);
-      
-    fv_path
-      .attr("stroke-dashoffset", fv_pathLength)
-      .attr("stroke-dasharray", fv_pathLength)
-      .transition(fv_transitionPath)
-      .attr("stroke-dashoffset", 0);
-*/      
-      
-      
-        
     var tooltip = d3
       .select("#future_value")
       .append("div")
