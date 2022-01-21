@@ -5,9 +5,10 @@ blog/post-2.md -- Inflation Adjusted S&P 500 Returns for the Last 100 Years
 blog/post-3.md -- How to Calculate Your FIRE Number
 
 ## On future value calculator
-## 1. Get numbers to round correctly2
-## 2. Get numbers to count up correctly.
-## 3. Add a dollar sign where relevant.
+## 1. Fix how line is drawn. Defeated by this. May just be a mobile thing?
+## 2. Reformat the buttons.
+## 3. Add some error options.
+## 4. Add the error area on the graph.
 
 
 #### Take a break for a few days

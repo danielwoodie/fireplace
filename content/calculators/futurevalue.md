@@ -334,7 +334,7 @@ This calculator is purely for educational purposes. This tool is put together to
       .line()
       .x(d => xScale(d.x))
       .y(d => yScale(d.y));
-/*    
+    
     // Add path
     const path = svg
       .append("path")
@@ -352,15 +352,13 @@ This calculator is purely for educational purposes. This tool is put together to
     const transitionPath = d3
       .transition()
       .ease(d3.easeSin)
-      .duration(2000);
+      .duration(1000);
       
     path
       .attr("stroke-dashoffset", pathLength)
       .attr("stroke-dasharray", pathLength)
       .transition(transitionPath)
       .attr("stroke-dashoffset", 0);
-
-*/
   
     // Add path
     const fv_path = svg
@@ -378,8 +376,9 @@ This calculator is purely for educational purposes. This tool is put together to
     
     const fv_transitionPath = d3
       .transition()
+      .delay(1000)
       .ease(d3.easeSin)
-      .duration(2000);
+      .duration(1000);
       
     fv_path
       .attr("stroke-dashoffset", fv_pathLength)
