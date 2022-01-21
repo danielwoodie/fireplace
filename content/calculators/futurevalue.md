@@ -91,10 +91,9 @@ This is simply 25x your annual expenses. If you spend $100,000/year, then your F
 
 ## Note on how to use this calculator
 
-This calculator is purely for educational purposes. If you believe your investments will return more or less than 8%, simply adjust accordingly. This tool is put together to help educate and inform those developing a strategy for building wealth.
+This calculator is purely for educational purposes. This tool is put together to help educate and inform those developing a strategy for building wealth.
   
 </main>
-
 
 <style>
 
@@ -235,9 +234,6 @@ This calculator is purely for educational purposes. If you believe your investme
 
 
 <script>
-  function numberWithCommas(x) {
-      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
 
   function runfv() {
   
@@ -335,107 +331,139 @@ This calculator is purely for educational purposes. If you believe your investme
       .domain([0, d3.max(future_value_data.concat(fire_number_data), d => d.y) * 1.2]);
       
     const fire_number_line = d3
-         .line()
-         .x(d => xScale(d.x))
-         .y(d => yScale(d.y));
+      .line()
+      .x(d => xScale(d.x))
+      .y(d => yScale(d.y));
     
     // Add path
-      const path = svg
-        .append("path")
-        .datum(fire_number_data)
-        .attr("class", "fire_number_line")
-        .attr("fill", "none")
-        .attr("stroke", "#000000")
-        .attr("stroke-linejoin", "round")
-        .attr("stroke-linecap", "round")
-        .attr("stroke-width", 3)
-        .attr("d", fire_number_line);
-
-      const pathLength = path.node().getTotalLength();
+    const path = svg
+      .append("path")
+      .datum(fire_number_data)
+      .attr("class", "fire_number_line")
+      .attr("fill", "none")
+      .attr("stroke", "#000000")
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
+      .attr("stroke-width", 3)
+      .attr("d", fire_number_line);
       
-      const transitionPath = d3
-        .transition()
-        .ease(d3.easeSin)
-        .duration(2000);
-
-      path
-        .attr("stroke-dashoffset", pathLength)
-        .attr("stroke-dasharray", pathLength)
-        .transition(transitionPath)
-        .attr("stroke-dashoffset", 0);
-        
-      // Add path
-      const fv_path = svg
-        .append("path")
-        .datum(future_value_data)
-        .attr("class", "future_value_line")
-        .attr("fill", "none")
-        .attr("stroke", "#3CB371")
-        .attr("stroke-linejoin", "round")
-        .attr("stroke-linecap", "round")
-        .attr("stroke-width", 3)
-        .attr("d", fire_number_line);
-
-      const fv_pathLength = fv_path.node().getTotalLength();
+    const pathLength = path.node().getTotalLength();
+    
+    const transitionPath = d3
+      .transition()
+      .ease(d3.easeSin)
+      .duration(2000);
       
-      const fv_transitionPath = d3
-        .transition()
-        .ease(d3.easeSin)
-        .duration(2000);
-
-      fv_path
-        .attr("stroke-dashoffset", fv_pathLength)
-        .attr("stroke-dasharray", fv_pathLength)
-        .transition(fv_transitionPath)
-        .attr("stroke-dashoffset", 0);
+    path
+      .attr("stroke-dashoffset", pathLength)
+      .attr("stroke-dasharray", pathLength)
+      .transition(transitionPath)
+      .attr("stroke-dashoffset", 0);
+  
+    // Add path
+    const fv_path = svg
+      .append("path")
+      .datum(future_value_data)
+      .attr("class", "future_value_line")
+      .attr("fill", "none")
+      .attr("stroke", "#3CB371")
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
+      .attr("stroke-width", 3)
+      .attr("d", fire_number_line);
+      
+    const fv_pathLength = fv_path.node().getTotalLength();
+    
+    const fv_transitionPath = d3
+      .transition()
+      .ease(d3.easeSin)
+      .duration(2000);
+      
+    fv_path
+      .attr("stroke-dashoffset", fv_pathLength)
+      .attr("stroke-dasharray", fv_pathLength)
+      .transition(fv_transitionPath)
+      .attr("stroke-dashoffset", 0);
         
-      var tooltip = d3
-            .select("#future_value")
-            .append("div")
-            .attr("class", "tooltip")
-            .style("display", "none");
+        
+/*        
+    // Add path
+    const fv_path = svg
+      .append("path")
+      .datum(future_value_data)
+      .attr("class", "future_value_line")
+      .attr("fill", "none")
+      .attr("stroke", "#3CB371")
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
+      .attr("stroke-width", 3)
+      .attr("d", fire_number_line);
+      
+    const fv_pathLength = fv_path.node().getTotalLength();
+    
+    const fv_transitionPath = d3
+      .transition()
+      .ease(d3.easeSin)
+      .duration(2000);
+      
+    fv_path
+      .attr("stroke-dashoffset", fv_pathLength)
+      .attr("stroke-dasharray", fv_pathLength)
+      .transition(fv_transitionPath)
+      .attr("stroke-dashoffset", 0);
+*/      
+      
+      
+        
+    var tooltip = d3
+      .select("#future_value")
+      .append("div")
+      .attr("class", "tooltip")
+      .style("display", "none");
 
-        var focus = svg.append("g")
-            .attr("class", "focus")
-            .style("display", "none");
+    var focus = svg.append("g")
+      .attr("class", "focus")
+      .style("display", "none");
+        
+    focus.append("circle")
+      .attr("r", 5);
+        
+    var tooltipDate = tooltip.append("div");
+    
+    tooltipDate.append("span")
+      .attr("class", "tooltip-title")
+      .text("Value: ");
+        
+    var tooltipDateValue = tooltipDate.append("span")
+      .attr("class", "tooltip-date");
+        
+    var tooltipLikes = tooltip.append("div");
+    
+    tooltipLikes.append("span")
+      .attr("class", "tooltip-title")
+      .text("Year: ");
+        
+    var tooltipLikesValue = tooltipLikes.append("span")
+        .attr("class", "tooltip-likes");
 
-        focus.append("circle")
-            .attr("r", 5);
+    svg.append("rect")
+        .attr("class", "overlay")
+        .attr("width", width)
+        .attr("height", height)
+        .on("mouseover", function() { focus.style("display", null); tooltip.style("display", null);  })
+        .on("mouseout", function() { focus.style("display", "none"); tooltip.style("display", "none"); })
+        .on("mousemove", mousemove);
 
-        var tooltipDate = tooltip.append("div");
-        tooltipDate.append("span")
-            .attr("class", "tooltip-title")
-            .text("Value: ");
-
-        var tooltipDateValue = tooltipDate.append("span")
-            .attr("class", "tooltip-date");
-            
-        var tooltipLikes = tooltip.append("div");
-        tooltipLikes.append("span")
-            .attr("class", "tooltip-title")
-            .text("Year: ");
-
-        var tooltipLikesValue = tooltipLikes.append("span")
-            .attr("class", "tooltip-likes");
-
-        svg.append("rect")
-            .attr("class", "overlay")
-            .attr("width", width)
-            .attr("height", height)
-            .on("mouseover", function() { focus.style("display", null); tooltip.style("display", null);  })
-            .on("mouseout", function() { focus.style("display", "none"); tooltip.style("display", "none"); })
-            .on("mousemove", mousemove);
-
-        function mousemove() {
-            var x0 = x.invert(d3.pointer(event,this)[0]),
-                i = bisectX(future_value_data, x0, 1),
-                d0 = future_value_data[i - 1],
-                d1 = future_value_data[i],
-                d = x0 - d0.x > d1.x - x0 ? d1 : d0;
-            focus.attr("transform", "translate(" + x(d.x) + "," + y(d.y) + ")");
-            tooltip.attr("style", "left:" + (x(d.x) + 64) + "px;top:" + y(d.y) + "px;");
-            tooltip.select(".tooltip-date").text("$" + numberWithCommas(d.y));
-            tooltip.select(".tooltip-likes").text(d.x);
+    function mousemove() {
+        var x0 = x.invert(d3.pointer(event,this)[0]),
+            i = bisectX(future_value_data, x0, 1),
+            d0 = future_value_data[i - 1],
+            d1 = future_value_data[i],
+            d = x0 - d0.x > d1.x - x0 ? d1 : d0;
+        focus.attr("transform", "translate(" + x(d.x) + "," + y(d.y) + ")");
+        tooltip.attr("style", "left:" + (x(d.x) + 64) + "px;top:" + y(d.y) + "px;");
+        tooltip.select(".tooltip-date").text("$" + numberWithCommas(d.y));
+        tooltip.select(".tooltip-likes").text(d.x);
     }
 
   }
@@ -457,6 +485,10 @@ This calculator is purely for educational purposes. If you believe your investme
             clearInterval(counts);
         }
     }
+  }
+  
+  function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   
   
