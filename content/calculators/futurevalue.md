@@ -90,6 +90,10 @@ Additionally, you will then include a regular contribution along with how freque
 
 Using this information, the calculator then iterates through each contribution and growth rate for each year and returns the future value. If the growth rate is 8% and the contributions happen weekly then the effective growth rate becomes 8%/52 at each period. A similar pattern occurs for each contribution frequency.
 
+## How is the uncertainty used?
+
+Some people prefer looking at a range of outcomes. Instead of looking at 8% they'd like to look at 8% +/- 2% (6% to 10%). That's all the uncertainty parameter is doing. If you'd like to include more uncertainty, bump up this number to account for that to see the range of possible outcomes.
+
 ## What is your FIRE number?
 
 This is simply 25x your annual expenses. If you spend $100,000/year, then your FIRE number is $2.5M (or 25 * $1,000,000). This is the number you need invested in low-cost index funds to be considered financially independent and retire early.
@@ -188,8 +192,8 @@ This calculator is purely for educational purposes. This tool is put together to
   }
   
   .overlay {
-        fill: none;
-        pointer-events: all;
+    fill: none;
+    pointer-events: all;
   }
 
   .focus circle {
@@ -217,7 +221,7 @@ This calculator is purely for educational purposes. This tool is put together to
   .tooltip div {
       margin: 3px 0;
   }
-  .tooltip-date, .tooltip-likes {
+  .tooltip-date, .tooltip-likes, .tooltip-lower, .tooltip-upper {
       font-weight: bold;
   }
   
@@ -341,26 +345,27 @@ This calculator is purely for educational purposes. This tool is put together to
       .range([height, 0])
       .domain([0, d3.max(future_value_data.concat(fire_number_data), d => d.y1) * 1.2]);
     
-    var error_bar_area = d3
-      .area()
-      .x(d => xScale(d.x))
-      .y0(d => yScale(d.y0))
-      .y1(d => yScale(d.y1));
+    var error_bar_area = function(datum, boolean) {
+      return d3.area()
+        .x(function(d) {return xScale(d.x); })
+        .y0(function(d) {return boolean ? yScale(d.y0) : yScale(d.y); })
+        .y1(function(d) {return boolean ? yScale(d.y1) : yScale(d.y); })
+        (datum);
+    }
+        
     
     // Add path
     svg
       .append("path")
       .datum(future_value_data)
+      .attr("d", d => error_bar_area(d, false))
       .transition()
       .duration(2000)
       .delay(2000)
       .attr("class", "error_bar_area")
       .attr("fill", "#CCE5DF")
       .attr("stroke", "none")
-      .attr("stroke-linejoin", "round")
-      .attr("stroke-linecap", "round")
-      .attr("stroke-width", 3)
-      .attr("d", error_bar_area);
+      .attr("d", d => error_bar_area(d, true));
       
     const fire_number_line = d3
       .line()
@@ -435,11 +440,29 @@ This calculator is purely for educational purposes. This tool is put together to
     
     tooltipDate.append("span")
       .attr("class", "tooltip-title")
-      .text("Value: ");
+      .text("Future Value: ");
         
     var tooltipDateValue = tooltipDate.append("span")
       .attr("class", "tooltip-date");
+    
+    var tooltipLower = tooltip.append("div");
+    
+    tooltipLower.append("span")
+      .attr("class", "tooltip-title")
+      .text("Lower Bounds: ");
         
+    var tooltipLowerValue = tooltipLower.append("span")
+      .attr("class", "tooltip-lower");
+      
+    var tooltipUpper = tooltip.append("div");
+    
+    tooltipUpper.append("span")
+      .attr("class", "tooltip-title")
+      .text("Upper Bounds: ");
+        
+    var tooltipUpperValue = tooltipUpper.append("span")
+      .attr("class", "tooltip-upper");
+    
     var tooltipLikes = tooltip.append("div");
     
     tooltipLikes.append("span")
@@ -456,7 +479,7 @@ This calculator is purely for educational purposes. This tool is put together to
         .on("mouseover", function() { focus.style("display", null); tooltip.style("display", null);  })
         .on("mouseout", function() { focus.style("display", "none"); tooltip.style("display", "none"); })
         .on("mousemove", mousemove);
-
+    
     function mousemove() {
         var x0 = x.invert(d3.pointer(event,this)[0]),
             i = bisectX(future_value_data, x0, 1),
@@ -464,11 +487,13 @@ This calculator is purely for educational purposes. This tool is put together to
             d1 = future_value_data[i],
             d = x0 - d0.x > d1.x - x0 ? d1 : d0;
         focus.attr("transform", "translate(" + x(d.x) + "," + y(d.y) + ")");
-        tooltip.attr("style", "left:" + (x(d.x) + 64) + "px;top:" + y(d.y) + "px;");
+        tooltip.attr("style", "left:" + (x(d.x) + 64) + "px;top:" + (y(d.y1) - 100) + "px;");
         tooltip.select(".tooltip-date").text("$" + numberWithCommas(d.y));
+        tooltip.select(".tooltip-lower").text("$" + numberWithCommas(d.y0));
+        tooltip.select(".tooltip-upper").text("$" + numberWithCommas(d.y1));
         tooltip.select(".tooltip-likes").text(d.x);
     }
-
+    
   }
   
   // parse the date / time
