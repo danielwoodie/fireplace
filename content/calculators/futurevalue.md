@@ -28,7 +28,7 @@ draft: no
       </div>
       <div class="form-group col-sm-3">
         <label for="uncertainty">Uncertainty</label>
-        <input type="number" class="form-control" id="uncertainty" aria-describedby="uncertainty_help" value="1" min="0" max="20">
+        <input type="number" class="form-control" id="uncertainty" aria-describedby="uncertainty_help" value="4" min="0" max="20">
         <small id="uncertainty_help" class="form-text text-muted">How many % points above and below would you like to explore?</small>
       </div>
     </div>
@@ -247,6 +247,7 @@ This calculator is purely for educational purposes. This tool is put together to
     d3.select(".fire_number").remove();
     d3.select(".future_value_line").remove();
     d3.select(".future_value").remove();
+    d3.select(".error_bar_area").remove();
     
     var daily = document.getElementById('daily').checked;
       weekly = document.getElementById('weekly').checked;
@@ -257,13 +258,14 @@ This calculator is purely for educational purposes. This tool is put together to
       fire_number = 25*annual_expenses;
       years_contributing = Number(document.getElementById('years_contributing').value);
       growth_rate = Number(document.getElementById('growth_rate').value) / 100;
+      uncertainty = Number(document.getElementById('uncertainty').value) / 100;
       current_investments = Number(document.getElementById('current_investments').value);
       contributions = Number(document.getElementById('contributions').value);
     
     // Calculate FIRE Numbers
     var fire_number_data = [
-      {x: 0, y: fire_number},
-      {x: years_contributing, y: fire_number}
+      {x: 0, y: fire_number, y1: fire_number},
+      {x: years_contributing, y: fire_number, y1: fire_number}
     ];
     
     if (daily) {
@@ -290,14 +292,17 @@ This calculator is purely for educational purposes. This tool is put together to
     
     var no_periods = years_contributing * div_mult;
         periodic_growth_rate = growth_rate / div_mult;
+        periodic_uncertainty = uncertainty / div_mult;
     
     // Calculate FV Numbers
-    var future_value_data = [{x: 0, y: current_investments}];
+    var future_value_data = [{x: 0, y: current_investments, y0: current_investments, y1: current_investments}];
     
     for(let i=0; i < no_periods; i++) {
     
       future_value_data[i+1] = {x: Math.round( ((i+1)/div_mult) * 100) / 100, 
-                                y: Math.round( (Number(((future_value_data[i].y + contributions) * (1 + periodic_growth_rate)).toFixed(2))) * 100) / 100};
+                                y: Math.round( (Number(((future_value_data[i].y + contributions) * (1 + periodic_growth_rate)))) * 100) / 100,
+                                y0: Math.round( (Number(((future_value_data[i].y0 + contributions) * (1 + periodic_growth_rate - periodic_uncertainty)))) * 100) / 100,
+                                y1: Math.round( (Number(((future_value_data[i].y1 + contributions) * (1 + periodic_growth_rate + periodic_uncertainty)))) * 100) / 100};
     
     }
     
@@ -324,7 +329,7 @@ This calculator is purely for educational purposes. This tool is put together to
       .domain([0, years_contributing]);
     
     // create the Y axis
-    y.domain([0, d3.max(future_value_data.concat(fire_number_data), d => d.y) * 1.2])
+    y.domain([0, d3.max(future_value_data.concat(fire_number_data), d => d.y1) * 1.2])
     svg.selectAll(".myYaxis")
       .transition()
       .duration(1000)
@@ -334,7 +339,28 @@ This calculator is purely for educational purposes. This tool is put together to
     const yScale = d3
       .scaleLinear()
       .range([height, 0])
-      .domain([0, d3.max(future_value_data.concat(fire_number_data), d => d.y) * 1.2]);
+      .domain([0, d3.max(future_value_data.concat(fire_number_data), d => d.y1) * 1.2]);
+    
+    var error_bar_area = d3
+      .area()
+      .x(d => xScale(d.x))
+      .y0(d => yScale(d.y0))
+      .y1(d => yScale(d.y1));
+    
+    // Add path
+    svg
+      .append("path")
+      .datum(future_value_data)
+      .transition()
+      .duration(2000)
+      .delay(2000)
+      .attr("class", "error_bar_area")
+      .attr("fill", "#CCE5DF")
+      .attr("stroke", "none")
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
+      .attr("stroke-width", 3)
+      .attr("d", error_bar_area);
       
     const fire_number_line = d3
       .line()
@@ -515,8 +541,8 @@ This calculator is purely for educational purposes. This tool is put together to
     .style("text-anchor", "middle")
     .text("Years");
   
-  var legend_keys = ["Future Value", "FIRE Number"];
-    graph_colors = ["#3CB371", "#000000"];
+  var legend_keys = ["Future Value", "FIRE Number", "+/- Uncertainty"];
+    graph_colors = ["#3CB371", "#000000", "#CCE5DF"];
 
   var lineLegend = svg.selectAll(".lineLegend").data(legend_keys)
       .enter().append("g")
