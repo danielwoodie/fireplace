@@ -24,21 +24,26 @@ draft: no
       <div class="form-group col-sm-3">
         <label for="growth_rate">Growth Rate</label>
         <input type="number" class="form-control" id="growth_rate" aria-describedby="current_investments_help" value="8" min="0" max="100">
-        <small id="current_investments_help" class="form-text text-muted">On average, the stock market has returned 8% (adjusted for inflation).</small>
+        <small id="growth_rate_help" class="form-text text-muted">On average, the stock market has returned 8% (adjusted for inflation).</small>
       </div>
+      <div class="form-group col-sm-3">
+        <label for="uncertainty">Uncertainty</label>
+        <input type="number" class="form-control" id="uncertainty" aria-describedby="uncertainty_help" value="1" min="0" max="20">
+        <small id="uncertainty_help" class="form-text text-muted">How many % points above and below would you like to explore?</small>
+      </div>
+    </div>
+    <div class="row">
       <div class="form-group col-sm-3">
         <label for="years_contributing">Years Contributing</label>
         <input type="number" class="form-control" id="years_contributing" aria-describedby="years_contributing" value="20" min="2" max="100">
         <small id="years_contributing_help" class="form-text text-muted">For how many years would you like to run this scenario?</small>
       </div>
-    </div>
-    <div class="row">
       <div class="form-group col-sm-3">
         <label for="contributions">Periodic Contributions</label>
         <input type="number" class="form-control" id="contributions" aria-describedby="contributions_help" value="2000" min="0" max="1000000000">
         <small id="contributions_help" class="form-text text-muted">How much do you add to your investments?</small>
       </div>
-      <div class="form-group col-sm-9">
+      <div class="form-group col-sm-6">
         <label>Frequency of Periodic Contributions</label><br>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
            <label class="btn btn-secondary active"><input type="radio" name="options" id="daily" autocomplete="off">Daily</label>
@@ -218,7 +223,8 @@ This calculator is purely for educational purposes. This tool is put together to
   
   .btn-secondary {
     background-color: #3CB371;
-    border-left: solid;
+    font-size: 10px;
+    border-radius: 100px;
   }
   
   .counter-header {
