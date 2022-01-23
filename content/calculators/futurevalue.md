@@ -509,7 +509,7 @@ This calculator is purely for educational purposes. This tool is put together to
         } else {
           count.innerHTML=numberWithCommas(++upto);
         }
-        if(upto===uptoamount) {
+        if(upto>=uptoamount) {
             clearInterval(counts);
         }
     }
