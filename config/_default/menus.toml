@@ -12,39 +12,45 @@ weight = 1
 
   [[main]]
   parent = "FIRE Calculators"
+  name = "Coast FIRE"
+  url = "calculators/coastfire/"
+  weight = 2
+
+  [[main]]
+  parent = "FIRE Calculators"
   name = "Safe Withdrawal"
   url = "calculators/safewithdrawal/"
-  weight = 2
+  weight = 3
 
   [[main]]
   parent = "FIRE Calculators"
   name = "Bad Habits"
   url = "calculators/badhabits/"
-  weight = 3
+  weight = 4
 
   [[main]]
   parent = "FIRE Calculators"
   name = "Future Value Simulator"
   url = "calculators/futurevaluesimulator/"
-  weight = 3
+  weight = 5
 
   [[main]]
   parent = "FIRE Calculators"
   name = "Safe Withdrawal Simulator"
   url = "calculators/safewithdrawalsimulator/"
-  weight = 3
+  weight = 6
 
   [[main]]
   parent = "FIRE Calculators"
   name = "Payoff Mortgage Early"
   url = "calculators/payoffmortgageearly/"
-  weight = 3
+  weight = 7
 
   [[main]]
   parent = "FIRE Calculators"
   name = "Payoff or Invest"
   url = "calculators/payoffmortgageearlyorinvest/"
-  weight = 3
+  weight = 8
 
 
 [[main]]
