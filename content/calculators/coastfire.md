@@ -260,6 +260,7 @@ This calculator is purely for educational purposes. This tool is put together to
     d3.select(".future_value_line").remove();
     d3.select(".future_value").remove();
     d3.select(".error_bar_area").remove();
+    d3.select(".coast_fire_line").remove();
     
     var daily = document.getElementById('daily').checked;
       weekly = document.getElementById('weekly').checked;
@@ -280,6 +281,7 @@ This calculator is purely for educational purposes. This tool is put together to
       {x: 0, y: fire_number, y1: fire_number},
       {x: years_contributing, y: fire_number, y1: fire_number}
     ];
+    
     
     if (daily) {
     
@@ -341,6 +343,12 @@ This calculator is purely for educational purposes. This tool is put together to
     
     update_counts("fire_number", fire_number-100, fire_number, true);
     update_counts("final_amount", future_value_data[future_value_data.length -1].y - 100, future_value_data[future_value_data.length -1].y, true);
+    
+    
+    var coast_fire_data = [
+      {x: years_til_coasting, y: 0},
+      {x: years_til_coasting, y: d3.max(future_value_data.concat(fire_number_data), d => d.y1) * 1.2}
+    ];
     
     // Set axes
     // Create the X axis:
@@ -416,6 +424,31 @@ This calculator is purely for educational purposes. This tool is put together to
       .attr("stroke-dashoffset", pathLength)
       .attr("stroke-dasharray", pathLength)
       .transition(transitionPath)
+      .attr("stroke-dashoffset", 0);
+    
+    // Add path
+    const coast_path = svg
+      .append("path")
+      .datum(coast_fire_data)
+      .attr("class", "coast_fire_line")
+      .attr("fill", "none")
+      .attr("stroke", "#666")
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
+      .attr("stroke-width", 3)
+      .attr("d", fire_number_line);
+      
+    const coast_pathLength = coast_path.node().getTotalLength();
+    
+    const coast_transitionPath = d3
+      .transition()
+      .ease(d3.easeSin)
+      .duration(1000);
+      
+    coast_path
+      .attr("stroke-dashoffset", coast_pathLength)
+      .attr("stroke-dasharray", coast_pathLength)
+      .transition(coast_transitionPath)
       .attr("stroke-dashoffset", 0);
   
     // Add path
@@ -587,8 +620,8 @@ This calculator is purely for educational purposes. This tool is put together to
     .style("text-anchor", "middle")
     .text("Years");
   
-  var legend_keys = ["Future Value", "FIRE Number", "+/- Uncertainty"];
-    graph_colors = ["#3CB371", "#000000", "#CCE5DF"];
+  var legend_keys = ["Future Value", "FIRE Number", "+/- Uncertainty", "Year Began Coasting"];
+    graph_colors = ["#3CB371", "#000000", "#CCE5DF", "#666"];
 
   var lineLegend = svg.selectAll(".lineLegend").data(legend_keys)
       .enter().append("g")
