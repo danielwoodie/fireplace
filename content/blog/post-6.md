@@ -12,7 +12,7 @@ The primary impetus for FIRE centers on developing a budgeting strategy to succe
 
 My favorite framework to steal from is Maslow's Hierarchy of Needs. This is a dogma from psychology for understanding general well-being and motivation. With the hierarchy of needs, there's the lowest layer which is "Physiological" -- if your physiological needs aren't being met (e.g. you're sick or hurt) then any of the subsequent layers can't be pursued in full. Similarly, if you're not meeting your safety and security (e.g. someone is threatening you) then you will de-prioritize friendships or gaining respect from others.
 
-<img class="w-100 rounded-lg" src="/images/maslows_needs.png" alt="blog-post">
+<!-- <img class="w-100 rounded-lg" src="/images/maslows_needs.png" alt="blog-post"> -->
 
 Given the mechanical nature of this hierarchy, I think you can see why squeezing this to fit the mold of FIRE would be so appealing. 
 
