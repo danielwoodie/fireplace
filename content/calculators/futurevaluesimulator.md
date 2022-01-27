@@ -238,6 +238,7 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
 
 <script>
 
+  var tmp = d3.csv("returns.csv");
 
   const sp = [
       18.40, 31.49, -4.38, 21.83, 11.96, 1.36, 13.52, 32.15, 15.89,
