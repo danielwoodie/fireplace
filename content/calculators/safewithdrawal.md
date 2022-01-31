@@ -47,8 +47,8 @@ draft: no
           <div class="col-sm counter-header">FIRE Number
             <div id="fire_number"></div>
           </div>
-          <div class="col-sm counter-header"># of years 'til FIRE
-            <div id="years_til_fire"></div>
+          <div class="col-sm counter-header">Withdrawal Rate
+            <div id="withdrawal_rate"></div>
           </div>
           <div class="col-sm counter-header">Final Amount of Money
             <div id="final_amount"></div>
@@ -60,11 +60,11 @@ draft: no
 
 ## So what's happening?
 
-The future value calculator starts with an initial amount of investments, an interest rate, and the duration of contributions. The initial values are $100,000, 8%, and 20 years, respectively. 
+The safe withdrawal calculator starts with an initial amount of annual expenses, investments, an interest rate, uncertainty, and the duration of withdrawals. The initial values are $100,000, $2,500,000, 8%, 4%, and 35 years, respectively. 
 
-Additionally, you will then include a regular contribution along with how frequently you'd like to make this contribution. For example, if you contribute $2,000 every two weeks you can choose that. Alternatively, you may contribute $50,000 annually, which you can also select above.
+Using this information, the calculator then iterates through each withdrawal and growth rate for each year and returns the future value.
 
-Using this information, the calculator then iterates through each contribution and growth rate for each year and returns the future value. If the growth rate is 8% and the contributions happen weekly then the effective growth rate becomes 8%/52 at each period. A similar pattern occurs for each contribution frequency.
+One thing to note is that when you go below zero, the higher end of your growth will now have a larger impact on negative values than the lower end of the growth spectrum. As such, you may see these areas shrink or even cross because of this inverse impact on negative values.
 
 ## How is the uncertainty used?
 
@@ -211,7 +211,7 @@ This calculator is purely for educational purposes. This tool is put together to
     text-align:center;
   }
   
-  #fire_number, #years_til_fire, #final_amount {
+  #fire_number, #withdrawal_rate, #final_amount {
     font-size: 40px;
   }
 
@@ -235,7 +235,9 @@ This calculator is purely for educational purposes. This tool is put together to
       growth_rate = Number(document.getElementById('growth_rate').value) / 100;
       uncertainty = Number(document.getElementById('uncertainty').value) / 100;
       current_investments = Number(document.getElementById('current_investments').value);
+      withdrawal_rate = Math.round(annual_expenses / current_investments * 100 * 100) / 100;
     
+
     // Calculate FIRE Numbers
     var fire_number_data = [
       {x: 0, y: 0, y1: 0},
@@ -258,16 +260,9 @@ This calculator is purely for educational purposes. This tool is put together to
     
     }
     
-    if (d3.max(future_value_data, d => d.y) > fire_number) {
-      var years_til_fire = d3.min(future_value_data.filter(function(d) {return d.y > fire_number}), d => d.x);
-      update_counts("years_til_fire", years_til_fire-5, years_til_fire, false);
-    } else {
-      var years_til_fire = 0;
-      update_counts("years_til_fire", "NA", "NA", false);
-    }
-    
-    update_counts("fire_number", fire_number-100, fire_number, true);
-    update_counts("final_amount", future_value_data[future_value_data.length -1].y - 100, future_value_data[future_value_data.length -1].y, true);
+    update_counts("withdrawal_rate", withdrawal_rate - 5, withdrawal_rate, false, true);
+    update_counts("fire_number", fire_number-100, fire_number, true, false);
+    update_counts("final_amount", future_value_data[future_value_data.length -1].y - 100, future_value_data[future_value_data.length -1].y, true, false);
     
     // Set axes
     // Create the X axis:
@@ -280,8 +275,17 @@ This calculator is purely for educational purposes. This tool is put together to
       .range([0, width])
       .domain([0, years_contributing]);
     
+    var ymax = d3.max(future_value_data.concat(fire_number_data), function(d){
+        return (d.y0 < d.y1) ? d.y1 : d.y0;
+    });
+    
+    var ymin = d3.min(future_value_data.concat(fire_number_data), function(d){
+        return (d.y0 < d.y1) ? d.y0 : d.y1;
+    });
+    
     // create the Y axis
-    y.domain([d3.min(future_value_data.concat(fire_number_data), d => d.y0) * 1.2, d3.max(future_value_data.concat(fire_number_data), d => d.y1) * 1.2])
+    y.domain([ymin, ymax]);
+    
     svg.selectAll(".myYaxis")
       .transition()
       .duration(1000)
@@ -291,10 +295,9 @@ This calculator is purely for educational purposes. This tool is put together to
     const yScale = d3
       .scaleLinear()
       .range([height, 0])
-      .domain([d3.min(future_value_data.concat(fire_number_data), d => d.y0) * 1.2, d3.max(future_value_data.concat(fire_number_data), d => d.y1) * 1.2]);
-    
-    console.log( d3.min(future_value_data.concat(fire_number_data), d => d.y0) );
-    
+      .domain([ymin, ymax]);   
+      
+ 
     var error_bar_area = function(datum, boolean) {
       return d3.area()
         .x(function(d) {return xScale(d.x); })
@@ -437,25 +440,29 @@ This calculator is purely for educational purposes. This tool is put together to
             d1 = future_value_data[i],
             d = x0 - d0.x > d1.x - x0 ? d1 : d0;
         focus.attr("transform", "translate(" + x(d.x) + "," + y(d.y) + ")");
-        tooltip.attr("style", "left:" + (x(d.x) + 64) + "px;top:" + (y(d.y1) - 100) + "px;");
+        tooltip.attr("style", "left:" + (x(d.x) + 64) + "px;top:" + (y(d.y) - 100) + "px;");
         tooltip.select(".tooltip-date").text("$" + numberWithCommas(d.y));
         tooltip.select(".tooltip-lower").text("$" + numberWithCommas(d.y0));
         tooltip.select(".tooltip-upper").text("$" + numberWithCommas(d.y1));
         tooltip.select(".tooltip-likes").text(d.x);
     }
     
+    svg.selectAll(".lineLegend").raise();
+    
   }
   
   // parse the date / time
   var bisectX = d3.bisector(function(d) { return d.x; }).left;
   
-  function update_counts(id, startamount, uptoamount, dollar) {
+  function update_counts(id, startamount, uptoamount, dollar, perc) {
     var counts=setInterval(updated);
     var upto=startamount;
     function updated(){
         var count= document.getElementById(id);
         if (dollar) {
           count.innerHTML="$" + numberWithCommas(++upto);
+        } else if (perc) {
+          count.innerHTML=numberWithCommas(++upto) + "%";
         } else {
           count.innerHTML=numberWithCommas(++upto);
         }
@@ -492,6 +499,7 @@ This calculator is purely for educational purposes. This tool is put together to
   svg.append("g")
     .attr("transform", `translate(0, ${height})`)
     .attr("class","myXaxis");
+    
     
   // Initialize an Y axis
   const y = d3.scaleLinear().range([height, 0]);
