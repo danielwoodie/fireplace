@@ -5,7 +5,16 @@
     <link>https://www.fireplace.cash/</link>
     <description>Recent content on FirePlace</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 06 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.fireplace.cash/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.fireplace.cash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FIRE&#39;s Hierarchy of Needs</title>
+      <link>https://www.fireplace.cash/blog/post-6/</link>
+      <pubDate>Wed, 26 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.fireplace.cash/blog/post-6/</guid>
+      <description>The primary impetus for FIRE centers on developing a budgeting strategy to successfully reach financial independence, preferably in a shorter than typical time frame.</description>
+    </item>
+    
     <item>
       <title>How Much Do Your Bad Habits Really Cost?</title>
       <link>https://www.fireplace.cash/blog/post-4/</link>
@@ -53,11 +62,38 @@
     
     <item>
       <title>Future Value Simulator</title>
-      <link>https://www.fireplace.cash/calculators/rwfirecalculator/</link>
+      <link>https://www.fireplace.cash/calculators/futurevaluesimulator/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://www.fireplace.cash/calculators/rwfirecalculator/</guid>
-      <description>!function(a,b,c,d,e,f,g,h,i){function j(a){var b,c=a.length,e=this,f=0,g=e.i=e.j=0,h=e.S=[];for(c||(a=[c++]);df;)h[f]=f++;for(f=0;df;f++)h[f]=h[g=s&amp;g+a[f%c]+(b=h[f])],h[g]=b;(e.g=function(a){for(var b,c=0,f=e.i,g=e.j,h=e.S;a--;)b=h[f=s&amp;f+1],c=c*d+h[s&amp;(h[f]=h[g=s&amp;g+b])+(h[g]=b)];return e.i=f,e.j=g,c})(d)}function k(a,b){var c,d=[],e=typeof a;if(b&amp;&amp;&#34;</description>
+      <guid>https://www.fireplace.cash/calculators/futurevaluesimulator/</guid>
+      <description>Lifestyle &amp; Starting Point  Growth Strategy   Annual Expenses In today&#39;s dollars, how much do you plan to spend each year in retirement?</description>
+    </item>
+    
+    <item>
+      <title>Payoff Mortgage Early Calculator</title>
+      <link>https://www.fireplace.cash/calculators/payoffmortgageearly/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.fireplace.cash/calculators/payoffmortgageearly/</guid>
+      <description>Original Loan Amount After your down payment, how much did you owe on the house?</description>
+    </item>
+    
+    <item>
+      <title>Payoff Mortgage Early or Invest Calculator</title>
+      <link>https://www.fireplace.cash/calculators/payoffmortgageearlyorinvest/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.fireplace.cash/calculators/payoffmortgageearlyorinvest/</guid>
+      <description>Original Loan Amount After your down payment, how much did you owe on the house?</description>
+    </item>
+    
+    <item>
+      <title>Safe Withdrawal Simulator</title>
+      <link>https://www.fireplace.cash/calculators/safewithdrawalsimulator/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.fireplace.cash/calculators/safewithdrawalsimulator/</guid>
+      <description>Current investments How much do you currently have invested in the stock market?</description>
     </item>
     
     <item>
@@ -76,6 +112,15 @@
       
       <guid>https://www.fireplace.cash/calculators/badhabits/</guid>
       <description>Companion blog here: How much do your bad habits really cost?</description>
+    </item>
+    
+    <item>
+      <title>Coast FIRE Calculator</title>
+      <link>https://www.fireplace.cash/calculators/coastfire/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.fireplace.cash/calculators/coastfire/</guid>
+      <description>Annual Expenses In today&#39;s dollars, how much do you plan to spend each year in retirement?</description>
     </item>
     
     <item>
@@ -102,7 +147,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.fireplace.cash/calculators/safewithdrawal/</guid>
-      <description>Current investments How much do you currently have invested in the stock market?</description>
+      <description>Annual Expenses In today&#39;s dollars, how much do you plan to spend each year in retirement?</description>
     </item>
     
   </channel>
