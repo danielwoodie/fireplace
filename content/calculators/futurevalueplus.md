@@ -355,7 +355,7 @@ This calculator is purely for educational purposes. This tool is put together to
                               growth_rate: periodic_growth_rate1,
                               uncertainty: periodic_uncertainty1}];
     
-    var future_value_data_table = [[0, 0, current_investments, current_investments, current_investments, 0, 1, periodic_growth_rate1*12, periodic_uncertainty1*12]];
+    var future_value_data_table = [[0, 0, numberWithCommas(current_investments), numberWithCommas(current_investments), numberWithCommas(current_investments), 0, 1, periodic_growth_rate1*12, periodic_uncertainty1*12]];
     
     var total_contributions = [0];
     
