@@ -24,6 +24,9 @@ author_info:
       <p>FIRE stands for Financial Independence Retire Early and is a personal finance philosophy focused on investing aggressively when you're young and living off the gains well before typical retirement years. These principles have been around for quite some time but only recently have they become mainstream.</p>
       <p>The FIRE community (and it's various sub-communities) have their nuances but there's a few core beliefs that most people can agree on. For example, the 25x rule states that when you have 25 times your annual expenses invested in a low-cost index fund then you have reached the financial independence part of FIRE.</p>
   </section>
+  <!-- Ezoic - under_page_title - under_page_title -->
+  <div id="ezoic-pub-ad-placeholder-105"> </div>
+  <!-- End Ezoic - under_page_title - under_page_title -->
   
   <section id="scrolly2">
     <figure>
