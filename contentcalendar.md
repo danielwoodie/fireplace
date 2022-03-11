@@ -1,3 +1,45 @@
+## Get the simulator's working
+## Get Robert Shiller's data and begin transforming it.
+## Replicate Trinity Study
+## Create Monte Carlo option
+## 
+
+
+
+
+
+
+
+## Cost of Living Map
+## Is it worth it to move to California?
+## Where do you currently live?
+## What do you currently make?
+## Do you have any home equity?
+## Commute time to work
+
+## Where in California do you plan to move?
+## How much will you need to make?
+## How much for a down payment?
+## How much is a mortgage?
+## Worth it vs Not Worth It
+
+
+## Self-Actualization
+## Receiving Love
+## Loving Others
+## Security
+## Physiological
+
+
+## Self-Actualization
+## Spending More
+## Investing
+## Savings
+## Income
+
+
+
+
 ## January 2022
 ### Response Posts - Short, ~1,000 words and no javascript
 #### Completed

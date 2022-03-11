@@ -7,46 +7,126 @@ author_info:
   image: images/daniel.jpg
 ---
 
-
 <script src="https://unpkg.com/intersection-observer"></script>
 <script src="https://unpkg.com/scrollama"></script>
 <script src="https://d3js.org/d3.v6.js"></script>
 <script src=//cdnjs.cloudflare.com/ajax/libs/seedrandom/2.3.10/seedrandom.min.js></script>
 
+
 <main>
 <form>
   <div class="container">
     <div class="row">
-      <div class="form-group col-sm-6">
-        <label for="annual_expenses">Annual Expenses</label>
-        <input type="number" class="form-control" id="annual_expenses" aria-describedby="annual_expenses_help" value="100000" min="0" max="1000000000">
-        <small id="annual_expenses_help" class="form-text text-muted">How much do you plan to spend in retirement?</small>
-      </div>
-      <div class="form-group col-sm-6">
-        <label for="annual_contributions">Annual Contributions</label>
-        <input type="number" class="form-control" id="annual_contributions" aria-describedby="annual_contributions_help" value="100000" min="0" max="1000000000">
-        <small id="annual_contributions_help" class="form-text text-muted">How much do you invest in the stock market annually?</small>
+      <div class="col-sm-12">
+        <h3><u>FIRE Strategy</u></h3>
       </div>
     </div>
     <div class="row">
-      <div class="form-group col-sm-4">
+      <div class="col-sm-3">
+        <h4><u>Starting Point</u></h3>
+      </div>
+      <div class="col-sm-9">
+        <h4><u>Period 1</u></h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-3">
         <label for="current_investments">Current investments</label>
         <input type="number" class="form-control" id="current_investments" aria-describedby="current_investments_help" value="100000" min="0" max="1000000000">
         <small id="current_investments_help" class="form-text text-muted">How much do you currently have invested in the stock market?</small>
       </div>
-      <div class="form-group col-sm-4">
-        <label for="current_age">Current Age</label>
-        <input type="number" class="form-control" id="current_age" aria-describedby="current_age_help" value="30" min="0" max="100">
-        <small id="current_age_help" class="form-text text-muted">How old are you?</small>
+      <div class="form-group col-sm-3">
+        <label for="years_contributing">Years Contributing</label>
+        <input type="number" class="form-control" id="years_contributing" aria-describedby="years_contributing" value="10" min="2" max="100">
+        <small id="years_contributing_help" class="form-text text-muted">For how many years would you like to run this scenario?</small>
       </div>
-      <div class="form-group col-sm-4">
-        <label for="goal_fire_age">Goal FIRE Age</label>
-        <input type="number" class="form-control" id="goal_fire_age" aria-describedby="goal_fire_age_help" value="50" min="0" max="100">
-        <small id="goal_fire_age_help" class="form-text text-muted">What age would you like to be FI or RE?</small>
+      <div class="form-group col-sm-3">
+        <label for="contributions">Monthly Contributions</label>
+        <input type="number" class="form-control" id="contributions" aria-describedby="contributions_help" value="2000" min="-1000000000" max="1000000000">
+        <small id="contributions_help" class="form-text text-muted">How much do you add to your investments?</small>
+      </div>
+      <div class="col-sm-3">
+        <label for="contributions">Asset Mixture</label>
+        <select class="form-control">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <small id="contributions_help" class="form-text text-muted">Are you 100% in S&P 500? Or do you hold some bonds?</small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-3">
+        <label for="current_investments">Proposal for Additional Periods</label>
+        <small class="form-text text-muted">
+          <ol>
+            <li>Explore what it might look like to pay off your mortgage early and up your investment contributions.</li>
+            <li>Explore CoastFIRE by setting contributions to $0.</li>
+            <li>Simulate retirement and set the "Monthly Contributions" to a negative value matching your monthly expenses in today's dollars.</li>
+          </ol>
+        </small>
+      </div>
+      <div class="col-sm-9">
+        <div class="row">
+          <div class="col-sm-12">
+            <h4><u>Period 2</u></h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-4">
+            <label for="years_contributing">Years Contributing</label>
+            <input type="number" class="form-control" id="years_contributing" aria-describedby="years_contributing" value="10" min="2" max="100">
+            <small id="years_contributing_help" class="form-text text-muted">For how many years would you like to run this scenario?</small>
+          </div>
+          <div class="form-group col-sm-4">
+            <label for="contributions">Monthly Contributions</label>
+            <input type="number" class="form-control" id="contributions" aria-describedby="contributions_help" value="4000" min="-1000000000" max="1000000000">
+            <small id="contributions_help" class="form-text text-muted">How much do you add to your investments?</small>
+          </div>
+          <div class="col-sm-4">
+            <label for="contributions">Asset Mixture</label>
+            <select class="form-control">
+              <option selected>Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <small id="contributions_help" class="form-text text-muted">Are you 100% in S&P 500? Or do you hold some bonds?</small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <h4><u>Period 3</u></h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-4">
+            <label for="years_contributing">Years Contributing</label>
+            <input type="number" class="form-control" id="years_contributing" aria-describedby="years_contributing" value="40" min="2" max="100">
+            <small id="years_contributing_help" class="form-text text-muted">For how many years would you like to run this scenario?</small>
+          </div>
+          <div class="form-group col-sm-4">
+            <label for="contributions">Monthly Contributions</label>
+            <input type="number" class="form-control" id="contributions" aria-describedby="contributions_help" value="-10000" min="-1000000000" max="1000000000">
+            <small id="contributions_help" class="form-text text-muted">How much do you add to your investments?</small>
+          </div>
+          <div class="col-sm-4">
+            <label for="contributions">Asset Mixture</label>
+            <select class="form-control">
+              <option selected>Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <small id="contributions_help" class="form-text text-muted">Are you 100% in S&P 500? Or do you hold some bonds?</small>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </form>
+
 
 
 <section id="scrolly3">
@@ -233,6 +313,17 @@ Each growth rate is sampled uniformly at random. I am actually using what's call
     #percent_reached_fire, #avg_years_to_fire, #avg_amount {
       font-size: 40px;
     }
+    
+  .btn-secondary {
+    background-color: #3CB371;
+    font-size : clamp(.5rem, 1vw, .75rem);
+    border-radius: 100px;
+  }
+  
+  .form-control {
+    padding: 0;
+    padding-left: 20px;
+  }
 
 </style>
 
