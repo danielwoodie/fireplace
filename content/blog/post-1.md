@@ -1,3 +1,7 @@
+<!-- Ezoic - top_of_page - top_of_page -->
+<div id="ezoic-pub-ad-placeholder-106"> </div>
+<!-- End Ezoic - top_of_page - top_of_page -->
+
 ---
 title: "A Random Walk with FIRE"
 date: '2022-01-01'
