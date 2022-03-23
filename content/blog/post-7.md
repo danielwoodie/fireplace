@@ -1,25 +1,142 @@
 ---
+title: "Love Bank"
+date: '2022-03-25'
+draft: yes
+image: images/blog/random_walk_with_fire.png
 author_info:
-  image: images/author/derick.jpg
-  name: Derick Barker
-date: "2021-07-08"
-draft: true
-image: images/blog/02.jpg
-title: How and why we decided to launch an EMI scheme for our employees.
+  name: Daniel Woodie
+  image: images/daniel.jpg
 ---
 
-Laoreet mauris odio ut nec. Nisl, sed adipiscing dignissim arcu placerat ornare pharetra nec in. Ultrices in nisl potenti vitae tempus. Auctor consectetur luctus eu in amet sagittis. Dis urna, vel hendrerit convallis Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissim mauris, eu, eget
+<!-- Bring in any external libraries -->
+<script src="https://unpkg.com/intersection-observer"></script>
+<script src="https://unpkg.com/scrollama"></script>
+<script src="https://d3js.org/d3.v6.js"></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/seedrandom/2.3.10/seedrandom.min.js></script>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec et ipsum ullamcorper venenatis fringilla. Pretium, purus eu nec vulputate vel habitant egestas. Congue ornare at ipsum, viverra. Vitae magna faucibus eros, lectus sociis. Etiam nunc amet id dignissim. Feugiat id tempor vel sit in ornare turpis posuere. Eu quisque integer non rhoncus elementum vel. Quis nec viverra lectus augue nec praesent
 
-Pharetra odio amet pellentesque. Egestas nisi adipiscing sed in lectus. Vitae ultrices malesuada aliquet Faucibus consectetur tempus adipiscing vitae. Nec blandit tincidunt nibh nisi, quam volutpat. In lacus laoreet diam risus. Mauris, risus faucibus sagittis sagittis tincidunt id justo. Diam massa pretium consequat mauris viverra. Sagittis eu libero
+<!-- Ezoic - under_page_title - under_page_title -->
+<div id="ezoic-pub-ad-placeholder-105"> </div>
+<!-- End Ezoic - under_page_title - under_page_title -->
 
->Facing a challenge in life is kind of a turn-on for an easy rider. When life gives you lemons, use them in your designs
->
-> <cite>!Alexender Smith</cite>
+  
+### What is a love bank?
 
-Consectetur adipiscing elit. Nec et ipsum ullamcorper venenatis fringilla. Pretium, purus eu nec vulputate vel habitant egestas. Congue ornare at ipsum, viverra. Vitae magna faucibus eros, lectus sociis. Etiam nunc amet id dignissim. Feugiat id tempor vel sit in ornare turpis posuere. Eu quisque integer non rhoncus elementum vel. Quis nec viverra lectus augue nec praesent volutpat tortor. Ipsum eget sed tempus luctus nisl. Ut etiam molestie mattis at faucibus mi at pellentesque. Pellentesque morbi nunc, curabitur arcu euismod suscipit. Duis mi sapien, donec non dictum
+Many people will tell you that choosing your partner is a big part of your personal finance journey. The follow-up to that is divorce can be not only absolutely disastrous to your family but also your mental health and bank account.
 
-Laoreet mauris odio ut nec. Nisl, sed adipiscing dignissim arcu placerat ornare pharetra nec in. Ultrices in nisl potenti vitae tempus. Auctor consectetur luctus eu in amet sagittis. Dis urna, vel hendrerit convallis cursus id.
+I'd like to describe a simple schema I came up with to help my marriage: the love bank.
 
-Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissim mauris, eu, eget pharetra odio amet pellentesque. Egestas nisi adipiscing sed in lectus. Vitae ultrices malesuada aliquet dignissim. Faucibus non tristique eu.
+The gist of this 
+
+
+
+When many people think about love and money they likely go to gold diggers, sugar daddy's/mamas/babies, etc. The love bank isn't about that. It's a way to quantitatively build a strong marriage.
+
+Using a bootstrap simulation we can get an idea of not just how things will pan out on average but also a distribution of potential outcomes. Using actual returns, we can get a potentially more realistic idea of what can happen over a longer time period. By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.
+  
+That is, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes. Using the same strategy as before with spending $100,000/year, starting with $0 invested, and then investing $75,000/year after that we get the following scenario:
+
+<!-- Ezoic - in_content1 - mid_content -->
+<div id="ezoic-pub-ad-placeholder-113"> </div>
+<!-- End Ezoic - in_content1 - mid_content -->
+
+### Paragraphs 3 and 4
+
+Using a bootstrap simulation we can get an idea of not just how things will pan out on average but also a distribution of potential outcomes. Using actual returns, we can get a potentially more realistic idea of what can happen over a longer time period. By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.
+  
+That is, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes. Using the same strategy as before with spending $100,000/year, starting with $0 invested, and then investing $75,000/year after that we get the following scenario:
+
+<!-- Ezoic - in_content2 - long_content -->
+<div id="ezoic-pub-ad-placeholder-114"> </div>
+<!-- End Ezoic - in_content2 - long_content -->
+
+### Paragraphs 5 and 6
+
+Using a bootstrap simulation we can get an idea of not just how things will pan out on average but also a distribution of potential outcomes. Using actual returns, we can get a potentially more realistic idea of what can happen over a longer time period. By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.
+  
+That is, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes. Using the same strategy as before with spending $100,000/year, starting with $0 invested, and then investing $75,000/year after that we get the following scenario:
+
+<!-- Ezoic - in_content3 - longer_content -->
+<div id="ezoic-pub-ad-placeholder-115"> </div>
+<!-- End Ezoic - in_content3 - longer_content -->
+
+### Paragraphs 7 and 8
+
+Using a bootstrap simulation we can get an idea of not just how things will pan out on average but also a distribution of potential outcomes. Using actual returns, we can get a potentially more realistic idea of what can happen over a longer time period. By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.
+  
+That is, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes. Using the same strategy as before with spending $100,000/year, starting with $0 invested, and then investing $75,000/year after that we get the following scenario:
+
+<!-- Ezoic - in_content4 - longest_content -->
+<div id="ezoic-pub-ad-placeholder-116"> </div>
+<!-- End Ezoic - in_content4 - longest_content -->
+
+### Paragraphs 9 and 10
+
+Using a bootstrap simulation we can get an idea of not just how things will pan out on average but also a distribution of potential outcomes. Using actual returns, we can get a potentially more realistic idea of what can happen over a longer time period. By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.
+  
+That is, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes. Using the same strategy as before with spending $100,000/year, starting with $0 invested, and then investing $75,000/year after that we get the following scenario:
+
+<!-- Ezoic - in_content5 - incontent_5 -->
+<div id="ezoic-pub-ad-placeholder-117"> </div>
+<!-- End Ezoic - in_content5 - incontent_5 -->
+
+
+### Paragraphs 11 and 12
+
+Using a bootstrap simulation we can get an idea of not just how things will pan out on average but also a distribution of potential outcomes. Using actual returns, we can get a potentially more realistic idea of what can happen over a longer time period. By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.
+  
+That is, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes. Using the same strategy as before with spending $100,000/year, starting with $0 invested, and then investing $75,000/year after that we get the following scenario:
+
+<!-- Ezoic - in_content6 - incontent_6 -->
+<div id="ezoic-pub-ad-placeholder-118"> </div>
+<!-- End Ezoic - in_content6 - incontent_6 -->
+
+### Paragraphs 13 and 14
+
+Using a bootstrap simulation we can get an idea of not just how things will pan out on average but also a distribution of potential outcomes. Using actual returns, we can get a potentially more realistic idea of what can happen over a longer time period. By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.
+  
+That is, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes. Using the same strategy as before with spending $100,000/year, starting with $0 invested, and then investing $75,000/year after that we get the following scenario:
+
+<!-- Ezoic - in_content7 - incontent_7 -->
+<div id="ezoic-pub-ad-placeholder-119"> </div>
+<!-- End Ezoic - in_content7 - incontent_7 -->
+
+
+### Paragraphs 15 and 16
+
+Using a bootstrap simulation we can get an idea of not just how things will pan out on average but also a distribution of potential outcomes. Using actual returns, we can get a potentially more realistic idea of what can happen over a longer time period. By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.
+  
+That is, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes. Using the same strategy as before with spending $100,000/year, starting with $0 invested, and then investing $75,000/year after that we get the following scenario:
+
+<!-- Ezoic - in_content8 - incontent_8 -->
+<div id="ezoic-pub-ad-placeholder-120"> </div>
+<!-- End Ezoic - in_content8 - incontent_8 -->
+
+### Paragraphs 17 and 18
+
+Using a bootstrap simulation we can get an idea of not just how things will pan out on average but also a distribution of potential outcomes. Using actual returns, we can get a potentially more realistic idea of what can happen over a longer time period. By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.
+  
+That is, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes. Using the same strategy as before with spending $100,000/year, starting with $0 invested, and then investing $75,000/year after that we get the following scenario:
+
+<!-- Ezoic - in_content9 - incontent_9 -->
+<div id="ezoic-pub-ad-placeholder-121"> </div>
+<!-- End Ezoic - in_content9 - incontent_9 -->
+
+
+### Paragraphs 19 and 20
+
+Using a bootstrap simulation we can get an idea of not just how things will pan out on average but also a distribution of potential outcomes. Using actual returns, we can get a potentially more realistic idea of what can happen over a longer time period. By repeating this 10 or 100 times we can get an idea of the variety of ways things may go.
+  
+That is, this data provides a rich set of return values to sample from to not only get estimates for future values but to also get a range of possible outcomes. A bootstrap simulation takes actual returns and randomly samples them over say a 30 year period. This process gets repeated say 1,000 times and you begin to get an idea about the range of possible outcomes. Using the same strategy as before with spending $100,000/year, starting with $0 invested, and then investing $75,000/year after that we get the following scenario:
+
+<!-- Ezoic - in_content10 - incontent_10 -->
+<div id="ezoic-pub-ad-placeholder-122"> </div>
+<!-- End Ezoic - in_content10 - incontent_10 -->
+
+
+
+
+
+<!-- Ezoic - bottom_of_page - bottom_of_page -->
+<div id="ezoic-pub-ad-placeholder-101"> </div>
+<!-- End Ezoic - bottom_of_page - bottom_of_page -->

@@ -11,6 +11,11 @@ author_info:
 <script src="https://d3js.org/d3.v6.js"></script>
 <script src=//cdnjs.cloudflare.com/ajax/libs/seedrandom/2.3.10/seedrandom.min.js></script>
 
+<!-- Ezoic - under_page_title - under_page_title -->
+<div id="ezoic-pub-ad-placeholder-105"> </div>
+<!-- End Ezoic - under_page_title - under_page_title -->
+
+
 <main>
 <form>
   <div class="container">
@@ -542,3 +547,6 @@ Everyone always wonders how inflation might affect these calculations. If you wa
 
 </script>
 
+<!-- Ezoic - bottom_of_page - bottom_of_page -->
+<div id="ezoic-pub-ad-placeholder-101"> </div>
+<!-- End Ezoic - bottom_of_page - bottom_of_page -->

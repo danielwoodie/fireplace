@@ -10,6 +10,11 @@ draft: no
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
 <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js" defer></script>
 
+<!-- Ezoic - under_page_title - under_page_title -->
+<div id="ezoic-pub-ad-placeholder-105"> </div>
+<!-- End Ezoic - under_page_title - under_page_title -->
+
+
 <main>
 <form>
   <div class="container">
@@ -730,3 +735,6 @@ This calculator is purely for educational purposes. This tool is put together to
   
 </script>
 
+<!-- Ezoic - bottom_of_page - bottom_of_page -->
+<div id="ezoic-pub-ad-placeholder-101"> </div>
+<!-- End Ezoic - bottom_of_page - bottom_of_page -->

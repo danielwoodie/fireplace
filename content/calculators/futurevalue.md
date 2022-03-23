@@ -7,6 +7,11 @@ draft: no
 <script src="https://unpkg.com/scrollama"></script>
 <script src="https://d3js.org/d3.v6.js"></script>
 
+<!-- Ezoic - under_page_title - under_page_title -->
+<div id="ezoic-pub-ad-placeholder-105"> </div>
+<!-- End Ezoic - under_page_title - under_page_title -->
+
+
 <main>
 <form>
   <div class="container">
@@ -591,3 +596,6 @@ This calculator is purely for educational purposes. This tool is put together to
   
 </script>
 
+<!-- Ezoic - bottom_of_page - bottom_of_page -->
+<div id="ezoic-pub-ad-placeholder-101"> </div>
+<!-- End Ezoic - bottom_of_page - bottom_of_page -->

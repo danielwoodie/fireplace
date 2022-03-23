@@ -2,12 +2,16 @@
 title: "Bad Habits Calculator"
 draft: no
 image: images/blog/coffee.png
-
 ---
 
 <script src="https://unpkg.com/intersection-observer"></script>
 <script src="https://unpkg.com/scrollama"></script>
 <script src="https://d3js.org/d3.v6.js"></script>
+
+<!-- Ezoic - under_page_title - under_page_title -->
+<div id="ezoic-pub-ad-placeholder-105"> </div>
+<!-- End Ezoic - under_page_title - under_page_title -->
+
 
 <main>
 Companion blog here: <a href="/blog/post-4" target="_blank">How much do your bad habits really cost?</a>
@@ -379,3 +383,6 @@ Companion blog here: <a href="/blog/post-4" target="_blank">How much do your bad
   
 </script>
 
+<!-- Ezoic - bottom_of_page - bottom_of_page -->
+<div id="ezoic-pub-ad-placeholder-101"> </div>
+<!-- End Ezoic - bottom_of_page - bottom_of_page -->
