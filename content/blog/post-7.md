@@ -1,7 +1,7 @@
 ---
 title: "Love Bank"
 date: '2022-03-29'
-draft: yes
+draft: no
 image: images/blog/love_bank.png
 author_info:
   name: Daniel Woodie
