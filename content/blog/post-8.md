@@ -1,6 +1,6 @@
 ---
-title: "Revisiting: Mr. Money Mustache's Shockingly Simple Math"
-date: '2022-03-29'
+title: "Revisiting: Mr. Money Mustache's Shockingly Simple Math Behind Early Retirement"
+date: '2022-04-06'
 draft: no
 image: images/blog/simple_mathematics.png
 author_info:
@@ -25,10 +25,9 @@ author_info:
   
 ### Mr. Money Mustache
 
-It may come as no surprise but I am a fan of [Mr. Money Mustache](https://www.mrmoneymustache.com/) (referred to as MMM hereafter). He wasn't my introduction to personal finance but his content fundamentally changed my approach to personal finance and, more than anything, encouraged me to not be afraid to develop my own plan, as opposed to just accepting some very rough cookie cutter solution (cough Dave Ramsey cough). 
+It may come as no surprise but I am a fan of [Mr. Money Mustache](https://www.mrmoneymustache.com/) (referred to as MMM hereafter). He wasn't my introduction to personal finance but his content fundamentally changed my approach to personal finance and, more than anything, made me less afraid of digging deeper (as opposed to just accepting some very rough cookie cutter solution -- cough Dave Ramsey cough). 
 
 One thing that MMM does great is, with a few assumptions, he reduces complex investing strategies into simple rules of thumb. For example, there's the detailed analysis on [killing your $1,000 grocery bill](https://www.mrmoneymustache.com/2012/03/29/killing-your-1000-grocery-bill/) or how [investing about half your take-home pay will allow you to retire in about 17 years](https://www.mrmoneymustache.com/2012/01/13/the-shockingly-simple-math-behind-early-retirement/). This leads me to the topic of this article.
-
 
 <!-- Ezoic - in_content1 - mid_content -->
 <div id="ezoic-pub-ad-placeholder-113"> </div>
@@ -36,13 +35,17 @@ One thing that MMM does great is, with a few assumptions, he reduces complex inv
 
 ### The Shockingly Simple Math Behind Early Retirement
 
-I do not want to cause any confusion. This idea purely comes from the Mr. Money Mustache [blog on this same topic](https://www.mrmoneymustache.com/2012/01/13/the-shockingly-simple-math-behind-early-retirement/). In this article, he details how the most important number in your financial independence journey is: "Your savings rate, as a percentage of your take-home pay".
+I do not want to cause any confusion. This idea purely comes from the Mr. Money Mustache [blog on this same topic](https://www.mrmoneymustache.com/2012/01/13/the-shockingly-simple-math-behind-early-retirement/). In this article, he details how the most important number in your financial independence journey is: your savings rate.
 
-To expand on this, your savings rate is simply the amount of money you save each month divided by the amount of money you save month plus the amount of money you spend. Sounds easy enough but this is probably where the simplicity ends. If you try to calculate your savings rate, you may start to wonder things like "Does my mortgage count for savings or spending?" (Ans. Neither) or "What about a college fund for my kids?" (Again, Ans. Neither). Your home is an investment but it's also something you need to live in; you can't use the equity for retirement but not having a mortgage payment in retirement will lower your monthly bills. As such, I treat my mortgage payment as neither an expense or money saved -- it's in it's own bucket ("Neither") as it's not going towards money I can use in retirement and it's not a recurring expense I expect to have in retirement (i.e. I plan to be mortgage free before retirement.). The same goes for my kid's college fund, it's money that I contribute each month but is a gift I plan to give at a later date -- this money will have no impact on my living in retirement. There are many more grey areas in a monthly budget and ultimately you'll have to come up with what makes the most sense for you. To share my thinking, I've put together a mock scenario below and how I might view someone's monthly budget.
+> Your time to reach retirement depends on only one factor:
+> Your savings rate, as a percentage of your take-home pay.
+> -Mr. Money Mustache
+
+To expand on this, your savings rate is simply the amount of money you save each month divided by the amount of money you save month plus the amount of money you spend. Sounds easy enough but this is probably where the simplicity ends. If you try to calculate your savings rate, you may start to wonder things like "Does my mortgage count for savings or spending?" (Ans. Neither) or "What about a college fund for my kids?" (Again, Ans. Neither). Your home is an investment but it's also something you need to live in; you can't use the equity for retirement but not having a mortgage payment in retirement will lower your monthly bills. As such, I treat my mortgage payment as neither an expense or money saved -- it's in it's own bucket ("Neither") as it's not going towards money I can use in retirement and it's not a recurring expense I expect to have in retirement (i.e. I plan to be mortgage free before retirement.). The same goes for my daughter's college fund, it's money that I contribute each month but is a gift I plan to give at a later date -- this money will have no direct impact on my living in retirement. There are many more grey areas in a monthly budget and ultimately you'll have to come up with what makes the most sense for you. To share my thinking, I've put together a mock scenario below on a completely made up budget definitely not representing my own.
 
 ### A Real-World Breakdown
 
-Let's say, after taxes you take home $5,000/month -- here is a breakdown of how someone might divide up their take home.
+Let's say, after taxes this hypothetical person takes home $5,000/month -- here is a breakdown of how they might categorize their budget.
 
 <div class="container">
   <div class="row">
@@ -53,8 +56,6 @@ Let's say, after taxes you take home $5,000/month -- here is a breakdown of how 
 </div>
 
 
-
-
 Adding all of this up we get the following values for each category:
 
 **Savings: $850**
@@ -63,14 +64,13 @@ Adding all of this up we get the following values for each category:
 
 **Neither: $1950**
 
-
 This makes our savings rate: 
 
 **Savings / (Savings + Expenses) * 100 =  850 / (850 + 2100) * 100 = 28.81%.**
 
-Using an expected 5% return on investments, this would put you on track to retire in about 25-28 years. Ouch. That hurts. This person is contributing to their retirement account, investing in a brokerage, paying off our mortgage, saving for their kid's college, living on roughly half of their take-home. Still, with allowing for some error in the estimates, we're likely still going to retire to in a common amount of time for retirement (perhaps a little early in our 50s).
+As I will show later, using an expected 5% return on investments, this would put you on track to retire in about 25-28 years. Ouch. That hurts. This person is contributing to their retirement account, investing in a brokerage, paying off our mortgage, saving for their kid's college, living on roughly half of their take-home. Still, with allowing for some error in the estimates, we're likely still going to retire to in a common amount of time for retirement (perhaps a little early in our 50s).
 
-If you'd like to expedite your route to retirement, there's two options here. First, you can look into decreasing your expenses. The three expense items I'd look at are groceries, phone/internet/utilities, and monthly incidentals. Honestly, these look pretty low to me already but if you were looking to lower your expenses, these items probably have the most opportunity. Alternatively, you could look into getting a new job or a higher income. This would also increase your savings rate if you contributed that extra money to your savings. Or the best option, you could try for both. By increasing your savings rate, you can vastly shorten your time til retirement. For example, getting your expenses to match your savings (i.e. 50% savings rate, can just about cut your time to retirement to about 17 years).
+If you'd like to expedite your route to retirement, there's two options here. First, you can look into decreasing your expenses. The three expense items I'd look at are groceries, phone/internet/utilities, and monthly incidentals. Honestly, these look pretty low to me already but if you were looking to lower your expenses, these items probably have the most opportunity. Alternatively, you could look into getting a new job or a higher income. This would also increase your savings rate if you contributed that extra money to your savings. Or the best option, you could try for both. By increasing your savings rate, you can vastly shorten your time til retirement. For example, getting your expenses to match your savings (i.e. 50% savings rate) can just about cut your expected time to retirement to about 17 years.
 
 
 <!-- Ezoic - in_content2 - long_content -->
@@ -81,7 +81,9 @@ If you'd like to expedite your route to retirement, there's two options here. Fi
 
 As you read this you might start to think that all of these projections depend on a lot of what-ifs. How can you say it will cut the time in half if you don't know what the stock market is going to do? Or how do you know this will be enough money to get you through retirement? These projections are assuming 1) a 5% return from investments (after inflation) and 2) a 4% safe withdrawal rate. 
 
-To expand on how these assumptions are used, the 5% return from investments is primarily used when contributing to your investments. That is, after each year your money will grow 5% using this assumption. Historically, this is a very conservative estimate because the S&P 500 has returned an average closer to 8% (adjusted for inflation) over the last 150 years. That said, something arbitrarily lower like 5% is often preferred for people making these forecasts as it provides conservative estimates. Additionally, using a 5% growth rate with a 4% safe withdrawal rate, your investments will last through retirement without ever having to pull from the principal (leaving 1% growth each year). Furthermore, the 4% safewithdrawal rate comes with the added property of needing 25x your annual expenses in investments to reach your FIRE goal (Annual Expenses = Investments * .04, Annual Expenses / .04 = Annual Expenses * 25 = Investments).
+To expand on how these assumptions are used, the 5% return from investments is primarily used when contributing to your investments. That is, after each year your money will grow 5%. Historically, this is a very conservative estimate because the S&P 500 has returned an average closer to 8% (adjusted for inflation) over the last 150 years. That said, something arbitrarily lower like 5% is often preferred for people making these forecasts as it provides conservative estimates. Additionally, using a 5% growth rate with a 4% safe withdrawal rate, your investments will last through retirement without ever having to pull from the principal (leaving 1% growth each year). Furthermore, the 4% safewithdrawal rate comes with the added property of needing 25x your annual expenses in investments to reach your FIRE goal (Annual Expenses = Investments * .04, Annual Expenses / .04 = Annual Expenses * 25 = Investments).
+
+If you are someone who likes to tinker with different scenarios, below is a variation on the graphs and tables from MMM's original blog to include controls which allow you to adjust the assumptions.
 
 <!-- Ezoic - in_content3 - longer_content -->
 <div id="ezoic-pub-ad-placeholder-115"> </div>
@@ -134,23 +136,13 @@ To expand on how these assumptions are used, the 5% return from investments is p
 <div id="ezoic-pub-ad-placeholder-116"> </div>
 <!-- End Ezoic - in_content4 - longest_content -->
 
-### The Take-Home
-
-The sweet spot for an early retirement is to have a savings rate in the 40-60% range. Using the default assumptions in the calculator, this puts you at a 10-20 year working career where after you could choose to continue working or retire as you would have the financial freedom to walk away if you wanted. 
-
-Adjusting the growth rate 
-
-
 ### Few Things to Note
 
-Running these numbers a few things stand out. First, I truncated a life to 100 years (or 120 years if you start saving for retirement at 20). As such, if it took longer than 100 years to reach a goal with a given savings rate, then I just set it to 100. This frequently happens when your savings rate is between 0-10% which is why I removed this from the range on the Savings Rate axis -- it really just made the graph appear strange.
+Running these numbers a few things stand out. First, I truncated a life to 100 years (or 120 years if you start saving for retirement at 20). As such, if it took longer than 100 years to reach a goal with a given savings rate, then I just set it to 100. This frequently happens when your savings rate is between 0-10% which is why I removed this from the range on the Savings Rate axis -- it really just made the graph appear strange. Another thing that stood out was that as your savings rate gets higher, the effect of returns gets lower (as shown with the shrinking uncertainty region as the savings rate goes up).
 
+### The Take-Home
 
-<!-- Ezoic - in_content5 - incontent_5 -->
-<div id="ezoic-pub-ad-placeholder-117"> </div>
-<!-- End Ezoic - in_content5 - incontent_5 -->
-
-
+The sweet spot for an early retirement is to have a savings rate in the 40-60% range. Using the default assumptions in the calculator, this puts you at a 10-20 year working career where after you could choose to continue working or retire as you would have the financial freedom to walk away if you wanted. If your savings rate is lower than this range, you may want to consider tightening up the budget or looking into ways for increasing your income. If your savings rate is higher, live a little. If you don't know what your savings rate is, you may want to take a look at your last 3-6 months of expenses and incomes to see where you're at and adjust accordingly.
 
 
 <!-- Ezoic - bottom_of_page - bottom_of_page -->
