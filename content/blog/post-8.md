@@ -661,7 +661,7 @@ The sweet spot for an early retirement is to have a savings rate in the 40-60% r
     .style("text-anchor", "middle")
     .text("Savings Rate");
   
-  var legend_keys = ["Future Value", "+/- Uncertainty"];
+  var legend_keys = ["Years to Retire", "+/- Uncertainty"];
     graph_colors = ["#3CB371", "#CCE5DF"];
 
   var lineLegend = svg.selectAll(".lineLegend").data(legend_keys)
