@@ -7,6 +7,7 @@ author_info:
   image: images/daniel.jpg
 ---
 
+
 <script src="https://unpkg.com/intersection-observer"></script>
 <script src="https://unpkg.com/scrollama"></script>
 <script src="https://d3js.org/d3.v6.js"></script>
