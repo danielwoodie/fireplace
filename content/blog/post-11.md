@@ -1,7 +1,7 @@
 ---
 title: "A Random Walk with Cheerios"
 date: '2022-01-01'
-draft: yes
+draft: no
 image: images/blog/random_walk_with_fire.png
 author_info:
   name: Daniel Woodie
