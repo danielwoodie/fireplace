@@ -65,22 +65,40 @@ This one is actually so popular there's a sub-genre of FIRE called Barista FIRE 
 
 I like this job because it actually kills two birds with one stone: you get paid and you get healthier. The only challenge would potentially be that you have to be in pretty good shape to transition to this. My only recommendation for that is to consider working with a personal trainer for a year or two before downshifting if you haven't before. This will help you get a better understanding of the day-to-day, get you in better shape, and potentially provide an 'in' for becoming a personal trainer.  
 
+### 5. Security Guard
+
+Know of a big building? Chances are someone or multiple people have to 'guard' it. Probably the biggest pro of this job is that you can get your 10,000 steps in. 
+
 <!-- Ezoic - in_content4 - longest_content -->
 <div id="ezoic-pub-ad-placeholder-116"> </div>
 <!-- End Ezoic - in_content4 - longest_content -->
 
+### 6. Bank Teller
+
+I know what you're thinking: there's Automatic Teller Machines. You're right. They still have people on the payroll at every bank that do exactly this job, though, and it pays a living wage plus provides benefits. Occasionally people have legitimate banking questions which these tellers can simply defer and send you off to one of the on-site bankers. This job is perfect for states like Texas and Arizona where you can sit comfortably in air conditioning while, in the summer, the world outside is literally melting.
+
 ## Jobs without Health Insurance
 
-### 5. Consultant (for main job)
+### 7. Consultant (for main job)
 
 Many people within FIRE are actually making a good income as it is with their current profession. Instead of doing a massive pivot, they could instead continue doing their same job but drop down to fewer hours or work as a part-time contractor. This comes with it's additional responsibilities (e.g. running a business) but could be a way to continue bringing in a solid income and work fewer hours. An added benefit is that if you ever did want to go back to the workforce, your skills and experiences are still current.
 
-### 6. Tutor/Coach
+### 8. Tutor/Coach
 
 This is closely related to being a consultant but with a focus on helping and educating others in the field you're in. An example of this is that professionally, let's say you're a developer. There's plenty of HS parents willing to pay you good money to tutor their kiddo to be the next Mark Zuckerburg.
 
+### 9. Bartender at a Quality Bar
 
-These are the 6 biggest jobs I've come across for transitioning into lower stress job during Coast FIRE. A few honorable mentions not included above because they failed to meet one or more of the criteria above: University Lab Manager, Uber/Lyft driver, Disney travel consultant, Underwater Basket Weaver. Thank you and if you have any other careers you'd add, please comment below.
+This one is really for the extroverts out there. If spending the evening fixing drinks for people out to celebrate sounds like your jam, then might as well make some cash while doing it. The tips can be substantial and every night at work will be a party.
+
+
+
+### 10. Honorable Mention: Mowing Lawns
+
+I have a cousin who mowed lawns throughout high school and college. I don't believe she used it for school but I do know she went on some awesome vacations during that time. Last time I checked, even as a working professional she still mows lawns in the summer . The only downside I see to this is that it's actual work. It's instant satisfaction and low-stress work but work, none-the-less.
+
+
+These are the 10 biggest jobs I've come across for transitioning into lower stress job during Coast FIRE. A few other honorable mentions not included above because they failed to meet one or more of the criteria above: University Lab Manager, Uber/Lyft driver, Disney travel consultant, Underwater Basket Weaver. Thank you and if you have any other careers you'd add, please comment below.
 
 
 <!-- Ezoic - bottom_of_page - bottom_of_page -->
