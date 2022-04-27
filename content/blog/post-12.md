@@ -1,6 +1,6 @@
 ---
 title: "Normal Person Explaining the Stock Market"
-date: '2022-04-29'
+date: '2022-04-27'
 draft: no
 image: images/blog/financial_data.png
 author_info:
