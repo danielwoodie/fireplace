@@ -87,12 +87,6 @@ Have an interest in photography? Most events and weddings will have a profession
 
 This one is a bit of a stretch for teenagers but do you have any capability with technology? Including how to build websites? This could be a great way to earn some extra money. An example situation may look like this: there's a new local kitchen supply store that just opened in town. They need a website, minimally, to let people know they exist and to list their hours. This kind of website can be built in a few days and could bring in $1,000-$3,000/site. Aiming to get $10,000 this summer? Just sell 3 or 4 of these and you'll be set.
 
-<!-- Ezoic - in_content6 - incontent_6 -->
-<div id="ezoic-pub-ad-placeholder-118"> </div>
-<!-- End Ezoic - in_content6 - incontent_6 -->
-
-
-
 
 <!-- Ezoic - bottom_of_page - bottom_of_page -->
 <div id="ezoic-pub-ad-placeholder-101"> </div>
