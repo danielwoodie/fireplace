@@ -61,11 +61,17 @@ If you have absolutely never bought or sold a stock before, you can do all of th
 
 For simplicity, there is an index fund for the top 500 companies in the US (called the S&P 500). This fund goes back 150 years and, on average, has returned about 8% (after subtracting inflation). Jack Bogle is credited with actually creating these mutual funds and selling them through his company (Vanguard). Many of the large brokerages have their same versions, including Schwab and Fidelity. For forecasting how much a stock portfolio might be worth in a few years, you can set the expected return to 8% (or less) and see what the possible outcomes are.
 
+### Trading Stocks vs Investing
 
-### The Less Useful Things
+Trading stocks is generally considered gambling. The illustration above about buying on Monday and selling on Friday -- yeah, that's basically gambling. Instead, when people talk about investing in the stock market, they mean buying and holding for a long amount of time. This is because most activity in the short-term is highly speculative and likely driven by insider information. This is in contrast to average market movements which drive mutual funds over long time spans. 
 
-What is an actual share? Let's say you started a company
+### The Less Useful But Important Things
 
+What is an actual share? Let's say you started a company, company A. Company A is owned by one person, you -- the founder. You grow the company to a point but then realize that you need additional money to reach your goals of growing faster. To raise money, you decide to sell off some % of the company (or shares of the company). You find one willing buyer (or maybe multiple) that will pay you a nominal price (usually some multiple of annual revenue) for their share/part of the company. This is generally how shares work. When dealing with stocks, though, oftentimes the share you own is often a small fraction of a percent. In any case, the shares are used to raise money for helping the company grow. 
+
+### Another Quick Note About Speculation
+
+If you ever read any news about a company that my impact a stock, chances are this news is already baked into the price of the stock. That is, buying and selling stock on a short time horizon (i.e. trading) is highly speculative and likely not something retail investors can actually make much money doing. 
 
 <!-- Ezoic - in_content5 - incontent_5 -->
 <div id="ezoic-pub-ad-placeholder-117"> </div>
