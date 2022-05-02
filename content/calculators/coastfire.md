@@ -101,6 +101,9 @@ Additionally, you will then include a regular contribution along with how freque
 
 When you set the "Years 'til Coasting", this is when your investments continue to grow but are no longer making contributions. As a default, it's set to 10 -- this means that after 10 years, the contributions are no longer being added to the investments. Instead the existing principal amount grows at the growth rate set, without any money being drawn on the principal or appreciation. 
 
+To learn more about Coast FIRE, check out our post on [best jobs for Coast FIRE](https://fireplace.cash/blog/post-10/).
+
+
 Using this information, the calculator then iterates through each contribution and growth rate for each year and returns the future value. If the growth rate is 8% and the contributions happen weekly then the effective growth rate becomes 8%/52 at each period. A similar pattern occurs for each contribution frequency.
 
 ## How is the uncertainty used?

@@ -22,6 +22,9 @@ Coast FIRErs are a unique breed. They have the discipline to aggressively save b
 
 Of course this approach relies on speculation. Speculation that inflation will not offset returns in the market and that the stock market will return some minimum on average. That is the great assumption of Coast FIRErs and, based on the last 150 years of stock market returns, it's not that wild of a risk within a 10-15 year time horizon.
 
+To learn more about Coast FIRE, check out our [Coast FIRE calculator](https://fireplace.cash/calculators/coastfire/).
+
+
 >Ever walk into a hardware store and notice the sea of senior citizens with nametags and back braces? Old people know what's up.
 >
 
